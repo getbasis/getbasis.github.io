@@ -77,7 +77,7 @@ gulp.task('sass', function() {
  * Stylus to CSS
  */
 gulp.task('stylus', function() {
-  return gulp.src(path.src.stylus + '/style.styl')
+  return gulp.src(path.src.stylus + '/*.styl')
     .pipe(stylus({
       'include css': true
     }))
@@ -101,7 +101,7 @@ gulp.task('ejs', function() {
   gulp.src(path.src.ejs)
   .pipe(ejs(
     {
-      version: '1.0.0',
+      version: '1.0.3',
       css    : '/assets/css',
       js     : '/assets/js',
       images : '/assets/images'
@@ -128,7 +128,7 @@ gulp.task('favicon', function(){
  */
 gulp.task('watch', function() {
   gulp.watch([path.src.scss + '/**/*.scss'], ['sass']);
-  gulp.watch([path.src.stylus + '/style.styl'], ['stylus']);
+  gulp.watch([path.src.stylus + '/*.styl'], ['stylus']);
   gulp.watch([path.src.js + '/**.js'], ['js']);
   gulp.watch([path.src.images + '/**/*.+(jpg|jpeg|png|gif|svg)'], ['imagecopy']);
   gulp.watch([path.src.favicon], ['favicon']);
