@@ -4,7 +4,6 @@ node_js:
   - '4.2'
 branches:
   only:
-    - master
     - develop
 env:
   global:
