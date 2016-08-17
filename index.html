@@ -1,11 +1,103 @@
-<% var title = 'Basis : A lightweight responsive CSS framework based on flexible box ( flexbox )' %>
-<% include _layout/_head %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Basis : A lightweight responsive CSS framework based on flexible box ( flexbox )</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/railscasts.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.min.css" />
+  <link rel="stylesheet" href="/assets/css/style-old.min.css" />
+  <!--[if lt IE 10]>
+  <link rel="stylesheet" href="/assets/css/basis-ie9.min.css" />
+  <![endif]-->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
+  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="/favicon.ico">
+</head>
+
 <body class="_l-body _c-drawer">
 
-<% include _object/_project/_drawer %>
+<nav class="_c-drawer__body _c-drawer__body--fixed p-drawer-nav" role="navigation" aria-expanded="false">
+  <ul class="_c-drawer__menus p-drawer-nav__menus">
+    <li class="_c-drawer__menu p-drawer-nav__menu"><a href="/">Home</a></li>
+    <li class="_c-drawer__menu p-drawer-nav__menu"><a href="getstarted.html">Get Started</a></li>
+    <li class="_c-drawer__menu p-drawer-nav__menu" aria-expanded="false">
+      <a href="foundation.html">Foundation</a>
+      <div class="_c-drawer__toggle"><i class="fa fa-angle-right"></i></div>
+      <ul class="_c-drawer__submenus p-drawer-nav__submenus">
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="foundation.html#typography">Typograpy</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="foundation.html#lists">Lists</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="foundation.html#blockquote">Blockquote</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="foundation.html#code">Code</a></li>
+      </ul>
+    </li>
+    <li class="_c-drawer__menu p-drawer-nav__menu" aria-expanded="false">
+      <a href="component.html">Component</a>
+      <div class="_c-drawer__toggle"><i class="fa fa-angle-right"></i></div>
+      <ul class="_c-drawer__submenus p-drawer-nav__submenus">
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="component.html#wrappers">Wrappers</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="component.html#forms">Forms</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="component.html#media">Media</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="component.html#grid-system">Grid System</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="component.html#buttons">Buttons</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="component.html#alerts">Alerts</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="component.html#hero">Hero</a></li>
+      </ul>
+    </li>
+    <li class="_c-drawer__menu p-drawer-nav__menu" aria-expanded="false">
+      <a href="utility.html">Utility</a>
+      <div class="_c-drawer__toggle"><i class="fa fa-angle-right"></i></div>
+      <ul class="_c-drawer__submenus p-drawer-nav__submenus">
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="utility.html#hidden">Hidden</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="utility.html#visible">Visible</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="utility.html#text">Text</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="utility.html#clearfix">Clearfix</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="utility.html#img">Img</a></li>
+        <li class="_c-drawer__submenu p-drawer-nav__submenu"><a href="utility.html#transition-animation">Transition &amp; Animation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 
 <div id="container" class="_l-container _l-container--sticky-footer">
-  <% include _layout/_header %>
+  <header id="header" class="_l-header _l-header--overlay" role="banner">
+  <div class="_c-container">
+    <div class="_c-row _c-row--auto _c-row--nowrap _c-row--lg-margin _c-row--middle">
+      <div class="_c-row__col">
+        <div class="p-site-branding">
+          <h1 class="p-site-branding__title">
+            <a href="/"><img src="/assets/images/logo.svg" alt="" />Basis</a>
+          </h1>
+        </div>
+      </div>
+      <div class="_c-row__col _u-hidden-sm _u-hidden-md">
+        <div class="p-global-nav _u-pull-right" role="navigation">
+  <ul class="_c-menu _c-menu--bar _c-menu--auto">
+    <li class="_c-menu__item"><a href="/">Home</a></li>
+    <li class="_c-menu__item"><a href="getstarted.html">Get Started</a></li>
+    <li class="_c-menu__item"><a href="foundation.html">Foundation</a></li>
+    <li class="_c-menu__item"><a href="component.html">Component</a></li>
+    <li class="_c-menu__item"><a href="utility.html">Utility</a></li>
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <div class="_c-drawer__btn _c-hamburger-btn _u-hidden-lg">
+      <div class="_c-hamburger-btn__bar"></div>
+      <div class="_c-hamburger-btn__bar"></div>
+      <div class="_c-hamburger-btn__bar"></div>
+    </div>
+  </div>
+</header>
+
 
   <div id="contents" class="_l-contents" style="margin-top: 0">
     <main id="main" class="_l-main" role="main">
@@ -15,7 +107,7 @@
           <div class="_c-container">
             <h1 class="p-hero__title"><img src="/assets/images/logo.svg" alt="" />Basis</h1>
             <div class="p-hero__version">
-              Currently v<%= version %>　Licence MIT License
+              Currently v1.0.3　Licence MIT License
             </div>
             <div class="p-hero__description">
               A lightweight responsive CSS framework based on flexible box ( flexbox )
@@ -277,7 +369,19 @@ $ npm install getbasis-hamburger-btn
     </main>
   </div>
 
-  <% include _layout/_footer %>
+  <footer id="footer" class="_l-footer">
+  <div class="_c-container">
+    <ul class="p-social-nav">
+      <li class="p-social-nav__item"><a href="https://github.com/getbasis/" target="_blank"><i class="fa fa-github"></i></a></li>
+      <li class="p-social-nav__item"><a href="https://twitter.com/inc2734/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+    </ul>
+
+    <div class="p-copyright">
+      Created and maintened by <a href="http://2inc.org" target="_blank">Monkey Wrench</a>
+    </div>
+  </div>
+</footer>
+
 </div>
 <script src="/assets/js/app.js"></script>
 </body>
