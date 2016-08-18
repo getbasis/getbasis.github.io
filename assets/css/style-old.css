@@ -6,54 +6,6 @@
  * GitHub Repository: https://github.com/sass-basis/basis
  * License: MIT
  */
-._c-hamburger-btn {
-  position: relative;
-  display: inline-block;
-  box-sizing: content-box;
-  height: 16px;
-  width: 22px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-._c-hamburger-btn__bar {
-  position: absolute;
-  right: 5px;
-  left: 5px;
-  display: block;
-  height: 2px;
-  background-color: #333;
-  transition: transform 0.1s, background-color 0.1s;
-}
-
-._c-hamburger-btn__bar:nth-child(1) {
-  top: 5px;
-}
-
-._c-hamburger-btn__bar:nth-child(2) {
-  top: 12px;
-}
-
-._c-hamburger-btn__bar:nth-child(3) {
-  top: 19px;
-}
-
-.is-close > ._c-hamburger-btn__bar:nth-child(1), .is-close > ._c-hamburger-btn__bar:nth-child(3) {
-  top: 12px;
-}
-
-.is-close > ._c-hamburger-btn__bar:nth-child(1) {
-  transform: rotate(45deg);
-}
-
-.is-close > ._c-hamburger-btn__bar:nth-child(2) {
-  background-color: transparent;
-}
-
-.is-close > ._c-hamburger-btn__bar:nth-child(3) {
-  transform: rotate(-45deg);
-}
-
 .c-btn {
   background-color: #fff;
   border: 1px solid #cccccc;
