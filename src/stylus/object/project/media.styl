@@ -1,11 +1,10 @@
 .p-media {
-  @include bs-c-card();
+  @extend .{bs-prefix}c-card;
   background-color: transparent;
   box-shadow: none;
 
   &__figure {
-    @include bs-c-card__figure();
-    margin-bottom: ($bs-base-line-height / 2);
+    margin-bottom: (bs-base-line-height / 2);
 
     &--circle {
       width: 51%;
@@ -34,7 +33,6 @@
   }
 
   &__body {
-    @include bs-c-card__body();
     margin: 0;
     padding: 0;
 
@@ -46,7 +44,7 @@
   &__title {
     margin: 0;
     color: #777;
-    @include bs-font-size-line-height($bs-base-font-size);
+    bs-font-size-line-height(bs-base-font-size);
     font-weight: normal;
     padding: 0;
   }
@@ -54,11 +52,11 @@
   &__lead {
     margin: 0;
     padding: 0;
-    color: $bs-color-gray;
+    color: bs-color-gray;
   }
 
   &__content {
-    margin: ($bs-base-line-height / 2) 0 0;
+    margin: (bs-base-line-height / 2) 0 0;
     padding: 0;
   }
 }

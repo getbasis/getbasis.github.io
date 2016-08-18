@@ -28,12 +28,12 @@
   },
   "dependencies": {
     "getbasis": "^1.0.3",
+    "getbasis-card": "^1.0.0",
     "getbasis-drawer": "^1.0.0",
     "getbasis-layout": "^1.0.0",
     "getbasis-menu": "^1.0.0",
     "jquery": "^3.1.0",
     "sass-basis": "^5.5.0",
-    "sass-basis-card": "^0.1.2",
     "sass-basis-hamburger-btn": "^0.1.2"
   },
   "browserify": {

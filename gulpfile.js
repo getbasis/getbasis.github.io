@@ -128,7 +128,7 @@ gulp.task('favicon', function(){
  */
 gulp.task('watch', function() {
   gulp.watch([path.src.scss + '/**/*.scss'], ['sass']);
-  gulp.watch([path.src.stylus + '/*.styl'], ['stylus']);
+  gulp.watch([path.src.stylus + '/**/*.styl'], ['stylus']);
   gulp.watch([path.src.js + '/**.js'], ['js']);
   gulp.watch([path.src.images + '/**/*.+(jpg|jpeg|png|gif|svg)'], ['imagecopy']);
   gulp.watch([path.src.favicon], ['favicon']);
