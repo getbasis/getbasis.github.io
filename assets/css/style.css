@@ -2993,3 +2993,91 @@ html._disable-window-scroll ._l-container {
 ._c-drawer__toggle {
   cursor: pointer;
 }
+._c-menu--bar,
+._c-menu--auto {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+._c-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+._c-menu__item {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 1.5rem;
+  padding: 0;
+  max-width: 100%;
+}
+._c-menu__item:first-child {
+  margin-left: 0;
+}
+._c-menu__item > a {
+  display: inline-block;
+}
+._c-menu__item:hover > ._c-menu__submenu,
+._c-menu__item:focus > ._c-menu__submenu {
+  visibility: visible;
+  opacity: 1;
+}
+._c-menu__submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  visibility: hidden;
+  min-width: 200px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
+}
+._c-menu__subitem {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+._c-menu__subitem > a {
+  display: block;
+  padding: 0.625rem 0.75rem;
+  text-align: center;
+  text-decoration: none;
+}
+._c-menu__subitem ._c-menu__submenu {
+  top: 0;
+  left: 100%;
+}
+._c-menu__subitem:hover > ._c-menu__submenu,
+._c-menu__subitem:focus > ._c-menu__submenu {
+  visibility: visible;
+  opacity: 1;
+}
+._c-menu--bar ._c-menu__item {
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  -ms-flex: 1;
+  flex: 1;
+}
+._c-menu--bar ._c-menu__item > a {
+  padding: 1.375rem 0.75rem;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+._c-menu--auto ._c-menu__item {
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+}

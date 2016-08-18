@@ -104,7 +104,7 @@ var BasisDrawer = function () {
 
 exports.default = BasisDrawer;
 
-},{"jquery":4}],2:[function(require,module,exports){
+},{"jquery":5}],2:[function(require,module,exports){
 /**
  * IF "disable-window-scroll", to set the intended header width.
  */
@@ -172,7 +172,7 @@ var BasisFixedHeader = function () {
 
 exports.default = BasisFixedHeader;
 
-},{"jquery":4}],3:[function(require,module,exports){
+},{"jquery":5}],3:[function(require,module,exports){
 /**
  * This is for the overlay header.
  * If scroll the page, added a class "is-scrolled".
@@ -277,7 +277,75 @@ var BasisOverlayHeader = function () {
 
 exports.default = BasisOverlayHeader;
 
-},{"jquery":4}],4:[function(require,module,exports){
+},{"jquery":5}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BasisMenu = function () {
+  function BasisMenu(container, params) {
+    _classCallCheck(this, BasisMenu);
+
+    this.params = _jquery2.default.extend({
+      container: '._c-menu'
+    }, params);
+
+    this.container = (0, _jquery2.default)(this.params.container);
+    this.setListener();
+  }
+
+  _createClass(BasisMenu, [{
+    key: 'setListener',
+    value: function setListener() {
+      var _this = this;
+
+      this.container.each(function (i, e) {
+        var container = (0, _jquery2.default)(e);
+
+        var hasSubmenus = container.find('[aria-expanded]');
+        hasSubmenus.each(function (i, e) {
+          var item = (0, _jquery2.default)(e);
+
+          item.on('mouseover', function (event) {
+            _this.open(item);
+          }, false);
+
+          item.on('mouseleave', function (event) {
+            _this.close(item);
+          }, false);
+        });
+      });
+    }
+  }, {
+    key: 'open',
+    value: function open(item) {
+      item.attr('aria-expanded', 'true');
+    }
+  }, {
+    key: 'close',
+    value: function close(item) {
+      item.attr('aria-expanded', 'false');
+    }
+  }]);
+
+  return BasisMenu;
+}();
+
+exports.default = BasisMenu;
+
+},{"jquery":5}],5:[function(require,module,exports){
 /*eslint-disable no-unused-vars*/
 /*!
  * jQuery JavaScript Library v3.1.0
@@ -10353,76 +10421,6 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],5:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var BasisMenu = function () {
-  function BasisMenu(container, params) {
-    _classCallCheck(this, BasisMenu);
-
-    if (!container) {
-      container = '._c-menu';
-    }
-    if (!params) {
-      params = {};
-    }
-    this.params = params;
-
-    this.container = document.querySelectorAll(container);
-    this.setListener();
-  }
-
-  _createClass(BasisMenu, [{
-    key: 'setListener',
-    value: function setListener() {
-      var _this = this;
-
-      for (var i = 0; i < this.container.length; i++) {
-        var container = this.container[i];
-
-        var has_submenus = container.querySelectorAll('[aria-expanded]');
-
-        var _loop = function _loop(_i) {
-          var item = has_submenus[_i];
-          item.addEventListener('mouseover', function (event) {
-            _this.open(item);
-          }, false);
-
-          item.addEventListener('mouseleave', function (event) {
-            _this.close(item);
-          }, false);
-        };
-
-        for (var _i = 0; _i < has_submenus.length; _i++) {
-          _loop(_i);
-        }
-      }
-    }
-  }, {
-    key: 'open',
-    value: function open(item) {
-      item.setAttribute('aria-expanded', 'true');
-    }
-  }, {
-    key: 'close',
-    value: function close(item) {
-      item.setAttribute('aria-expanded', 'false');
-    }
-  }]);
-
-  return BasisMenu;
-}();
-
-exports.default = BasisMenu;
-
 },{}],6:[function(require,module,exports){
 'use strict';
 
@@ -10438,7 +10436,7 @@ var _overlayHeader = require('../../node_modules/getbasis-layout/src/js/overlay-
 
 var _overlayHeader2 = _interopRequireDefault(_overlayHeader);
 
-var _menu = require('../../node_modules/sass-basis-menu/src/js/menu.js');
+var _menu = require('../../node_modules/getbasis-menu/src/js/menu.js');
 
 var _menu2 = _interopRequireDefault(_menu);
 
@@ -10451,4 +10449,4 @@ new _fixedHeader2.default();
 new _overlayHeader2.default();
 new _menu2.default();
 
-},{"../../node_modules/getbasis-drawer/src/js/drawer.js":1,"../../node_modules/getbasis-layout/src/js/fixed-header.js":2,"../../node_modules/getbasis-layout/src/js/overlay-header.js":3,"../../node_modules/sass-basis-menu/src/js/menu.js":5}]},{},[6]);
+},{"../../node_modules/getbasis-drawer/src/js/drawer.js":1,"../../node_modules/getbasis-layout/src/js/fixed-header.js":2,"../../node_modules/getbasis-layout/src/js/overlay-header.js":3,"../../node_modules/getbasis-menu/src/js/menu.js":4}]},{},[6]);
