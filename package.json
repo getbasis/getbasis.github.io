@@ -27,7 +27,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "getbasis": "^1.0.3",
+    "getbasis": "git://github.com/getbasis/basis.git#develop",
     "getbasis-card": "^1.0.0",
     "getbasis-drawer": "^1.0.0",
     "getbasis-hamburger-btn": "^1.0.0",
