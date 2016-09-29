@@ -1,5 +1,5 @@
 /*!
- * Name: Basis v5.5.0
+ * Name: Basis v5.5.1
  * Description: The flexbox based CSS framework.
  * Author: Takashi Kitajima ( inc2734 )
  * Author URL: http://2inc.org
@@ -228,7 +228,7 @@
 .p-hero {
   background-color: #00DAE6;
   background: linear-gradient(135deg, #00DAE6 40%, #00aab3 100%);
-  min-height: 50vh;
+  height: 50vh;
 }
 
 .p-hero, .p-hero a {
