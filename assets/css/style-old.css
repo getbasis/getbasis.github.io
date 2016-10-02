@@ -231,6 +231,10 @@
   height: 50vh;
 }
 
+.p-hero--full {
+  height: 100vh;
+}
+
 .p-hero, .p-hero a {
   color: #fff;
 }
