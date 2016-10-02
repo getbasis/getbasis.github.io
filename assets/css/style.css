@@ -1,5 +1,5 @@
 /*
- * Name: Basis v1.0.6
+ * Name: Basis v2.0.0
  * Description: The flexbox based CSS framework.
  * Author: Takashi Kitajima ( inc2734 )
  * Author URL: http://2inc.org
@@ -881,8 +881,8 @@ textarea._c-input-group__control {
   margin-top: -4px;
   content: '';
   display: block;
-  border: 12px solid transparent;
-  border-top: 12px solid #5c5c5c;
+  border: 6px solid transparent;
+  border-top: 8px solid #5c5c5c;
   width: 0;
   height: 0;
 }
