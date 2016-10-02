@@ -866,6 +866,30 @@ textarea._c-input-group__control {
   flex: 1;
   max-width: 100%;
 }
+._c-select {
+  display: inline-block;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 0.375rem 0.75rem;
+}
+._c-select::after {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  content: '';
+  display: block;
+  border: 12px solid transparent;
+  border-top: 12px solid #5c5c5c;
+  width: 0;
+  height: 0;
+}
+._c-select > select {
+  outline: 0;
+  width: 130%;
+}
 ._c-btn--block {
   display: block;
 }
@@ -2519,6 +2543,9 @@ textarea._c-input-group__control {
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
   }
+}
+._c-select--block {
+  display: block;
 }
 ._u-animate {
   transition: all 0.1s ease-out;
