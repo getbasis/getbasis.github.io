@@ -629,14 +629,14 @@ label {
 }
 ._c-checkbox__label::after {
   position: absolute;
-  top: 0.125rem;
-  left: 2px;
   content: '';
   display: inline-block;
-  background-color: #999;
+  background-color: #5c5c5c;
   border-radius: 2px;
-  height: 0.75rem;
-  width: 0.75rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  left: 0.25rem;
+  top: 0.5rem;
   opacity: 0;
   z-index: 0;
 }
