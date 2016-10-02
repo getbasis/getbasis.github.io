@@ -101,7 +101,7 @@ gulp.task('ejs', function() {
   gulp.src(path.src.ejs)
   .pipe(ejs(
     {
-      version: '1.0.6',
+      version: '2.0.0',
       css    : '/assets/css',
       js     : '/assets/js',
       images : '/assets/images'
