@@ -16,7 +16,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var BasisDrawer = function () {
-  function BasisDrawer(container, params) {
+  function BasisDrawer(params) {
     _classCallCheck(this, BasisDrawer);
 
     this.params = _jquery2.default.extend({
@@ -49,6 +49,7 @@ var BasisDrawer = function () {
         });
 
         btn.on('click', function (event) {
+          event.preventDefault();
           _this.toggle(drawer);
           btn.toggleClass('is-close');
           event.stopPropagation();
@@ -65,8 +66,9 @@ var BasisDrawer = function () {
           var toggleSubmenu = (0, _jquery2.default)(e).children(_this.params.toggleSubmenu);
           if (toggleSubmenu.length) {
             toggleSubmenu.on('click', function (event) {
-              _this.toggle(target);
+              event.preventDefault();
               event.stopPropagation();
+              _this.toggle(target);
             });
           }
         });
@@ -75,7 +77,6 @@ var BasisDrawer = function () {
   }, {
     key: 'toggle',
     value: function toggle(drawer) {
-      event.preventDefault();
       if (drawer.attr('aria-expanded') === 'false') {
         this.open(drawer);
       } else {
@@ -127,17 +128,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var BasisFixedHeader = function () {
-  function BasisFixedHeader(container, params) {
+  function BasisFixedHeader(params) {
     var _this = this;
 
     _classCallCheck(this, BasisFixedHeader);
 
-    params = _jquery2.default.extend({
+    this.params = _jquery2.default.extend({
       container: '._l-container',
       header: '._l-header'
     }, params);
-    this.container = (0, _jquery2.default)(params.container);
-    this.header = (0, _jquery2.default)(params.header);
+    this.container = (0, _jquery2.default)(this.params.container);
+    this.header = (0, _jquery2.default)(this.params.header);
     this.isDisableWindowScroll = (0, _jquery2.default)('html').hasClass('_disable-window-scroll');
 
     if (this.shouldSetHeaderWidth()) {
@@ -196,7 +197,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var BasisOverlayHeader = function () {
-  function BasisOverlayHeader(container, params) {
+  function BasisOverlayHeader(params) {
     _classCallCheck(this, BasisOverlayHeader);
 
     this.params = _jquery2.default.extend({
@@ -296,7 +297,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var BasisMenu = function () {
-  function BasisMenu(container, params) {
+  function BasisMenu(params) {
     _classCallCheck(this, BasisMenu);
 
     this.params = _jquery2.default.extend({
