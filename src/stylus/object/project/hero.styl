@@ -1,4 +1,5 @@
 .p-hero {
+  @extend .{bs-prefix}c-hero;
   background-color: color-primary;
   background: linear-gradient(135deg, color-primary 40%, bs-dark(color-primary) 100%);
   height: 50vh;
@@ -22,6 +23,12 @@
   &__title {
     bs-margin(0, 0, .5);
     font-basis();
+    bs-font-size-line-height(32px);
+    text-align: center;
+
+    +bs-bp-md-min() {
+      bs-font-size-line-height(48px);
+    }
 
     > img {
       margin-right: 8px;
