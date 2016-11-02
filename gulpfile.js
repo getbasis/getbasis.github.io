@@ -5,7 +5,6 @@
  */
 var gulp         = require('gulp');
 var stylus       = require('gulp-stylus');
-var sass         = require('gulp-sass');
 var rename       = require('gulp-rename');
 var postcss      = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
@@ -19,8 +18,7 @@ var ejs          = require('gulp-ejs');
 
 var path = {
   src: {
-    scss   : 'src/scss',
-    stylus : 'src/stylus',
+    css    : 'src/stylus',
     js     : 'src/js',
     images : 'src/images',
     favicon: 'src/favicon.ico',
@@ -53,31 +51,10 @@ gulp.task('js', function() {
 } );
 
 /**
- * Sass to CSS
- */
-gulp.task('sass', function() {
-  return gulp.src(path.src.scss + '/**/*.scss')
-    .pipe(sass({
-      outputStyle: 'expanded'
-    }))
-    .pipe(gulp.dest(path.dist.css))
-    .pipe(postcss([autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    })]))
-    .pipe(gulp.dest(path.dist.css))
-    .pipe(postcss([cssnano()]))
-    .pipe(rename({
-      suffix: '.min'
-    }))
-    .pipe(gulp.dest(path.dist.css));
-});
-
-/**
  * Stylus to CSS
  */
-gulp.task('stylus', function() {
-  return gulp.src(path.src.stylus + '/*.styl')
+gulp.task('css', function() {
+  return gulp.src(path.src.css + '/*.styl')
     .pipe(stylus({
       'include css': true
     }))
@@ -124,11 +101,10 @@ gulp.task('favicon', function(){
 } );
 
 /**
- * Auto Compile Sass.
+ * Auto Compile.
  */
 gulp.task('watch', function() {
-  gulp.watch([path.src.scss + '/**/*.scss'], ['sass']);
-  gulp.watch([path.src.stylus + '/**/*.styl'], ['stylus']);
+  gulp.watch([path.src.css + '/**/*.styl'], ['css']);
   gulp.watch([path.src.js + '/**.js'], ['js']);
   gulp.watch([path.src.images + '/**/*.+(jpg|jpeg|png|gif|svg)'], ['imagecopy']);
   gulp.watch([path.src.favicon], ['favicon']);
@@ -163,6 +139,6 @@ gulp.task('deploy', ['build'], function() {
       .pipe(gulp.dest('gh-pages'));
 });
 
-gulp.task('build', ['stylus', 'sass', 'js', 'imagecopy', 'favicon', 'ejs']);
+gulp.task('build', ['css', 'js', 'imagecopy', 'favicon', 'ejs']);
 
 gulp.task('default', ['build', 'browsersync', 'watch']);

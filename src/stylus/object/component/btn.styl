@@ -1,0 +1,23 @@
+.c-btn {
+  @extend $bs-btn;
+  bs-transition-all();
+  border: none;
+  border-radius: 3px;
+
+  &--block {
+    display: block;
+  }
+
+  &--launch, &--download {
+    background-color: color-primary;
+    color: #fff;
+
+    +bs-hover() {
+      background-color: bs-dark(color-primary);
+    }
+
+    .fa {
+      margin-right: 8px;
+    }
+  }
+}

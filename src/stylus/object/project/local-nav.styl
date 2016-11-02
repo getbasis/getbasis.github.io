@@ -1,19 +1,18 @@
 .p-local-nav {
-  @include bs-font-size-line-height(14px);
+  bs-font-size-line-height(14px);
 
   a {
-    color: bs-light($bs-color-text);
+    color: bs-light(bs-color-text);
     text-decoration: none;
 
-    @include bs-hover() {
+    +bs-hover() {
       text-decoration: underline;;
     }
   }
 
   &__title {
-    margin: 0;
-    @include bs-margin-bottom(.8);
-    @include bs-font-size-line-height(21px);
+    bs-margin(0, 0, .8);
+    bs-font-size-line-height(21px);
     font-weight: normal;
   }
 
@@ -27,7 +26,7 @@
   &__item {
     margin: 0;
     border-bottom: 1px solid #eee;
-    padding: ($bs-base-font-size) 0;
+    bs-padding(.5, 0);
   }
 
   &__submenu {
