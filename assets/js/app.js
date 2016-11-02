@@ -10592,7 +10592,12 @@ function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-new _drawer2.default();
+new _drawer2.default({
+  container: '.p-drawer-nav',
+  drawer: '.p-drawer-nav__body',
+  btn: '.p-drawer-nav__btn',
+  toggleSubmenu: '.p-drawer-nav__toggle'
+});
 new _fixedHeader2.default();
 new _overlayHeader2.default();
 new _menu2.default();
