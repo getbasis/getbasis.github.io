@@ -81,7 +81,8 @@ gulp.task('ejs', function() {
       version: '2.0.1',
       css    : '/assets/css',
       js     : '/assets/js',
-      images : '/assets/images'
+      images : '/assets/images',
+      is_front_page: false
     },
     {ext: '.html'})
   )
