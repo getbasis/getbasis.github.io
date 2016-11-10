@@ -242,19 +242,9 @@ var BasisOverlayHeader = function () {
   }, {
     key: 'setClassForSticky',
     value: function setClassForSticky() {
-      var scroll = this.getScrollTop();
-
       if (this.header.hasClass(this.params.stickyClass)) {
         var headerHeight = this.header.outerHeight();
-        if (scroll > 0) {
-          this.header.next().css('paddingTop', headerHeight + 'px');
-          this.header.addClass(this.params.overlayClass);
-        } else {
-          this.header.next().css('paddingTop', '');
-          this.header.removeClass(this.params.overlayClass);
-        }
-      } else {
-        this.header.next().css('paddingTop', '');
+        this.header.next().css('paddingTop', headerHeight + 'px');
       }
     }
   }, {

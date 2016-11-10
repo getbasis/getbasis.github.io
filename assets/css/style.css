@@ -2660,7 +2660,8 @@ html._disable-window-scroll > ._l-footer {
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
 }
-._l-header--overlay {
+._l-header--overlay,
+._l-header--sticky {
   position: fixed;
   right: 0;
   left: 0;
@@ -2687,9 +2688,6 @@ html._disable-window-scroll ._l-container {
 }
 ._l-container {
   overflow: hidden;
-}
-._l-contents {
-  margin-top: 62px;
 }
 ._l-sub {
   padding-top: 3rem;
