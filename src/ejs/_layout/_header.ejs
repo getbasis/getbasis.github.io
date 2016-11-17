@@ -1,4 +1,4 @@
-<header id="header" class="_l-header <% if (is_front_page) { %>_l-header--overlay<% } else { %>_l-header--sticky<% } %>" role="banner">
+<header id="header" class="_l-header" role="banner" data-l="header" data-l-header-type="<% if (is_front_page) { %>overlay<% } else { %>sticky<% } %>">
   <div class="_c-container">
     <div class="_c-row _c-row--auto _c-row--nowrap _c-row--lg-margin _c-row--middle">
       <div class="_c-row__col">
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="p-drawer-nav__btn _c-hamburger-btn _u-hidden-lg">
+    <div class="p-drawer-nav__btn _c-hamburger-btn _u-hidden-lg" data-c="drawer-btn" aria-controls="#drawer-nav" aria-expanded="false">
       <div class="_c-hamburger-btn__bar"></div>
       <div class="_c-hamburger-btn__bar"></div>
       <div class="_c-hamburger-btn__bar"></div>
