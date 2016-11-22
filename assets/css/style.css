@@ -2994,8 +2994,10 @@ html[data-window-scroll="false"] [data-l="container"] {
 }
 .c-section--border .c-section__h1 {
   margin: 0 0 2.25rem;
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 1.2;
 }
-@include bs-font-size-line-height(2.5rem);
 .c-section--border .c-section__h2 {
   margin: 2.25rem 0 1.5rem;
   font-size: 32px;
