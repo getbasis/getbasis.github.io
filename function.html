@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Get Started</title>
+  <title>Function</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/railscasts.min.css">
@@ -112,76 +112,202 @@
       <section class="p-hero">
   <div class="p-hero__content">
     <div class="_c-container">
-      <h1 class="p-hero__title">Get Started</h1>
+      <h1 class="p-hero__title">Function</h1>
     </div>
   </div>
 </section>
 
 
-      <main id="main" class="_l-main" role="main">
+      <div class="_c-container">
+        <div class="_c-row _c-row--margin-l">
+          <div class="_c-row__col _c-row__col--1-1 _c-row__col--lg-3-4">
+            <main id="main" class="_l-main" role="main">
 
-        <section class="c-section">
-          <div class="_c-container">
-            <h1 class="c-section__title">Using npm</h1>
-            <ol>
-              <li>
-                npm install
-                <pre><code>$ npm install getbasis</code></pre>
-              </li>
-              <li>
-                Import basis.styl your Stylus.
-                <pre><code>@import /PATH/TO/node_modules/getbasis/src/stylus/basis;</code></pre>
-IF you want to use build files, just do this.
-                <pre><code>$ cd /PATH/TO/getbasis
-$ npm install
-$ npm run gulp build</code></pre>
-              </li>
-            </ol>
+              <section class="c-section c-section--border" id="_light">
+                <h1 class="c-section__h1">_light</h1>
+
+                <pre><code>//
+// A little brighten
+//
+// @param   hex  hex
+// @return  hex
+//
+return _light(#000)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_lighter">
+                <h1 class="c-section__h1">_lighter</h1>
+
+                <pre><code>//
+// Brighten
+//
+// @param   hex  hex
+// @return  hex
+//
+return _lighter(#000)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_lightest">
+                <h1 class="c-section__h1">_lightest</h1>
+
+                <pre><code>//
+// To very brighten
+//
+// @param   hex  hex
+// @return  hex
+//
+return _lightest(#000)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_dark">
+                <h1 class="c-section__h1">_dark</h1>
+
+                <pre><code>//
+// A little darken
+//
+// @param   hex  hex
+// @return  hex
+//
+return _dark(#fff)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_darker">
+                <h1 class="c-section__h1">_darker</h1>
+
+                <pre><code>//
+// Darken
+//
+// @param   hex  hex
+// @return  hex
+//
+return _darker(#fff)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_darkest">
+                <h1 class="c-section__h1">_darkest</h1>
+
+                <pre><code>//
+// To very darken
+//
+// @param   hex  hex
+// @return  hex
+//
+return _darkest(#fff)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_hash-search">
+                <h1 class="c-section__h1">_hash-search</h1>
+
+                <pre><code>//
+// Return matched key in the hash
+//
+// @param   string  key
+// @param   hash    hash
+// @return  mixed|null
+//
+return _hash-search(key, hash)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_is-int">
+                <h1 class="c-section__h1">_is-int</h1>
+
+                <pre><code>//
+// Checks for a valid int
+//
+// @return  bool
+//
+return _is-int(value)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_is-length">
+                <h1 class="c-section__h1">_is-length</h1>
+
+                <pre><code>//
+// Checks for a valid CSS length
+//
+// @return  bool
+//
+return _is-length(value)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_px2rem">
+                <h1 class="c-section__h1">_px2rem</h1>
+
+                <pre><code>//
+// Return rem from px
+//
+// @param   px  px
+// @param   px  base-font-size-px
+// @return  rem
+//
+return _px2rem(16px)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_rem2px">
+                <h1 class="c-section__h1">_rem2px</h1>
+
+                <pre><code>//
+// Return px from rem
+//
+// @param   rem  rem
+// @param   px   base-font-size-px
+// @return  px
+//
+return _rem2px(1rem)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_space">
+                <h1 class="c-section__h1">_space</h1>
+
+                <pre><code>//
+// Return the margin conforming to the rhythm
+//
+// @param   int     coefficient
+// @return  length
+//
+return _space(1)</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_strip-unit">
+                <h1 class="c-section__h1">_strip-unit</h1>
+
+                <pre><code>//
+// Return numeric value that doesn't have the unit.
+//
+// @param   length  value  numeric value
+// @return  int
+//
+return _strip-unit(10px)</code></pre>
+              </section>
+
+            </main>
           </div>
-        </section>
+          <div class="_c-row__col _c-row__col--1-1 _c-row__col--lg-1-4">
+            <aside id="sub" class="_l-sub" role="complementary">
 
-        <section class="c-section c-section--bg">
-          <div class="_c-container">
-            <h1 class="c-section__title">Download from GitHub</h1>
-            <ol>
-              <li>Download the basis from <a href="https://github.com/getbasis/basis/releases" target="_blank">https://github.com/getbasis/basis/releases</a></li>
-              <li>
-                Import basis.styl your Stylus.
-                <pre><code>@import /PATH/TO/basis/src/stylus/basis;</code></pre>
-  or Just this link.
-                <pre><code>&lt;link rel="stylesheet" href="/PATH/TO/basis/dist/css/basis.min.css" /&gt;</code></pre>
-              </li>
-            </ol>
+              <section class="p-local-nav">
+                <h1 class="p-local-nav__title">Function</h1>
+                <ul class="p-local-nav__menu">
+                  <li class="p-local-nav__item"><a href="#_light">_light</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_lighter">_lighter</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_lightest">_lightest</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_dark">_dark</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_darker">_darker</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_darkest">_darkest</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_hash-search">_hash-search</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_is-int">_is-int</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_is-length">_is-length</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_px2rem">_px2rem</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_rem2px">_rem2px</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_space">_space</a></li></li>
+	                <li class="p-local-nav__item"><a href="#_strip-unit">_strip-unit</a></li></li>
+                </ul>
+              </section>
+
+            </aside>
           </div>
-        </section>
-
-        <section class="c-section">
-          <div class="_c-container">
-            <h1 class="c-section__title">Option</h1>
-            <p>
-              Support IE9 ( Not perfect )
-            </p>
-            <pre><code>&lt;!--[if lt IE 10]&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;/PATH/TO/basis/dist/css/plugin/basis-ie9/basis-ie9.min.css&quot; /&gt;
-&lt;![endif]--&gt;</code></pre>
-
-            <p>
-              And support IE8 ( Not perfect )
-            </p>
-            <pre><code>&lt;!--[if lt IE 9]&gt;
-&lt;script src=&quot;/PATH/TO/basis/vendor/html5.js&quot;&gt;&lt;/script&gt;
-&lt;![endif]--&gt;</code></pre>
-
-            <p>
-              If you are Stylus user and you want to use only mixins, set <code>_use-mixin-only</code> to <code>true</code>.
-            </p>
-            <pre><code>_use-mixin-only: true;
-
-@import /PATH/TO/basis/src/stylus/basis;</code></pre>
-          </div>
-        </section>
-
-      </main>
+        </div>
+      </div>
     </div>
 
     <footer id="footer" class="_l-footer" data-l="footer">
