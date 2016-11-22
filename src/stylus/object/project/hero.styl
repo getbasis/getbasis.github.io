@@ -1,7 +1,7 @@
 .p-hero {
-  @extend .{bs-prefix}c-hero;
+  @extend .{_prefix}c-hero;
   background-color: color-primary;
-  background: linear-gradient(135deg, color-primary 40%, bs-dark(color-primary) 100%);
+  background: linear-gradient(135deg, color-primary 40%, _dark(color-primary) 100%);
   height: 50vh;
 
   &--full {
@@ -12,22 +12,22 @@
     color: #fff;
   }
 
-  .{bs-prefix}c-hero__header {
-    bs-padding(.5, 0);
+  .{_prefix}c-hero__header {
+    _padding(.5, 0);
   }
 
-  .{bs-prefix}c-hero__content {
+  .{_prefix}c-hero__content {
     text-align: center;
   }
 
   &__title {
-    bs-margin(0, 0, .5);
+    _margin(0, 0, .5);
     font-basis();
-    bs-font-size-line-height(32px);
+    _font-size-line-height(32px);
     text-align: center;
 
-    +bs-bp-md-min() {
-      bs-font-size-line-height(48px);
+    +_media-min('md') {
+      _font-size-line-height(48px);
     }
 
     > img {
@@ -38,12 +38,12 @@
   }
 
   &__version {
-    bs-margin(0, 0, 1);
-    bs-font-size-line-height(14px);
+    _margin(0, 0, 1);
+    _font-size-line-height(14px);
     opacity: .8;
   }
 
   &__description {
-    bs-margin(0, 0, 1);
+    _margin(0, 0, 1);
   }
 }

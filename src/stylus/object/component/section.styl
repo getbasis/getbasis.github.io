@@ -1,5 +1,5 @@
 .c-section {
-  bs-padding(3, 0);
+  _padding(3, 0);
 
   &--bg {
     background-color: #fcfcfc;
@@ -8,29 +8,29 @@
   }
 
   &__title {
-    bs-font-size-line-height(bs-base-font-size * 2);
-    bs-margin(0, 0, 2);
+    _font-size-line-height(_base-font-size * 2);
+    _margin(0, 0, 2);
     font-weight: normal;
     text-align: center;
   }
 
   &--border {
-    border-bottom: 1px solid bs-lighter(bs-color-gray);
-    bs-padding(2, 0);
+    border-bottom: 1px solid _lighter(_color-gray);
+    _padding(2, 0);
 
     .c-section__h1 {
-    bs-margin(0, 0, 1.5);
-      @include bs-font-size-line-height(2.5rem);
+      _margin(0, 0, 1.5);
+      _font-size-line-height(2.5rem);
     }
 
     .c-section__h2 {
-      bs-margin(1.5, 0, 1);
-      bs-font-size-line-height(2rem);
+      _margin(1.5, 0, 1);
+      _font-size-line-height(2rem);
     }
 
     .c-section__h3 {
-      bs-margin(1.5, 0, 1);
-      bs-font-size-line-height(1.5rem);
+      _margin(1.5, 0, 1);
+      _font-size-line-height(1.5rem);
     }
   }
 }

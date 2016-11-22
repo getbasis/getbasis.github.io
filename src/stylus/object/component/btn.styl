@@ -1,6 +1,6 @@
 .c-btn {
-  @extend $bs-btn;
-  bs-transition-all();
+  @extend $_btn;
+  _transition-all();
   border: none;
   border-radius: 3px;
 
@@ -12,8 +12,8 @@
     background-color: color-primary;
     color: #fff;
 
-    +bs-hover() {
-      background-color: bs-dark(color-primary);
+    +_hover() {
+      background-color: _dark(color-primary);
     }
 
     .fa {
