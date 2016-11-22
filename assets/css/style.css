@@ -738,12 +738,12 @@ textarea._c-input-group__control {
 }
 ._c-hero--overlay::before,
 .p-hero--overlay::before {
-  content: '';
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  content: '';
   background-color: rgba(0,0,0,0.7);
 }
 @media (min-width: 64rem) {
