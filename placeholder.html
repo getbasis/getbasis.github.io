@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Function</title>
+  <title>Placeholder</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/railscasts.min.css">
@@ -113,7 +113,7 @@
       <section class="p-hero">
   <div class="p-hero__content">
     <div class="_c-container">
-      <h1 class="p-hero__title">Function</h1>
+      <h1 class="p-hero__title">Placeholder</h1>
     </div>
   </div>
 </section>
@@ -124,161 +124,214 @@
           <div class="_c-row__col _c-row__col--1-1 _c-row__col--lg-3-4">
             <main id="main" class="_l-main" role="main">
 
-              <section class="c-section c-section--border" id="_light">
-                <h1 class="c-section__h1">_light</h1>
+              <section class="c-section c-section--border" id="alert">
+                <h1 class="c-section__h1">Alert</h1>
 
                 <pre><code>//
-// A little brighten
+// Alert component
 //
-// @param   hex  hex
-// @return  hex
-//
-return _light(#000)</code></pre>
+.c-alert {
+  @extend $_alert;
+}
+
+&lt;alert class="c-alert" role="alert"&tt;
+  ...
+&lt;/alert&tt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_lighter">
-                <h1 class="c-section__h1">_lighter</h1>
+              <section class="c-section c-section--border" id="button">
+                <h1 class="c-section__h1">Button</h1>
 
                 <pre><code>//
-// Brighten
+// Button component
 //
-// @param   hex  hex
-// @return  hex
-//
-return _lighter(#000)</code></pre>
+.c-btn {
+  @extend $_btn;
+}
+
+&lt;a class="c-btn" role="button"&gt;btn&lgt;/a&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_lightest">
-                <h1 class="c-section__h1">_lightest</h1>
+              <section class="c-section c-section--border" id="checkbox">
+                <h1 class="c-section__h1">Checkbox</h1>
 
                 <pre><code>//
-// To very brighten
+// Checkbox component
 //
-// @param   hex  hex
-// @return  hex
-//
-return _lightest(#000)</code></pre>
+.c-checkbox {
+  @extend $_checkbox;
+}
+
+&lt;span class="c-checkbox" data-c="checkbox"&gt;
+  &lt;input type="checkbox"&gt;
+  &lt;label data-c="checkbox__label"&gt;Label&lt;/label&gt;
+&lt;/span&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_dark">
-                <h1 class="c-section__h1">_dark</h1>
+              <section class="c-section c-section--border" id="wrappers">
+                <h1 class="c-section__h1">Wrappers</h1>
+                <h2 class="c-section__h2">Container</h2>
 
                 <pre><code>//
-// A little darken
+// Container component
 //
-// @param   hex  hex
-// @return  hex
+.c-container {
+  @extend $_container;
+}
+
+&lt;div class="c-container"&gt;
+  ...
+&lt;/div&gt;</code></pre>
+
+                <h2 class="c-section__h2">Fluid container</h2>
+
+                <pre><code>//
+// Fluid container component
 //
-return _dark(#fff)</code></pre>
+.c-container-fluid {
+  @extend $_container-fluid;
+}
+
+&lt;div class="c-container-fluid"&gt;
+  ...
+&lt;/div&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_darker">
-                <h1 class="c-section__h1">_darker</h1>
+              <section class="c-section c-section--border" id="flex-media">
+                <h1 class="c-section__h1">Flexible media</h1>
 
                 <pre><code>//
-// Darken
+// Media component. When smartphone size, vertically aligned.
 //
-// @param   hex  hex
-// @return  hex
-//
-return _darker(#fff)</code></pre>
+.c-flex-media {
+  @extend $_flex-media;
+}
+
+&lt;div class="c-flex-media"&gt;
+ &lt;div class="c-flex-media__figure"&gt;
+   &lt;img ...&gt;
+ &lt;/div&gt;
+ &lt;div class="c-flex-media__body"&gt;
+   ...
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_darkest">
-                <h1 class="c-section__h1">_darkest</h1>
+              <section class="c-section c-section--border" id="form-control">
+                <h1 class="c-section__h1">Form control</h1>
 
                 <pre><code>//
-// To very darken
+// Form control component
 //
-// @param   hex  hex
-// @return  hex
-//
-return _darkest(#fff)</code></pre>
+.c-form-control {
+  @extend $_form-control;
+}
+
+&lt;input type="text" class="c-form-control"&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_hash-search">
-                <h1 class="c-section__h1">_hash-search</h1>
+              <section class="c-section c-section--border" id="hero">
+                <h1 class="c-section__h1">Hero</h1>
 
                 <pre><code>//
-// Return matched key in the hash
+// Hero component
 //
-// @param   string  key
-// @param   hash    hash
-// @return  mixed|null
-//
-return _hash-search(key, hash)</code></pre>
+.c-hero {
+  @extend $_hero;
+}
+
+&lt;div class="c-hero"&gt;
+  &lt;div class="c-hero__header"&gt;&lt;/div&gt;
+  &lt;div class="c-hero__content"&gt;&lt;/div&gt;
+  &lt;div class="c-hero__footer"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_is-int">
-                <h1 class="c-section__h1">_is-int</h1>
+              <section class="c-section c-section--border" id="input-group">
+                <h1 class="c-section__h1">Input group</h1>
 
                 <pre><code>//
-// Checks for a valid int
+// Input group component
 //
-// @return  bool
-//
-return _is-int(value)</code></pre>
+.c-input-group {
+  @extend $_input-group;
+}
+
+&lt;div class="c-input-group"&gt;
+  &lt;div class="c-input-group__addon">@&lt;/div&gt;
+  &lt;div class="c-input-group__field"&gt;
+    &lt;input type="text"&gt;
+  &lt;/div&gt;
+  &lt;button class="c-input-group__btn">Go&lt;/button&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_is-length">
-                <h1 class="c-section__h1">_is-length</h1>
+              <section class="c-section c-section--border" id="media">
+                <h1 class="c-section__h1">Media</h1>
 
                 <pre><code>//
-// Checks for a valid CSS length
+// Media component
 //
-// @return  bool
-//
-return _is-length(value)</code></pre>
+.c-media {
+  @extend $_media;
+}
+
+&lt;div class="c-media"&gt;
+  &lt;div class="c-media__figure"&gt;
+    &lt;img ...&gt;
+  &lt;/div&gt;
+  &lt;div class="c-media__body"&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_px2rem">
-                <h1 class="c-section__h1">_px2rem</h1>
+              <section class="c-section c-section--border" id="radio">
+                <h1 class="c-section__h1">Radio</h1>
 
                 <pre><code>//
-// Return rem from px
+// Radio component
 //
-// @param   px  px
-// @param   px  base-font-size-px
-// @return  rem
-//
-return _px2rem(16px)</code></pre>
+.c-radio {
+  @extend $_radio;
+}
+
+&lt;span class="c-radio" data-c="radio"&gt;
+  &lt;input type="radio"&gt;
+  &lt;label data-c="radio__label"&gt;Label&lt;/label&gt;
+&lt;/span&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_rem2px">
-                <h1 class="c-section__h1">_rem2px</h1>
+              <section class="c-section c-section--border" id="grid">
+                <h1 class="c-section__h1">Grid</h1>
 
                 <pre><code>//
-// Return px from rem
+// Grid component
 //
-// @param   rem  rem
-// @param   px   base-font-size-px
-// @return  px
-//
-return _rem2px(1rem)</code></pre>
+.c-row {
+  @extend $_row;
+}
+
+&lt;div class="c-row"&gt;
+ &lt;div class="c-row__col"&gt;
+   ...
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_space">
-                <h1 class="c-section__h1">_space</h1>
+              <section class="c-section c-section--border" id="select">
+                <h1 class="c-section__h1">Select</h1>
 
                 <pre><code>//
-// Return the margin conforming to the rhythm
+// Select component
 //
-// @param   int     coefficient
-// @return  length
-//
-return _space(1)</code></pre>
-              </section>
+.c-select {
+  @extend $_select;
+}
 
-              <section class="c-section c-section--border" id="_strip-unit">
-                <h1 class="c-section__h1">_strip-unit</h1>
-
-                <pre><code>//
-// Return numeric value that doesn't have the unit.
-//
-// @param   length  value  numeric value
-// @return  int
-//
-return _strip-unit(10px)</code></pre>
+&lt;span class="c-select"&gt;
+  &lt;select&gt;&lt;/select&gt;
+&lt;/span&gt;</code></pre>
               </section>
 
             </main>
@@ -287,21 +340,20 @@ return _strip-unit(10px)</code></pre>
             <aside id="sub" class="_l-sub" role="complementary">
 
               <section class="p-local-nav">
-                <h1 class="p-local-nav__title">Function</h1>
+                <h1 class="p-local-nav__title">Placeholder</h1>
                 <ul class="p-local-nav__menu">
-                  <li class="p-local-nav__item"><a href="#_light">_light</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_lighter">_lighter</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_lightest">_lightest</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_dark">_dark</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_darker">_darker</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_darkest">_darkest</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_hash-search">_hash-search</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_is-int">_is-int</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_is-length">_is-length</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_px2rem">_px2rem</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_rem2px">_rem2px</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_space">_space</a></li></li>
-	                <li class="p-local-nav__item"><a href="#_strip-unit">_strip-unit</a></li></li>
+                  <li class="p-local-nav__item"><a href="#alert">Alert</a></li></li>
+	                <li class="p-local-nav__item"><a href="#button">Button</a></li></li>
+	                <li class="p-local-nav__item"><a href="#checkbox">Checkbox</a></li></li>
+	                <li class="p-local-nav__item"><a href="#wrappers">Wrappers</a></li></li>
+	                <li class="p-local-nav__item"><a href="#flex-media">Flexible media</a></li></li>
+	                <li class="p-local-nav__item"><a href="#form-control">Form Control</a></li></li>
+	                <li class="p-local-nav__item"><a href="#hero">Hero</a></li></li>
+	                <li class="p-local-nav__item"><a href="#input-group">Input group</a></li></li>
+	                <li class="p-local-nav__item"><a href="#media">Media</a></li></li>
+	                <li class="p-local-nav__item"><a href="#radio">Radio</a></li></li>
+	                <li class="p-local-nav__item"><a href="#grid">Grid</a></li></li>
+	                <li class="p-local-nav__item"><a href="#select">Select</a></li></li>
                 </ul>
               </section>
 

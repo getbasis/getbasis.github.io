@@ -75,15 +75,15 @@
   <div id="container" class="_l-container" data-l="container">
     <header id="header" class="_l-header" role="banner" data-l="header" data-l-header-type="sticky">
   <div class="_c-container">
-    <div class="_c-row _c-row--auto _c-row--nowrap _c-row--lg-margin _c-row--middle">
-      <div class="_c-row__col">
+    <div class="_c-row _c-row--nowrap _c-row--lg-margin _c-row--middle">
+      <div class="_c-row__col _c-row__col--md-1-4">
         <div class="p-site-branding">
           <h1 class="p-site-branding__title">
             <a href="/"><img src="/assets/images/logo.svg" alt="" />Basis</a>
           </h1>
         </div>
       </div>
-      <div class="_c-row__col _u-hidden-sm _u-hidden-md">
+      <div class="_c-row__col _c-row__col--md-3-4 _u-hidden-sm _u-hidden-md">
         <div class="p-global-nav _u-pull-right" role="navigation">
   <ul class="_c-menu _c-menu--bar _c-menu--auto" data-c="menu">
     <li class="_c-menu__item"><a href="/">Home</a></li>
@@ -91,6 +91,7 @@
     <li class="_c-menu__item"><a href="foundation.html">Foundation</a></li>
     <li class="_c-menu__item"><a href="component.html">Component</a></li>
     <li class="_c-menu__item"><a href="utility.html">Utility</a></li>
+    <li class="_c-menu__item"><a href="placeholder.html">Placeholder</a></li>
     <li class="_c-menu__item"><a href="mixin.html">Mixin</a></li>
     <li class="_c-menu__item"><a href="function.html">Function</a></li>
   </ul>
@@ -125,10 +126,12 @@
 
               <section class="c-section c-section--border" id="wrappers">
                 <h1 class="c-section__h1">Wrappers</h1>
+                <h2 class="c-section__h2">container</h2>
                 <pre><code>&lt;div class="_c-container"&gt;
   ...
 &lt/div&gt;</code></pre>
 
+                <h2 class="c-section__h2">Fluid container</h2>
                 <pre><code>&lt;div class="_c-container-fluid"&gt;
   ...
 &lt/div&gt;</code></pre>
@@ -226,7 +229,7 @@
                       @
                     </div>
                     <div class="_c-input-group__field">
-                      <input type="text" class="_c-input-group__control" placeholder="text" />
+                      <input type="text" placeholder="text" />
                     </div>
                     <button class="_c-input-group__btn">Go</button>
                   </div>
@@ -1084,7 +1087,7 @@ or
             <aside id="sub" class="_l-sub" role="complementary">
 
               <section class="p-local-nav">
-                <h1 class="p-local-nav__title">Foundation</h1>
+                <h1 class="p-local-nav__title">Component</h1>
                 <ul class="p-local-nav__menu">
                   <li class="p-local-nav__item"><a href="#wrappers">Wrappers</a></li></li>
                   <li class="p-local-nav__item"><a href="#forms">Forms</a></li></li>

@@ -554,25 +554,57 @@ textarea._c-form-control {
   flex: 1;
   border: 1px solid #ccc;
 }
-._c-input-group__control {
+._c-input-group__field > input[type='email'],
+._c-input-group__field > input[type='number'],
+._c-input-group__field > input[type='password'],
+._c-input-group__field > input[type='search'],
+._c-input-group__field > input[type='tel'],
+._c-input-group__field > input[type='text'],
+._c-input-group__field > input[type='url'] {
   background-color: #fff;
   border: 1px solid #ccc;
   -ms-flex: 1;
   flex: 1;
   width: 100%;
   border: none;
-  padding: 0.375rem 0.75rem;
 }
-._c-input-group__control[disabled] {
+._c-input-group__field > input[type='email'][disabled],
+._c-input-group__field > input[type='number'][disabled],
+._c-input-group__field > input[type='password'][disabled],
+._c-input-group__field > input[type='search'][disabled],
+._c-input-group__field > input[type='tel'][disabled],
+._c-input-group__field > input[type='text'][disabled],
+._c-input-group__field > input[type='url'][disabled] {
   background-color: #eee;
   cursor: not-allowed;
 }
-._c-input-group__control[readonly] {
+._c-input-group__field > input[type='email'][readonly],
+._c-input-group__field > input[type='number'][readonly],
+._c-input-group__field > input[type='password'][readonly],
+._c-input-group__field > input[type='search'][readonly],
+._c-input-group__field > input[type='tel'][readonly],
+._c-input-group__field > input[type='text'][readonly],
+._c-input-group__field > input[type='url'][readonly] {
   background-color: #eee;
 }
-textarea._c-input-group__control {
+textarea._c-input-group__field > input[type='email'],
+textarea._c-input-group__field > input[type='number'],
+textarea._c-input-group__field > input[type='password'],
+textarea._c-input-group__field > input[type='search'],
+textarea._c-input-group__field > input[type='tel'],
+textarea._c-input-group__field > input[type='text'],
+textarea._c-input-group__field > input[type='url'] {
   height: auto;
   width: 100%;
+}
+._c-input-group__field > input[type='email'],
+._c-input-group__field > input[type='number'],
+._c-input-group__field > input[type='password'],
+._c-input-group__field > input[type='search'],
+._c-input-group__field > input[type='tel'],
+._c-input-group__field > input[type='text'],
+._c-input-group__field > input[type='url'] {
+  padding: 0.375rem 0.75rem;
 }
 ._c-input-group__btn {
   display: inline-block;
