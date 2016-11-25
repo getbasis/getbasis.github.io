@@ -1,0 +1,51 @@
+_loading-z-index  = 1000000;
+_loading-duration = .2s; // Must be the same as js location duration time.
+
+[data-c="loading"] {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: _loading-z-index;
+
+  &[data-loading-effect="fade"][aria-hidden="true"] {
+    opacity: 0;
+    z-index: -1;
+    animation: _loading-fadeout (_loading-duration * 2) ease-in 0s;
+  }
+
+  &[data-loading-effect="fade"][aria-hidden="false"] {
+    opacity: 1;
+    z-index: _loading-z-index;
+    animation: _loading-fadein _loading-duration ease-in 0s;
+  }
+}
+
+[data-c="loading__item"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes _loading-fadeout {
+  0% {
+    z-index: _loading-z-index;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes _loading-fadein {
+  0% {
+    z-index: _loading-z-index;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
