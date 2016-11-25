@@ -10568,6 +10568,10 @@ return jQuery;
 },{}],6:[function(require,module,exports){
 'use strict';
 
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _drawer = require('../../node_modules/getbasis-drawer/src/js/drawer.js');
 
 var _drawer2 = _interopRequireDefault(_drawer);
@@ -10584,6 +10588,10 @@ var _menu = require('../../node_modules/getbasis-menu/src/js/menu.js');
 
 var _menu2 = _interopRequireDefault(_menu);
 
+var _loading = require('./loading.js');
+
+var _loading2 = _interopRequireDefault(_loading);
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
@@ -10592,5 +10600,99 @@ new _drawer2.default();
 new _fixedHeader2.default();
 new _stickyHeader2.default();
 new _menu2.default();
+new _loading2.default();
 
-},{"../../node_modules/getbasis-drawer/src/js/drawer.js":1,"../../node_modules/getbasis-layout/src/js/fixed-header.js":2,"../../node_modules/getbasis-layout/src/js/sticky-header.js":3,"../../node_modules/getbasis-menu/src/js/menu.js":4}]},{},[6]);
+},{"../../node_modules/getbasis-drawer/src/js/drawer.js":1,"../../node_modules/getbasis-layout/src/js/fixed-header.js":2,"../../node_modules/getbasis-layout/src/js/sticky-header.js":3,"../../node_modules/getbasis-menu/src/js/menu.js":4,"./loading.js":7,"jquery":5}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+var BasisLoading = function () {
+  function BasisLoading() {
+    _classCallCheck(this, BasisLoading);
+
+    this.container = (0, _jquery2.default)('[data-c="loading"]');
+    this.pageOutObject = (0, _jquery2.default)('[data-page-effect-link="true"], a[href]:not([target="_blank"], [href^="#"], [href*="javascript"], [href*=".jpg"], [href*=".jpeg"], [href*=".gif"], [href*=".png"], [href*=".mov"], [href*=".swf"], [href*=".mp4"], [href*=".flv"], [href*=".avi"], [href*=".mp3"], [href*=".pdf"], [href*=".zip"], [href^="mailto:"], [data-page-effect-link="false"])');
+    this.setListener();
+  }
+
+  _createClass(BasisLoading, [{
+    key: 'setListener',
+    value: function setListener() {
+      var _this = this;
+
+      (0, _jquery2.default)(window).on('load', function (event) {
+        _this.hide();
+      });
+
+      this.pageOutObject.each(function (i, e) {
+        var link = (0, _jquery2.default)(e);
+        link.on('click', function (event) {
+          event.preventDefault();
+          _this.show();
+          var url = link.attr('href');
+          _this.location(url);
+        });
+      });
+    }
+  }, {
+    key: 'location',
+    value: function (_location) {
+      function location(_x) {
+        return _location.apply(this, arguments);
+      }
+
+      location.toString = function () {
+        return _location.toString();
+      };
+
+      return location;
+    }(function (url) {
+      setTimeout(function () {
+        location.href = url;
+      }, 200);
+    })
+  }, {
+    key: 'hide',
+    value: function hide() {
+      this.container.attr('aria-hidden', 'true');
+    }
+  }, {
+    key: 'show',
+    value: function show() {
+      this.container.attr('aria-hidden', 'false');
+    }
+  }]);
+
+  return BasisLoading;
+}();
+
+exports.default = BasisLoading;
+
+},{"jquery":5}]},{},[6]);
