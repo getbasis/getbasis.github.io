@@ -6,10 +6,10 @@ import BasisDrawer from '../../node_modules/getbasis-drawer/src/js/drawer.js';
 import BasisFixedHeader from '../../node_modules/getbasis-layout/src/js/fixed-header.js';
 import BasisStickyHeader from '../../node_modules/getbasis-layout/src/js/sticky-header.js';
 import BasisMenu from '../../node_modules/getbasis-menu/src/js/menu.js';
-import BasisLoading from './loading.js';
+import BasisPageEffect from '../../node_modules/getbasis-page-effect/src/js/page-effect.js';
 
 new BasisDrawer();
 new BasisFixedHeader();
 new BasisStickyHeader();
 new BasisMenu();
-new BasisLoading();
+new BasisPageEffect();
