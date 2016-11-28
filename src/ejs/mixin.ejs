@@ -407,9 +407,15 @@ input[type="text"], textarea {
                 <pre><code>//
 // Ghost style
 //
+// @param  hash  properties for decoration
+//
 .c-btn-ghost {
   _btn();
-  _ghost();
+  _ghost({
+    border-size : 1px,
+    border-color: #fff,
+    color       : #fff,
+  });
 }</code></pre>
               </section>
 
