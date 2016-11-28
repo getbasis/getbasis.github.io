@@ -29,7 +29,6 @@
   "dependencies": {
     "getbasis": "git://github.com/getbasis/basis.git#develop",
     "getbasis-drawer": "^4.0.0",
-    "getbasis-hamburger-btn": "^2.0.0",
     "getbasis-layout": "^6.0.1",
     "getbasis-menu": "^3.0.0",
     "getbasis-page-effect": "^1.0.0",
