@@ -22,22 +22,22 @@
                 <h1 class="c-section__h1">Alert</h1>
 
                 <pre><code>//
-// Alert component
+// The alert component
 //
 .c-alert {
   @extend $_alert;
 }
 
-&lt;alert class="c-alert" role="alert"&gt;
+&lt;div class="c-alert" role="alert"&gt;
   ...
-&lt;/alert&gt;</code></pre>
+&lt;/div&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="balloon">
                 <h1 class="c-section__h1">Balloon</h1>
                 <h2 class="c-section__h2">Top</h2>
                 <pre><code>//
-// Top balloon component
+// The top balloon component
 //
 .c-balloon-top {
   @extend $_balloon-top;
@@ -49,7 +49,7 @@
 
                 <h2 class="c-section__h2">Right</h2>
                 <pre><code>//
-// Right balloon component
+// The right balloon component
 //
 .c-balloon-right {
   @extend $_balloon-right;
@@ -61,7 +61,7 @@
 
                 <h2 class="c-section__h2">Bottom</h2>
                 <pre><code>//
-// Bottom balloon component
+// The bottom balloon component
 //
 .c-balloon-bottom {
   @extend $_balloon-bottom;
@@ -74,7 +74,7 @@
 
                 <h2 class="c-section__h2">Left</h2>
                 <pre><code>//
-// Left balloon component
+// The left balloon component
 //
 .c-balloon-left {
   @extend $_balloon-left;
@@ -89,7 +89,7 @@
                 <h1 class="c-section__h1">Button</h1>
 
                 <pre><code>//
-// Button component
+// The button component
 //
 .c-btn {
   @extend $_btn;
@@ -102,28 +102,38 @@
                 <h1 class="c-section__h1">Card</h1>
 
                 <pre><code>//
-// Card component
+// The card component
 //
 .c-card {
   @extend $_card;
 }
 
-&lt;a class="c-btn" role="button"&gt;btn&lt;/a&gt;</code></pre>
+&lt;div class="c-card"&gt;
+ &lt;div class="c-card__figure"&gt;
+   &lt;img ...&gt;
+ &lt;/div&gt;
+ &lt;div class="c-card__body"&gt;
+   ...
+ &lt;/div&gt;
+ &lt;div class="c-card__action"&gt;
+   ...
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="checkbox">
                 <h1 class="c-section__h1">Checkbox</h1>
 
                 <pre><code>//
-// Checkbox component
+// The checkbox component
 //
 .c-checkbox {
   @extend $_checkbox;
 }
 
-&lt;span class="c-checkbox" data-c="checkbox"&gt;
+&lt;span class="c-checkbox"&gt;
   &lt;input type="checkbox"&gt;
-  &lt;label data-c="checkbox__label"&gt;Label&lt;/label&gt;
+  &lt;label class="c-checkbox__label"&gt;Label&lt;/label&gt;
 &lt;/span&gt;</code></pre>
               </section>
 
@@ -132,7 +142,7 @@
                 <h2 class="c-section__h2">Container</h2>
 
                 <pre><code>//
-// Container component
+// The container component
 //
 .c-container {
   @extend $_container;
@@ -145,7 +155,7 @@
                 <h2 class="c-section__h2">Fluid container</h2>
 
                 <pre><code>//
-// Fluid container component
+// The fluid container component
 //
 .c-container-fluid {
   @extend $_container-fluid;
@@ -160,7 +170,7 @@
                 <h1 class="c-section__h1">Flexible media</h1>
 
                 <pre><code>//
-// Media component. When smartphone size, vertically aligned.
+// The media component. When smartphone size, vertically aligned.
 //
 .c-flex-media {
   @extend $_flex-media;
@@ -180,7 +190,7 @@
                 <h1 class="c-section__h1">Form control</h1>
 
                 <pre><code>//
-// Form control component
+// The form control component
 //
 .c-form-control {
   @extend $_form-control;
@@ -193,13 +203,13 @@
                 <h1 class="c-section__h1">Hamburger Button</h1>
 
                 <pre><code>//
-// Hamberger button component
+// The hamberger button component
 //
 .c-hamburger-btn {
-  @extend $_hamburger-btn();
+  @extend $_hamburger-btn;
 }
 
-&lt;div class="_c-hamburger-btn" aria-expanded="false"&gt;
+&lt;div class="_c-hamburger-btn" role="button" aria-expanded="false"&gt;
   &lt;div class="_c-hamburger-btn__bar"&gt;&lt;/div&gt;
   &lt;div class="_c-hamburger-btn__bar"&gt;&lt;/div&gt;
   &lt;div class="_c-hamburger-btn__bar"&gt;&lt;/div&gt;
@@ -210,7 +220,7 @@
                 <h1 class="c-section__h1">Hero</h1>
 
                 <pre><code>//
-// Hero component
+// The hero component
 //
 .c-hero {
   @extend $_hero;
@@ -227,18 +237,18 @@
                 <h1 class="c-section__h1">Input group</h1>
 
                 <pre><code>//
-// Input group component
+// The input group component
 //
 .c-input-group {
   @extend $_input-group;
 }
 
 &lt;div class="c-input-group"&gt;
-  &lt;div class="c-input-group__addon">@&lt;/div&gt;
+  &lt;div class="c-input-group__addon"&gt;@&lt;/div&gt;
   &lt;div class="c-input-group__field"&gt;
     &lt;input type="text"&gt;
   &lt;/div&gt;
-  &lt;button class="c-input-group__btn">Go&lt;/button&gt;
+  &lt;button class="c-input-group__btn"&gt;Go&lt;/button&gt;
 &lt;/div&gt;</code></pre>
               </section>
 
@@ -246,7 +256,7 @@
                 <h1 class="c-section__h1">Media</h1>
 
                 <pre><code>//
-// Media component
+// The media component
 //
 .c-media {
   @extend $_media;
@@ -266,15 +276,15 @@
                 <h1 class="c-section__h1">Radio</h1>
 
                 <pre><code>//
-// Radio component
+// The radio component
 //
 .c-radio {
   @extend $_radio;
 }
 
-&lt;span class="c-radio" data-c="radio"&gt;
+&lt;span class="c-radio"&gt;
   &lt;input type="radio"&gt;
-  &lt;label data-c="radio__label"&gt;Label&lt;/label&gt;
+  &lt;label class="c-radio__label"&gt;Label&lt;/label&gt;
 &lt;/span&gt;</code></pre>
               </section>
 
@@ -282,7 +292,7 @@
                 <h1 class="c-section__h1">Grid</h1>
 
                 <pre><code>//
-// Grid component
+// The grid component
 //
 .c-row {
   @extend $_row;
@@ -299,7 +309,7 @@
                 <h1 class="c-section__h1">Select</h1>
 
                 <pre><code>//
-// Select component
+// The select component
 //
 .c-select {
   @extend $_select;
