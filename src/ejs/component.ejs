@@ -189,6 +189,53 @@
 &lt;/div&gt;</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="drawer">
+                <h1 class="c-section__h1">Drawer <span class="c-label">JS</span></h1>
+                <pre><code>&lt;div class=&quot;_c-drawer&quot; data-c=&quot;drawer&quot;&gt;
+  &lt;nav id=&quot;drawer&quot; class=&quot;_c-drawer__body&quot; data-c=&quot;drawer__body&quot; role=&quot;navigation&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;ul class=&quot;_c-drawer__menu&quot;&gt;
+      &lt;li class=&quot;_c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;_c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;_c-drawer__item&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;
+        &lt;div class=&quot;_c-drawer__toggle&quot; data-c=&quot;drawer__toggle&quot; aria-expanded=&quot;false&quot;&gt;&gt;&lt;/div&gt;
+        &lt;ul class=&quot;_c-drawer__submenu&quot; data-c=&quot;drawer__submenu&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;li class=&quot;_c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;_c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;_c-hamburger-btn&quot; data-c=&quot;drawer-btn&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;drawer&quot;&gt;&lt;/div&gt;</code></pre>
+
+                <div class="_c-drawer" data-c="drawer" style="border: 1px solid #ccc; height: 160px; overflow: hidden; margin-bottom: 5px;">
+                  <nav id="___drawer" class="_c-drawer__body" data-c="drawer__body" role="navigation" aria-hidden="true">
+                    <ul class="_c-drawer__menu">
+                      <li class="_c-drawer__item"><a href="#">menu</a></li>
+                      <li class="_c-drawer__item"><a href="#">menu</a></li>
+                      <li class="_c-drawer__item">
+                        <a href="#">menu</a>
+                        <div class="_c-drawer__toggle" data-c="drawer__toggle" aria-expanded="false">
+                          <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        </div>
+                        <ul class="_c-drawer__submenu" data-c="drawer__submenu" aria-hidden="true">
+                          <li class="_c-drawer__subitem"><a href="#">submenu</a></li>
+                          <li class="_c-drawer__subitem"><a href="#">submenu</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <div class="_c-hamburger-btn" data-c="drawer-btn" aria-expanded="false" aria-controls="___drawer">
+                  <div class="_c-hamburger-btn__bar"></div>
+                  <div class="_c-hamburger-btn__bar"></div>
+                  <div class="_c-hamburger-btn__bar"></div>
+                </div>
+              </section>
+
               <section class="c-section c-section--border" id="flex-media">
                 <h1 class="c-section__h1">Flexible Media</h1>
                 <h2 class="c-section__h2">Standard</h2>
@@ -1190,6 +1237,7 @@ or
                   <li class="p-local-nav__item"><a href="#card">Card</a></li>
                   <li class="p-local-nav__item"><a href="#checkbox">Checkbox</a></li>
                   <li class="p-local-nav__item"><a href="#wrappers">Wrappers</a></li>
+                  <li class="p-local-nav__item"><a href="#drawer">Drawer</a></li>
                   <li class="p-local-nav__item"><a href="#flex-media">Flexible Media</a></li>
                   <li class="p-local-nav__item"><a href="#form-control">Form Control</a></li>
                   <li class="p-local-nav__item"><a href="#hamburger-btn">Hamburger Button</a></li>

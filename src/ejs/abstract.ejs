@@ -199,6 +199,45 @@
 &lt;/div&gt;</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="_drawer">
+                <h1 class="c-section__h1">_drawer <span class="c-label">JS</span></h1>
+
+                <pre><code>//
+// The drawer component
+//
+// @param  hash  properties for decoration
+//
+.c-drawer {
+  _drawer({
+    background-color: _light(_color-black),
+    width           : (_base-line-height * 10),
+    max-width       : 80%,
+  });
+}
+
+import BasisDrawer from 'node_modules/getbasis/src/js/drawer.js';
+new BasisDrawer();
+
+&lt;div class=&quot;_c-drawer&quot; data-c=&quot;drawer&quot;&gt;
+  &lt;nav id=&quot;drawer&quot; class=&quot;_c-drawer__body&quot; data-c=&quot;drawer__body&quot; role=&quot;navigation&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;ul class=&quot;_c-drawer__menu&quot;&gt;
+      &lt;li class=&quot;_c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;_c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;_c-drawer__item&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;
+        &lt;div class=&quot;_c-drawer__toggle&quot; data-c=&quot;drawer__toggle&quot; aria-expanded=&quot;false&quot;&gt;&gt;&lt;/div&gt;
+        &lt;ul class=&quot;_c-drawer__submenu&quot; data-c=&quot;drawer__submenu&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;li class=&quot;_c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;_c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;_c-hamburger-btn&quot; data-c=&quot;drawer-btn&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;drawer&quot;&gt;&lt;/div&gt;</code></pre>
+              </section>
+
               <section class="c-section c-section--border" id="_flex-media">
                 <h1 class="c-section__h1">_flex-media</h1>
 
@@ -514,6 +553,7 @@ _row--margin(coefficient)
                   <li class="p-local-nav__item"><a href="#_card">_card</a></li>
                   <li class="p-local-nav__item"><a href="#_checkbox">_checkbox</a></li>
                   <li class="p-local-nav__item"><a href="#_container">_container</a></li>
+                  <li class="p-local-nav__item"><a href="#_drawer">_drawer</a></li>
                   <li class="p-local-nav__item"><a href="#_flex-media">_flex-media</a></li>
                   <li class="p-local-nav__item"><a href="#_form-control">_form-control</a></li>
                   <li class="p-local-nav__item"><a href="#_hamburger-btn">_hamburger-btn</a></li>
