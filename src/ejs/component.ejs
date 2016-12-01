@@ -191,7 +191,10 @@
 
               <section class="c-section c-section--border" id="drawer">
                 <h1 class="c-section__h1">Drawer <span class="c-label">JS</span></h1>
-                <pre><code>&lt;div class=&quot;_c-drawer&quot; data-c=&quot;drawer&quot;&gt;
+                <pre><code>import BasisDrawer from 'node_modules/getbasis/src/js/drawer.js';
+new BasisDrawer();
+
+&lt;div class=&quot;_c-drawer&quot; data-c=&quot;drawer&quot;&gt;
   &lt;nav id=&quot;drawer&quot; class=&quot;_c-drawer__body&quot; data-c=&quot;drawer__body&quot; role=&quot;navigation&quot; aria-hidden=&quot;true&quot;&gt;
     &lt;ul class=&quot;_c-drawer__menu&quot;&gt;
       &lt;li class=&quot;_c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
@@ -606,6 +609,18 @@
                     </div>
                   </div>
                 </div>
+              </section>
+
+              <section class="c-section c-section--border" id="page-effect">
+                <h1 class="c-section__h1">Page Effect <span class="c-label">JS</span></h1>
+                <pre><code>import BasisPageEffect from 'node_modules/getbasis/src/js/page-effect.js';
+new BasisPageEffect();
+
+&lt;div class=&quot;c-page-effect&quot; data-c=&quot;page-effect&quot; data-page-effect=&quot;fadein&quot; aria-hidden=&quot;false&quot;&gt;
+  &lt;div class=&quot;c-page-effect__item&quot;&gt;
+    Loading...
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="radio">
@@ -1244,6 +1259,7 @@ or
                   <li class="p-local-nav__item"><a href="#hero">Hero</a></li>
                   <li class="p-local-nav__item"><a href="#input-group">Input Group</a></li>
                   <li class="p-local-nav__item"><a href="#media">Media</a></li>
+                  <li class="p-local-nav__item"><a href="#page-effect">Page Effect</a></li>
                   <li class="p-local-nav__item"><a href="#radio">Radio</a></li>
                   <li class="p-local-nav__item"><a href="#grid-system">Grid System</a></li>
                   <li class="p-local-nav__item"><a href="#select">Select</a></li>

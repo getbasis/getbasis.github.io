@@ -382,6 +382,31 @@ new BasisDrawer();
 &lt;/span&gt;</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="_page-effect">
+                <h1 class="c-section__h1">_page-effect <span class="c-label">JS</span></h1>
+
+                <pre><code>//
+// The page effect component
+//
+// @param  hash  properties for decoration
+//
+.c-page-effect {
+  _page-effect({
+    duration: .2s,
+    color   : #fff,
+  });
+}
+
+import BasisPageEffect from 'node_modules/getbasis/src/js/page-effect.js';
+new BasisPageEffect();
+
+&lt;div class=&quot;c-page-effect&quot; data-c=&quot;page-effect&quot; data-page-effect=&quot;fadein&quot; aria-hidden=&quot;false&quot;&gt;
+  &lt;div class=&quot;c-page-effect__item&quot;&gt;
+    Loading...
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </section>
+
               <section class="c-section c-section--border" id="_row">
                 <h1 class="c-section__h1">_row</h1>
 
@@ -560,6 +585,7 @@ _row--margin(coefficient)
                   <li class="p-local-nav__item"><a href="#_hero">_hero</a></li>
                   <li class="p-local-nav__item"><a href="#_input-group">_input-group</a></li>
                   <li class="p-local-nav__item"><a href="#_media">_media</a></li>
+                  <li class="p-local-nav__item"><a href="#_page-effect">_page-effect</a></li>
                   <li class="p-local-nav__item"><a href="#_radio">_radio</a></li>
                   <li class="p-local-nav__item"><a href="#_row">_row</a></li>
                   <li class="p-local-nav__item"><a href="#_select">_select</a></li>
