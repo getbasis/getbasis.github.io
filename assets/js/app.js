@@ -1,130 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var BasisDrawer = function () {
-  function BasisDrawer() {
-    _classCallCheck(this, BasisDrawer);
-
-    this.setIdForSubmenu();
-    this.setListener();
-  }
-
-  _createClass(BasisDrawer, [{
-    key: 'setListener',
-    value: function setListener() {
-      var _this = this;
-
-      var btns = (0, _jquery2.default)('[data-c="drawer-btn"][aria-controls]');
-      btns.each(function (i, e) {
-        var btn = (0, _jquery2.default)(e);
-        var drawer = (0, _jquery2.default)(btn.attr('aria-controls'));
-        var container = drawer.parent('[data-c="drawer"]');
-
-        container.on('click', function (event) {
-          _this.close(btn);
-          _this.hidden(drawer);
-          _this.close(drawer.find('[data-c="drawer__toggle"]'));
-          _this.hidden(drawer.find('[data-c="drawer__submenu"]'));
-        });
-
-        drawer.on('click', function (event) {
-          event.stopPropagation();
-        });
-
-        btn.on('click', function (event) {
-          event.preventDefault();
-          _this.toggleMenu(btn);
-          event.stopPropagation();
-        });
-
-        (0, _jquery2.default)(window).on('resize', function (event) {
-          _this.hidden(drawer);
-          _this.close(btn);
-        });
-
-        var toggleBtns = (0, _jquery2.default)('[data-c="drawer__toggle"][aria-controls]');
-        toggleBtns.each(function (i, e) {
-          var toggleBtn = (0, _jquery2.default)(e);
-          var submenu = (0, _jquery2.default)(toggleBtn.attr('aria-controls'));
-          toggleBtn.on('click', function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            _this.toggleMenu(toggleBtn);
-          });
-        });
-      });
-    }
-  }, {
-    key: 'toggleMenu',
-    value: function toggleMenu(btn) {
-      var menu = (0, _jquery2.default)(btn.attr('aria-controls'));
-      if ('false' == btn.attr('aria-expanded')) {
-        this.open(btn);
-        this.show(menu);
-      } else {
-        this.close(btn);
-        this.hidden(menu);
-        this.close(menu.find('[data-c="drawer__toggle"]'));
-        this.hidden(menu.find('[data-c="drawer__submenu"]'));
-      }
-    }
-  }, {
-    key: 'open',
-    value: function open(target) {
-      target.attr('aria-expanded', 'true');
-    }
-  }, {
-    key: 'close',
-    value: function close(target) {
-      target.attr('aria-expanded', 'false');
-    }
-  }, {
-    key: 'show',
-    value: function show(target) {
-      target.attr('aria-hidden', 'false');
-    }
-  }, {
-    key: 'hidden',
-    value: function hidden(target) {
-      target.attr('aria-hidden', 'true');
-    }
-  }, {
-    key: 'setIdForSubmenu',
-    value: function setIdForSubmenu() {
-      (0, _jquery2.default)('[data-c="drawer__submenu"][aria-hidden]').each(function (i, e) {
-        var random = Math.floor(Math.random() * (9999999 - 1000000) + 1000000);
-        var time = new Date().getTime();
-        var id = 'drawer-' + time + random;
-        var submenu = (0, _jquery2.default)(e);
-        var toggleBtn = submenu.siblings('[data-c="drawer__toggle"]');
-        if (submenu.length && toggleBtn.length) {
-          submenu.attr('id', id);
-          toggleBtn.attr('aria-controls', '#' + id);
-        }
-      });
-    }
-  }]);
-
-  return BasisDrawer;
-}();
-
-exports.default = BasisDrawer;
-
-},{"jquery":6}],2:[function(require,module,exports){
 /**
  * IF "disable-window-scroll", to set the intended header width.
  */
@@ -188,7 +62,7 @@ var BasisFixedHeader = function () {
 
 exports.default = BasisFixedHeader;
 
-},{"jquery":6}],3:[function(require,module,exports){
+},{"jquery":6}],2:[function(require,module,exports){
 /**
  * This is for the sticky header.
  */
@@ -282,7 +156,7 @@ var BasisStickyHeader = function () {
 
 exports.default = BasisStickyHeader;
 
-},{"jquery":6}],4:[function(require,module,exports){
+},{"jquery":6}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -343,6 +217,132 @@ var BasisMenu = function () {
 
 exports.default = BasisMenu;
 
+},{"jquery":6}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BasisDrawer = function () {
+  function BasisDrawer() {
+    _classCallCheck(this, BasisDrawer);
+
+    this.setIdForSubmenu();
+    this.setListener();
+  }
+
+  _createClass(BasisDrawer, [{
+    key: 'setListener',
+    value: function setListener() {
+      var _this = this;
+
+      var btns = (0, _jquery2.default)('[data-c="drawer-btn"][aria-controls]');
+      btns.each(function (i, e) {
+        var btn = (0, _jquery2.default)(e);
+        var drawer = (0, _jquery2.default)('#' + btn.attr('aria-controls'));
+        var container = drawer.parent('[data-c="drawer"]');
+
+        container.on('click', function (event) {
+          _this.close(btn);
+          _this.hidden(drawer);
+          _this.close(drawer.find('[data-c="drawer__toggle"]'));
+          _this.hidden(drawer.find('[data-c="drawer__submenu"]'));
+        });
+
+        drawer.on('click', function (event) {
+          event.stopPropagation();
+        });
+
+        btn.on('click', function (event) {
+          event.preventDefault();
+          _this.toggleMenu(btn);
+          event.stopPropagation();
+        });
+
+        (0, _jquery2.default)(window).on('resize', function (event) {
+          _this.hidden(drawer);
+          _this.close(btn);
+        });
+      });
+
+      var toggleBtns = (0, _jquery2.default)('[data-c="drawer__toggle"][aria-controls]');
+      toggleBtns.each(function (i, e) {
+        var toggleBtn = (0, _jquery2.default)(e);
+        var submenu = (0, _jquery2.default)('#' + toggleBtn.attr('aria-controls'));
+        toggleBtn.on('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          _this.toggleMenu(toggleBtn);
+        });
+      });
+    }
+  }, {
+    key: 'toggleMenu',
+    value: function toggleMenu(btn) {
+      var menu = (0, _jquery2.default)('#' + btn.attr('aria-controls'));
+      if ('false' == btn.attr('aria-expanded')) {
+        this.open(btn);
+        this.show(menu);
+      } else {
+        this.close(btn);
+        this.hidden(menu);
+        this.close(menu.find('[data-c="drawer__toggle"]'));
+        this.hidden(menu.find('[data-c="drawer__submenu"]'));
+      }
+    }
+  }, {
+    key: 'open',
+    value: function open(target) {
+      target.attr('aria-expanded', 'true');
+    }
+  }, {
+    key: 'close',
+    value: function close(target) {
+      target.attr('aria-expanded', 'false');
+    }
+  }, {
+    key: 'show',
+    value: function show(target) {
+      target.attr('aria-hidden', 'false');
+    }
+  }, {
+    key: 'hidden',
+    value: function hidden(target) {
+      target.attr('aria-hidden', 'true');
+    }
+  }, {
+    key: 'setIdForSubmenu',
+    value: function setIdForSubmenu() {
+      (0, _jquery2.default)('[data-c="drawer__submenu"][aria-hidden]').each(function (i, e) {
+        var random = Math.floor(Math.random() * (9999999 - 1000000) + 1000000);
+        var time = new Date().getTime();
+        var id = 'drawer-' + time + random;
+        var submenu = (0, _jquery2.default)(e);
+        var toggleBtn = submenu.siblings('[data-c="drawer__toggle"]');
+        if (submenu.length && toggleBtn.length) {
+          submenu.attr('id', id);
+          toggleBtn.attr('aria-controls', '' + id);
+        }
+      });
+    }
+  }]);
+
+  return BasisDrawer;
+}();
+
+exports.default = BasisDrawer;
+
 },{"jquery":6}],5:[function(require,module,exports){
 'use strict';
 
@@ -361,9 +361,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var BasisPageEffect = function () {
-  function BasisPageEffect() {
+  function BasisPageEffect(params) {
     _classCallCheck(this, BasisPageEffect);
 
+    this.params = _jquery2.default.extend({
+      duration: 200
+    }, params);
     this.container = (0, _jquery2.default)('[data-c="page-effect"]');
     this.pageOutObject = (0, _jquery2.default)('[data-page-effect-link="true"], a[href]:not([target="_blank"], [href^="#"], [href*="javascript"], [href*=".jpg"], [href*=".jpeg"], [href*=".gif"], [href*=".png"], [href*=".mov"], [href*=".swf"], [href*=".mp4"], [href*=".flv"], [href*=".avi"], [href*=".mp3"], [href*=".pdf"], [href*=".zip"], [href^="mailto:"], [data-page-effect-link="false"])');
     this.setListener();
@@ -381,6 +384,10 @@ var BasisPageEffect = function () {
       this.pageOutObject.each(function (i, e) {
         var link = (0, _jquery2.default)(e);
         link.on('click', function (event) {
+          if (event.shiftKey || event.ctrlKey || event.metaKey) {
+            return;
+          }
+
           event.preventDefault();
           _this.show();
           var url = link.attr('href');
@@ -403,17 +410,17 @@ var BasisPageEffect = function () {
     }(function (url) {
       setTimeout(function () {
         location.href = url;
-      }, 200);
+      }, this.params['duration']);
     })
   }, {
     key: 'hide',
     value: function hide() {
-      this.container.attr('aria-hidden', 'true');
+      this.container.attr('aria-hidden', 'true').attr('data-page-effect', 'fadein');
     }
   }, {
     key: 'show',
     value: function show() {
-      this.container.attr('aria-hidden', 'false');
+      this.container.attr('aria-hidden', 'false').attr('data-page-effect', 'fadeout');
     }
   }]);
 
@@ -10651,7 +10658,7 @@ var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _drawer = require('../../node_modules/getbasis-drawer/src/js/drawer.js');
+var _drawer = require('../../node_modules/getbasis/src/js/drawer.js');
 
 var _drawer2 = _interopRequireDefault(_drawer);
 
@@ -10667,7 +10674,7 @@ var _menu = require('../../node_modules/getbasis-menu/src/js/menu.js');
 
 var _menu2 = _interopRequireDefault(_menu);
 
-var _pageEffect = require('../../node_modules/getbasis-page-effect/src/js/page-effect.js');
+var _pageEffect = require('../../node_modules/getbasis/src/js/page-effect.js');
 
 var _pageEffect2 = _interopRequireDefault(_pageEffect);
 
@@ -10681,4 +10688,4 @@ new _stickyHeader2.default();
 new _menu2.default();
 new _pageEffect2.default();
 
-},{"../../node_modules/getbasis-drawer/src/js/drawer.js":1,"../../node_modules/getbasis-layout/src/js/fixed-header.js":2,"../../node_modules/getbasis-layout/src/js/sticky-header.js":3,"../../node_modules/getbasis-menu/src/js/menu.js":4,"../../node_modules/getbasis-page-effect/src/js/page-effect.js":5,"jquery":6}]},{},[7]);
+},{"../../node_modules/getbasis-layout/src/js/fixed-header.js":1,"../../node_modules/getbasis-layout/src/js/sticky-header.js":2,"../../node_modules/getbasis-menu/src/js/menu.js":3,"../../node_modules/getbasis/src/js/drawer.js":4,"../../node_modules/getbasis/src/js/page-effect.js":5,"jquery":6}]},{},[7]);
