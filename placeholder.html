@@ -57,16 +57,16 @@
       </div>
       <div class="_c-row__col _c-row__col--md-3-4 _u-hidden-sm _u-hidden-md">
         <div class="p-global-nav _u-pull-right" role="navigation">
-  <ul class="_c-menu _c-menu--bar _c-menu--auto" data-c="menu">
-    <li class="_c-menu__item"><a href="/">Home</a></li>
-    <li class="_c-menu__item"><a href="getstarted.html">Get Started</a></li>
-    <li class="_c-menu__item"><a href="foundation.html">Foundation</a></li>
-    <li class="_c-menu__item"><a href="component.html">Component</a></li>
-    <li class="_c-menu__item"><a href="utility.html">Utility</a></li>
-    <li class="_c-menu__item"><a href="placeholder.html">Placeholder</a></li>
-    <li class="_c-menu__item"><a href="abstract.html">Abstract</a></li>
-    <li class="_c-menu__item"><a href="mixin.html">Mixin</a></li>
-    <li class="_c-menu__item"><a href="function.html">Function</a></li>
+  <ul class="_c-navbar _c-navbar--auto">
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="/">Home</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="getstarted.html">Get Started</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="foundation.html">Foundation</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="component.html">Component</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="utility.html">Utility</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="placeholder.html">Placeholder</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="abstract.html">Abstract</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="mixin.html">Mixin</a></li>
+    <li class="_c-navbar__item" data-c="navbar__item"><a href="function.html">Function</a></li>
   </ul>
 </div>
 
@@ -261,17 +261,17 @@
 import BasisDrawer from 'node_modules/getbasis/src/js/drawer.js';
 new BasisDrawer();
 
-&lt;div class=&quot;_c-drawer&quot; data-c=&quot;drawer&quot;&gt;
-  &lt;nav id=&quot;drawer&quot; class=&quot;_c-drawer__body&quot; data-c=&quot;drawer__body&quot; role=&quot;navigation&quot; aria-hidden=&quot;true&quot;&gt;
-    &lt;ul class=&quot;_c-drawer__menu&quot;&gt;
-      &lt;li class=&quot;_c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
-      &lt;li class=&quot;_c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
-      &lt;li class=&quot;_c-drawer__item&quot;&gt;
+&lt;div class=&quot;c-drawer&quot; data-c=&quot;drawer&quot;&gt;
+  &lt;nav id=&quot;drawer&quot; class=&quot;c-drawer__body&quot; data-c=&quot;drawer__body&quot; role=&quot;navigation&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;ul class=&quot;c-drawer__menu&quot;&gt;
+      &lt;li class=&quot;c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
+      &lt;li class=&quot;c-drawer__item&quot;&gt;
         &lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;
-        &lt;div class=&quot;_c-drawer__toggle&quot; data-c=&quot;drawer__toggle&quot; aria-expanded=&quot;false&quot;&gt;&gt;&lt;/div&gt;
-        &lt;ul class=&quot;_c-drawer__submenu&quot; data-c=&quot;drawer__submenu&quot; aria-hidden=&quot;true&quot;&gt;
-          &lt;li class=&quot;_c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
-          &lt;li class=&quot;_c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
+        &lt;div class=&quot;c-drawer__toggle&quot; data-c=&quot;drawer__toggle&quot; aria-expanded=&quot;false&quot;&gt;&gt;&lt;/div&gt;
+        &lt;ul class=&quot;c-drawer__submenu&quot; data-c=&quot;drawer__submenu&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;li class=&quot;c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -385,6 +385,34 @@ new BasisDrawer();
     ...
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_navbar">
+                <h1 class="c-section__h1">_navbar <span class="c-label">JS</span></h1>
+
+                <pre><code>//
+// The navbar component
+//
+.c-navbar {
+  @extend $_navbar;
+}
+
+import BasisNavbar from 'node_modules/getbasis/src/js/navbar.js';
+new BasisNavbar();
+
+&lt;ul class=&quot;_c-navbar&quot;&gt;
+  &lt;li class=&quot;_c-navbar__item&quot; aria-haspopup=&quot;true&quot;&gt;
+    &lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;
+    &lt;ul class=&quot;_c-navbar__submenu&quot; data-c=&quot;navbar__submenu&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;li class=&quot;_c-navbar__subitem&quot; aria-haspopup=&quot;true&quot;&gt;
+        &lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;
+        &lt;ul class=&quot;_c-navbar__submenu&quot; data-c=&quot;navbar__submenu&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;li class=&quot;_c-navbar__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="_page-effect">
@@ -522,6 +550,7 @@ new BasisPageEffect();
 	                <li class="p-local-nav__item"><a href="#_hero">$_hero</a></li>
 	                <li class="p-local-nav__item"><a href="#_input-group">$_input-group</a></li>
 	                <li class="p-local-nav__item"><a href="#_media">$_media</a></li>
+	                <li class="p-local-nav__item"><a href="#_navbar">$_navbar</a></li>
 	                <li class="p-local-nav__item"><a href="#_page-effect">$_page-effect</a></li>
 	                <li class="p-local-nav__item"><a href="#_radio">$_radio</a></li>
 	                <li class="p-local-nav__item"><a href="#_row">$_row</a></li>

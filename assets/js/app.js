@@ -173,67 +173,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var BasisMenu = function () {
-  function BasisMenu() {
-    _classCallCheck(this, BasisMenu);
-
-    this.container = (0, _jquery2.default)('[data-c="menu"]');
-    this.setListener();
-  }
-
-  _createClass(BasisMenu, [{
-    key: 'setListener',
-    value: function setListener() {
-      var _this = this;
-
-      this.container.find('[aria-haspopup="true"]').each(function (i, e) {
-        var item = (0, _jquery2.default)(e);
-
-        item.on('mouseover focus', function (event) {
-          var submenu = item.children('[data-c="menu__submenu"]');
-          _this.show(submenu);
-        });
-
-        item.on('mouseleave', function (event) {
-          var submenu = item.children('[data-c="menu__submenu"]');
-          _this.hidden(submenu);
-        });
-      });
-    }
-  }, {
-    key: 'show',
-    value: function show(submenu) {
-      submenu.attr('aria-hidden', 'false');
-    }
-  }, {
-    key: 'hidden',
-    value: function hidden(submenu) {
-      submenu.attr('aria-hidden', 'true');
-    }
-  }]);
-
-  return BasisMenu;
-}();
-
-exports.default = BasisMenu;
-
-},{"jquery":6}],4:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = require('jquery');
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 var BasisDrawer = function () {
   function BasisDrawer() {
     _classCallCheck(this, BasisDrawer);
@@ -342,6 +281,64 @@ var BasisDrawer = function () {
 }();
 
 exports.default = BasisDrawer;
+
+},{"jquery":6}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BasisNavbar = function () {
+  function BasisNavbar() {
+    _classCallCheck(this, BasisNavbar);
+
+    this.items = (0, _jquery2.default)('[data-c="navbar__item"][aria-haspopup="true"], [data-c="navbar__subitem"][aria-haspopup="true"]');
+    this.setListener();
+  }
+
+  _createClass(BasisNavbar, [{
+    key: 'setListener',
+    value: function setListener() {
+      var _this = this;
+
+      this.items.each(function (i, e) {
+        var item = (0, _jquery2.default)(e);
+        item.on('mouseover focus', function (event) {
+          _this.show(item.children('[data-c="navbar__submenu"]'));
+        });
+
+        item.on('mouseleave', function (event) {
+          _this.hidden(item.children('[data-c="navbar__submenu"]'));
+        });
+      });
+    }
+  }, {
+    key: 'show',
+    value: function show(submenu) {
+      submenu.attr('aria-hidden', 'false');
+    }
+  }, {
+    key: 'hidden',
+    value: function hidden(submenu) {
+      submenu.attr('aria-hidden', 'true');
+    }
+  }]);
+
+  return BasisNavbar;
+}();
+
+exports.default = BasisNavbar;
 
 },{"jquery":6}],5:[function(require,module,exports){
 'use strict';
@@ -10670,9 +10667,9 @@ var _stickyHeader = require('../../node_modules/getbasis-layout/src/js/sticky-he
 
 var _stickyHeader2 = _interopRequireDefault(_stickyHeader);
 
-var _menu = require('../../node_modules/getbasis-menu/src/js/menu.js');
+var _navbar = require('../../node_modules/getbasis/src/js/navbar.js');
 
-var _menu2 = _interopRequireDefault(_menu);
+var _navbar2 = _interopRequireDefault(_navbar);
 
 var _pageEffect = require('../../node_modules/getbasis/src/js/page-effect.js');
 
@@ -10685,7 +10682,7 @@ function _interopRequireDefault(obj) {
 new _drawer2.default();
 new _fixedHeader2.default();
 new _stickyHeader2.default();
-new _menu2.default();
+new _navbar2.default();
 new _pageEffect2.default();
 
-},{"../../node_modules/getbasis-layout/src/js/fixed-header.js":1,"../../node_modules/getbasis-layout/src/js/sticky-header.js":2,"../../node_modules/getbasis-menu/src/js/menu.js":3,"../../node_modules/getbasis/src/js/drawer.js":4,"../../node_modules/getbasis/src/js/page-effect.js":5,"jquery":6}]},{},[7]);
+},{"../../node_modules/getbasis-layout/src/js/fixed-header.js":1,"../../node_modules/getbasis-layout/src/js/sticky-header.js":2,"../../node_modules/getbasis/src/js/drawer.js":3,"../../node_modules/getbasis/src/js/navbar.js":4,"../../node_modules/getbasis/src/js/page-effect.js":5,"jquery":6}]},{},[7]);

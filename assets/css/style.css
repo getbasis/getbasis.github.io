@@ -1,5 +1,5 @@
 /*
- * Name: Basis v4.0.0
+ * Name: Basis v4.1.0
  * Description: The flexbox based CSS framework.
  * Author: Takashi Kitajima ( inc2734 )
  * Author URL: http://2inc.org
@@ -644,9 +644,6 @@ label {
 .p-drawer-nav__subitem > a {
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 1.571428571428571;
   transition: background-color 0.1s ease-out;
 }
 ._c-drawer__item > a:hover,
@@ -666,6 +663,8 @@ label {
 ._c-drawer__submenu,
 .p-drawer-nav__submenu {
   list-style: none;
+  margin: 0;
+  padding: 0;
   margin: 0 -1.5rem 0 0;
   padding-left: 1em;
 }
@@ -938,6 +937,65 @@ textarea._c-input-group__field > input[type='url'] {
 }
 ._c-media__figure {
   margin: 0 1.5rem 0 0;
+}
+._c-navbar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+}
+._c-navbar__item {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1;
+  flex: 1;
+}
+._c-navbar__item > a {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
+._c-navbar__item > [data-c="navbar__submenu"] {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+._c-navbar__subitem {
+  position: relative;
+}
+._c-navbar__subitem > a {
+  display: block;
+  text-decoration: none;
+}
+._c-navbar__subitem > [data-c="navbar__submenu"] {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+._c-navbar__submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease-out;
+}
+._c-navbar__submenu[aria-hidden="false"] {
+  visibility: visible;
+  opacity: 1;
 }
 ._c-page-effect {
   position: fixed;
@@ -1233,6 +1291,10 @@ textarea._c-input-group__field > input[type='url'] {
   margin: 0 0 0 1.5rem;
   -ms-flex-order: 1;
   order: 1;
+}
+._c-navbar--auto ._c-navbar__item {
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
 }
 ._c-radio--block {
   display: block;
@@ -3191,88 +3253,6 @@ html[data-window-scroll="false"] [data-l="container"] {
 ._l-sub {
   padding-top: 3rem;
 }
-._c-menu--bar,
-._c-menu--auto {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-}
-._c-menu {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-._c-menu__item {
-  position: relative;
-  display: inline-block;
-  margin: 0 0 0 1.5rem;
-  padding: 0;
-  max-width: 100%;
-}
-._c-menu__item:first-child {
-  margin-left: 0;
-}
-._c-menu__item > a {
-  display: inline-block;
-}
-._c-menu__subitem {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-._c-menu__subitem > a {
-  display: block;
-  padding: 0.625rem 0.75rem;
-  text-align: center;
-  text-decoration: none;
-}
-._c-menu__subitem ._c-menu__submenu {
-  top: 0;
-  left: 100%;
-}
-._c-menu--bar ._c-menu__item {
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  -ms-flex: 1;
-  flex: 1;
-}
-._c-menu--bar ._c-menu__item > a {
-  padding: 1.375rem 0.75rem;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-}
-._c-menu--auto ._c-menu__item {
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-}
-[data-c="menu__submenu"] {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  visibility: hidden;
-  min-width: 200px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  opacity: 0;
-  transition: opacity 0.1s ease-out;
-}
-[data-c="menu__submenu"][aria-hidden="false"] {
-  visibility: visible;
-  opacity: 1;
-}
 .c-animate-image {
   background-color: #e74c3c;
   height: 150px;
@@ -3449,16 +3429,8 @@ html[data-window-scroll="false"] [data-l="container"] {
   font-size: 0.875rem;
   line-height: 1.571428571428571;
 }
-.p-global-nav ._c-menu__submenu {
-  background-color: rgba(17,17,17,0.8);
-}
-.p-global-nav ._c-menu__subitem:hover,
-.p-global-nav ._c-menu__subitem:focus {
-  background-color: rgba(255,255,255,0.05);
-}
-._l-header--is-scrolled .p-global-nav ._c-menu__item:hover,
-._l-header--is-scrolled .p-global-nav ._c-menu__item:focus {
-  background-color: rgba(255,255,255,0.05);
+.p-global-nav ._c-navbar__item a {
+  padding: 0.375rem 0.75rem;
 }
 .p-hero {
   background-color: #00dae6;
