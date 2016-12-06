@@ -1,23 +1,7 @@
 .p-global-nav {
   _font-size-line-height(14px);
 
-  .{_prefix}c-menu__submenu {
-    background-color: rgba(_color-black, .8);
-  }
-
-  .{_prefix}c-menu__subitem {
-    +_hover() {
-      background-color: rgba(#fff, .05);
-    }
-  }
-}
-
-.{_prefix}l-header--is-scrolled {
-  .p-global-nav {
-    .{_prefix}c-menu__item {
-      +_hover() {
-        background-color: rgba(#fff, .05);
-      }
-    }
+  .{_prefix}c-navbar__item a {
+    _padding(.25, .5);
   }
 }
