@@ -19,6 +19,8 @@ script:
   - ls | xargs rm -rf
   - rm -rf .gitignore .travis.yml
   - cd ../
+  - ls -la
+  - ls -la public/
   - npm run deploy
 after_success:
   - bash ./bin/deploy.sh
