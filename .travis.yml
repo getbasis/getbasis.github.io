@@ -19,6 +19,7 @@ script:
   - ls | xargs rm -rf
   - rm -rf .gitignore .travis.yml
   - cd ../
+  - npm run gulp build
   - ls -la
   - ls -la public/
   - cp public/* gh-pages/

@@ -33,7 +33,6 @@
     "jquery": "^3.1.1"
   },
   "scripts": {
-    "gulp": "gulp",
-    "deploy": "gulp deploy"
+    "gulp": "gulp"
   }
 }
