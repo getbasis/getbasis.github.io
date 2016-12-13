@@ -97,35 +97,44 @@
         <section class="c-section">
           <div class="_c-container">
             <h1 class="c-section__title">Using npm</h1>
-            <ol>
-              <li>
-                npm install
-                <pre><code>$ npm install getbasis</code></pre>
-              </li>
-              <li>
-                Import basis.styl your Stylus.
-                <pre><code>@import /PATH/TO/node_modules/getbasis/src/stylus/basis;</code></pre>
-IF you want to use build files, just do this.
-                <pre><code>$ cd /PATH/TO/getbasis
-$ npm install
+            <p>
+              Installs Basis
+            </p>
+            <pre><code>$ npm install getbasis
 $ npm run gulp build</code></pre>
-              </li>
-            </ol>
+            <p>
+              Imports basis.styl your Stylus.
+            </p>
+            <pre><code>@import /PATH/TO/node_modules/getbasis/src/stylus/basis;</code></pre>
+            <p>
+              Imports JavaScripts ( Require jQuery )
+            </p>
+            <pre><code>import Basis from '/PATH/TO/node_modules/getbasis/src/js/basis.js';</code></pre>
           </div>
         </section>
 
         <section class="c-section c-section--bg">
           <div class="_c-container">
             <h1 class="c-section__title">Download from GitHub</h1>
-            <ol>
-              <li>Download the basis from <a href="https://github.com/getbasis/basis/releases" target="_blank">https://github.com/getbasis/basis/releases</a></li>
-              <li>
-                Import basis.styl your Stylus.
-                <pre><code>@import /PATH/TO/basis/src/stylus/basis;</code></pre>
-  or Just this link.
-                <pre><code>&lt;link rel="stylesheet" href="/PATH/TO/basis/dist/css/basis.min.css" /&gt;</code></pre>
-              </li>
-            </ol>
+            <p>
+              Download the basis from <a href="https://github.com/getbasis/basis/releases" target="_blank">https://github.com/getbasis/basis/releases</a>
+            </p>
+            <p>
+              Imports basis.styl your Stylus.
+            </p>
+            <pre><code>@import /PATH/TO/basis/src/stylus/basis;</code></pre>
+            <p>
+              or Just this link.
+            </p>
+            <pre><code>&lt;link rel="stylesheet" href="/PATH/TO/basis/dist/css/basis.min.css"&gt;</code></pre>
+            <p>
+              Loads JavaScripts
+            </p>
+            <pre><code>&lt;script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;script src="/PATH/TO/node_modules/getbasis/dist/js/basis.min.js"&gt;&lt;/script&gt;</code></pre>
           </div>
         </section>
 
