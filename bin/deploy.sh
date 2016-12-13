@@ -13,6 +13,7 @@ if [[ "develop" != "$TRAVIS_BRANCH" ]]; then
 fi
 
 cd gh-pages
+ls -la
 
 git add -A
 git commit -m "[ci skip] master branch update from travis $TRAVIS_COMMIT"
