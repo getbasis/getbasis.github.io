@@ -127,7 +127,6 @@ gulp.task('watch', function() {
   gulp.watch(['src/ejs/**/*.ejs'], ['ejs']);
 });
 
-
 /**
  * Browsersync
  */
@@ -140,19 +139,6 @@ gulp.task('browsersync', function() {
       'public/**'
     ]
   });
-});
-
-/**
- * Deploy GitHub Pages
- */
-gulp.task('deploy', ['build'], function() {
-  return gulp.src(
-        [
-          'public/**'
-        ],
-        {base: './public'}
-      )
-      .pipe(gulp.dest('gh-pages'));
 });
 
 gulp.task('build', ['css', 'js', 'imagecopy', 'favicon', 'ejs']);

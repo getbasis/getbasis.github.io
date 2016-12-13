@@ -20,7 +20,8 @@ script:
   - rm -rf .gitignore .travis.yml
   - cd ../
   - ls -la
-  - npm run deploy
   - ls -la public/
+  - cp public/* gh-pages/
+  - ls -la gh-pages/
 after_success:
   - bash ./bin/deploy.sh
