@@ -20,7 +20,7 @@ script:
   - rm -rf .gitignore .travis.yml
   - cd ../
   - ls -la
-  - ls -la public/
   - npm run deploy
+  - ls -la public/
 after_success:
   - bash ./bin/deploy.sh
