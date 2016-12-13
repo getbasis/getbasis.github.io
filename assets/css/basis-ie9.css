@@ -61,6 +61,22 @@
 ._c-media--reverse > ._c-media__figure {
   float: right;
 }
+._c-navbar {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+._c-navbar__item {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+._c-navbar__item > a {
+  display: block;
+}
+._c-navbar--auto {
+  table-layout: auto;
+}
 ._c-row {
   display: table;
   table-layout: fixed;
