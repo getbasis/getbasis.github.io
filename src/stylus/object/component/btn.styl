@@ -8,16 +8,20 @@
     display: block;
   }
 
-  &--launch, &--download {
+  &--launch, &--download, &--buy {
     background-color: color-primary;
     color: #fff;
 
     +_hover() {
-      background-color: _dark(color-primary);
+      opacity: .8;
     }
 
     .fa {
       margin-right: 8px;
     }
+  }
+
+  &--buy {
+    background-color: #e1c600;
   }
 }
