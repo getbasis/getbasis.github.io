@@ -3273,19 +3273,26 @@ html[data-window-scroll="false"] [data-l="container"] {
   display: block;
 }
 .c-btn--launch,
-.c-btn--download {
+.c-btn--download,
+.c-btn--buy {
   background-color: #00dae6;
   color: #fff;
 }
 .c-btn--launch:hover,
 .c-btn--download:hover,
+.c-btn--buy:hover,
 .c-btn--launch:focus,
-.c-btn--download:focus {
-  background-color: #00a3ac;
+.c-btn--download:focus,
+.c-btn--buy:focus {
+  opacity: 0.8;
 }
 .c-btn--launch .fa,
-.c-btn--download .fa {
+.c-btn--download .fa,
+.c-btn--buy .fa {
   margin-right: 8px;
+}
+.c-btn--buy {
+  background-color: #e1c600;
 }
 .c-dummy-image {
   background-color: #333;
