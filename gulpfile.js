@@ -93,7 +93,7 @@ gulp.task('ejs', function() {
   gulp.src(dir.src.ejs)
   .pipe(ejs(
     {
-      version: '4.2.1',
+      version: '4.3.0',
       css    : '/assets/css',
       js     : '/assets/js',
       images : '/assets/images',
