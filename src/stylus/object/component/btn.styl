@@ -1,10 +1,15 @@
-.{_prefix}c-btn {
+.c-btn {
+  @extend .{_prefix}c-btn;
   _transition-all();
   border: none;
   border-radius: 3px;
 
   &--block {
     display: block;
+  }
+
+  &--ghost {
+    border: 1px solid #fff;
   }
 
   &--launch, &--download, &--buy {
