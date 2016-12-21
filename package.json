@@ -1,13 +1,13 @@
 {
-  "name": "sass-basis.github.io",
+  "name": "getbasis.github.io",
   "version": "1.0.0",
   "main": "index.html",
   "author": "inc2734",
   "license": "MIT",
-  "homepage": "http://sass-basis.github.io",
+  "homepage": "https://getbasis.github.io",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sass-basis/sass-basis.github.io"
+    "url": "https://github.com/getbasis/getbasis.github.io"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.4",
