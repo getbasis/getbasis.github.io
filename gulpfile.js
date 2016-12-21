@@ -16,6 +16,7 @@ var rollup       = require('gulp-rollup');
 var nodeResolve  = require('rollup-plugin-node-resolve');
 var commonjs     = require('rollup-plugin-commonjs');
 var babel        = require('rollup-plugin-babel');
+var plumber      = require('gulp-plumber');
 
 var dir = {
   src: {
@@ -43,6 +44,7 @@ var dir = {
 
 gulp.task('js', function() {
   gulp.src(dir.src.js + '/**/*.js')
+    .pipe(plumber())
     .pipe(rollup({
       allowRealFiles: true,
       entry: dir.src.js + '/app.js',
@@ -70,6 +72,7 @@ gulp.task('js', function() {
  */
 gulp.task('css', function() {
   return gulp.src(dir.src.css + '/*.styl')
+    .pipe(plumber())
     .pipe(stylus({
       'include css': true
     }))
@@ -91,17 +94,18 @@ gulp.task('css', function() {
  */
 gulp.task('ejs', function() {
   gulp.src(dir.src.ejs)
-  .pipe(ejs(
-    {
-      version: '4.3.0',
-      css    : '/assets/css',
-      js     : '/assets/js',
-      images : '/assets/images',
-      is_front_page: false
-    },
-    {ext: '.html'})
-  )
-  .pipe(gulp.dest(dir.dist.ejs));
+    .pipe(plumber())
+    .pipe(ejs(
+      {
+        version: '4.3.0',
+        css    : '/assets/css',
+        js     : '/assets/js',
+        images : '/assets/images',
+        is_front_page: false
+      },
+      {ext: '.html'})
+    )
+    .pipe(gulp.dest(dir.dist.ejs));
 });
 
 /**
