@@ -1,5 +1,5 @@
 /*
- * Name: Basis v4.3.0
+ * Name: Basis v4.3.2
  * Description: The flexbox based CSS framework.
  * Author: Takashi Kitajima ( inc2734 )
  * Author URL: http://2inc.org
@@ -242,8 +242,10 @@ dl,
 table,
 pre,
 blockquote {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+figure {
+  margin: 0 0 1.5rem;
 }
 h1,
 h2,
@@ -254,31 +256,31 @@ h6 {
   font-weight: bold;
 }
 h1 {
-  font-size: 48px;
-  font-size: 3rem;
-  line-height: 1.125;
+  font-size: 32px;
+  font-size: 2rem;
+  line-height: 1.1875;
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
 h2 {
-  font-size: 40px;
-  font-size: 2.5rem;
-  line-height: 1.2;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-}
-h3 {
   font-size: 32px;
   font-size: 2rem;
   line-height: 1.1875;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
-h4 {
+h3 {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1.333333333333333;
-  margin-top: 3rem;
+  margin-top: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+h4 {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-top: 1.875rem;
   margin-bottom: 1.5rem;
 }
 h5 {
