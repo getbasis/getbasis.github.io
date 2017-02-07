@@ -20,7 +20,7 @@ var plumber      = require('gulp-plumber');
 
 var dir = {
   src: {
-    css    : 'src/stylus',
+    css    : 'src/css',
     js     : 'src/js',
     images : 'src/images',
     favicon: 'src/favicon.ico',
@@ -97,12 +97,13 @@ gulp.task('ejs', function() {
     .pipe(plumber())
     .pipe(ejs(
       {
-        version: '4.3.2',
+        version: '6.0.0',
         css    : '/assets/css',
         js     : '/assets/js',
         images : '/assets/images',
         is_front_page: false
       },
+      {},
       {ext: '.html'})
     )
     .pipe(gulp.dest(dir.dist.ejs));

@@ -26,7 +26,7 @@ $ npm run gulp build</code></pre>
             <p>
               Imports basis.styl your Stylus.
             </p>
-            <pre><code>@import /PATH/TO/node_modules/getbasis/src/stylus/basis;</code></pre>
+            <pre><code>@import /PATH/TO/node_modules/getbasis/src/css/basis;</code></pre>
             <p>
               Imports JavaScripts ( Require jQuery )
             </p>
@@ -43,7 +43,7 @@ $ npm run gulp build</code></pre>
             <p>
               Imports basis.styl your Stylus.
             </p>
-            <pre><code>@import /PATH/TO/basis/src/stylus/basis;</code></pre>
+            <pre><code>@import /PATH/TO/basis/src/css/basis;</code></pre>
             <p>
               or Just this link.
             </p>
@@ -77,11 +77,9 @@ $ npm run gulp build</code></pre>
 &lt;![endif]--&gt;</code></pre>
 
             <p>
-              If you are Stylus user and you want to use only mixins, set <code>_use-mixin-only</code> to <code>true</code>.
+              If you are Stylus user and you want to use only mixins, importing this file.
             </p>
-            <pre><code>_use-mixin-only = true;
-
-@import /PATH/TO/basis/src/stylus/basis;</code></pre>
+            <pre><code>@import /PATH/TO/basis/src/css/basis-core;</code></pre>
           </div>
         </section>
 
