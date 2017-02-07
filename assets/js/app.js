@@ -51,75 +51,6 @@ var createClass = function () {
   };
 }();
 
-
-
-
-
-
-
-var get$1 = function get$1(object, property, receiver) {
-  if (object === null) object = Function.prototype;
-  var desc = Object.getOwnPropertyDescriptor(object, property);
-
-  if (desc === undefined) {
-    var parent = Object.getPrototypeOf(object);
-
-    if (parent === null) {
-      return undefined;
-    } else {
-      return get$1(parent, property, receiver);
-    }
-  } else if ("value" in desc) {
-    return desc.value;
-  } else {
-    var getter = desc.get;
-
-    if (getter === undefined) {
-      return undefined;
-    }
-
-    return getter.call(receiver);
-  }
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var set$1 = function set$1(object, property, value, receiver) {
-  var desc = Object.getOwnPropertyDescriptor(object, property);
-
-  if (desc === undefined) {
-    var parent = Object.getPrototypeOf(object);
-
-    if (parent !== null) {
-      set$1(parent, property, value, receiver);
-    }
-  } else if ("value" in desc && desc.writable) {
-    desc.value = value;
-  } else {
-    var setter = desc.set;
-
-    if (setter !== undefined) {
-      setter.call(receiver, value);
-    }
-  }
-
-  return value;
-};
-
 var jquery = createCommonjsModule(function (module) {
 	/*!
   * jQuery JavaScript Library v3.1.1
@@ -138,7 +69,7 @@ var jquery = createCommonjsModule(function (module) {
 
 		"use strict";
 
-		if ((typeof module === "undefined" ? "undefined" : _typeof(module)) === "object" && _typeof(module.exports) === "object") {
+		{
 
 			// For CommonJS and CommonJS-like environments where a proper `window`
 			// is present, execute the factory and get jQuery.
@@ -153,8 +84,6 @@ var jquery = createCommonjsModule(function (module) {
 				}
 				return factory(w);
 			};
-		} else {
-			factory(global);
 		}
 
 		// Pass this if window is not defined yet
@@ -242,13 +171,13 @@ var jquery = createCommonjsModule(function (module) {
 			// The default length of a jQuery object is 0
 			length: 0,
 
-			toArray: function toArray() {
+			toArray: function toArray$$1() {
 				return _slice.call(this);
 			},
 
 			// Get the Nth element in the matched element set OR
 			// Get the whole matched element set as a clean array
-			get: function get(num) {
+			get: function get$$1(num) {
 
 				// Return all the elements in a clean array
 				if (num == null) {
@@ -335,7 +264,7 @@ var jquery = createCommonjsModule(function (module) {
 			}
 
 			// Handle case when target is a string or something (possible in deep copy)
-			if ((typeof target === "undefined" ? "undefined" : _typeof(target)) !== "object" && !jQuery.isFunction(target)) {
+			if ((typeof target === 'undefined' ? 'undefined' : _typeof(target)) !== "object" && !jQuery.isFunction(target)) {
 				target = {};
 			}
 
@@ -462,7 +391,7 @@ var jquery = createCommonjsModule(function (module) {
 				}
 
 				// Support: Android <=2.3 only (functionish RegExp)
-				return (typeof obj === "undefined" ? "undefined" : _typeof(obj)) === "object" || typeof obj === "function" ? class2type[toString.call(obj)] || "object" : typeof obj === "undefined" ? "undefined" : _typeof(obj);
+				return (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === "object" || typeof obj === "function" ? class2type[toString.call(obj)] || "object" : typeof obj === 'undefined' ? 'undefined' : _typeof(obj);
 			},
 
 			// Evaluates a script in a global context
@@ -814,7 +743,7 @@ var jquery = createCommonjsModule(function (module) {
 
 					// U+0000 NULL becomes U+FFFD REPLACEMENT CHARACTER
 					if (ch === "\0") {
-						return "\uFFFD";
+						return '\uFFFD';
 					}
 
 					// Control characters and (dependent upon position) numbers get escaped as code points
@@ -3558,7 +3487,7 @@ var jquery = createCommonjsModule(function (module) {
 									// Support: Promises/A+ section 2.3.4
 									// https://promisesaplus.com/#point-64
 									// Only check objects and functions for thenability
-									(typeof returned === "undefined" ? "undefined" : _typeof(returned)) === "object" || typeof returned === "function") && returned.then;
+									(typeof returned === 'undefined' ? 'undefined' : _typeof(returned)) === "object" || typeof returned === "function") && returned.then;
 
 									// Handle a returned thenable
 									if (jQuery.isFunction(then)) {
@@ -3978,7 +3907,7 @@ var jquery = createCommonjsModule(function (module) {
 
 				return value;
 			},
-			set: function set(owner, data, value) {
+			set: function set$$1(owner, data, value) {
 				var prop,
 				    cache = this.cache(owner);
 
@@ -3997,7 +3926,7 @@ var jquery = createCommonjsModule(function (module) {
 				}
 				return cache;
 			},
-			get: function get(owner, key) {
+			get: function get$$1(owner, key) {
 				return key === undefined ? this.cache(owner) :
 
 				// Always use camelCase key (gh-2257)
@@ -4207,7 +4136,7 @@ var jquery = createCommonjsModule(function (module) {
 				}
 
 				// Sets multiple values
-				if ((typeof key === "undefined" ? "undefined" : _typeof(key)) === "object") {
+				if ((typeof key === 'undefined' ? 'undefined' : _typeof(key)) === "object") {
 					return this.each(function () {
 						dataUser.set(this, key);
 					});
@@ -4788,7 +4717,7 @@ var jquery = createCommonjsModule(function (module) {
 			var origFn, type;
 
 			// Types can be a map of types/handlers
-			if ((typeof types === "undefined" ? "undefined" : _typeof(types)) === "object") {
+			if ((typeof types === 'undefined' ? 'undefined' : _typeof(types)) === "object") {
 
 				// ( types-Object, selector, data )
 				if (typeof selector !== "string") {
@@ -5190,7 +5119,7 @@ var jquery = createCommonjsModule(function (module) {
 						}
 					},
 
-					set: function set(value) {
+					set: function set$$1(value) {
 						Object.defineProperty(this, name, {
 							enumerable: true,
 							configurable: true,
@@ -5466,7 +5395,7 @@ var jquery = createCommonjsModule(function (module) {
 					jQuery(types.delegateTarget).off(handleObj.namespace ? handleObj.origType + "." + handleObj.namespace : handleObj.origType, handleObj.selector, handleObj.handler);
 					return this;
 				}
-				if ((typeof types === "undefined" ? "undefined" : _typeof(types)) === "object") {
+				if ((typeof types === 'undefined' ? 'undefined' : _typeof(types)) === "object") {
 
 					// ( types-object [, selector] )
 					for (type in types) {
@@ -6090,7 +6019,7 @@ var jquery = createCommonjsModule(function (module) {
 
 			// Define the hook, we'll check on the first run if it's really needed.
 			return {
-				get: function get() {
+				get: function get$$1() {
 					if (conditionFn()) {
 
 						// Hook not needed (or it's not possible to use it due
@@ -6245,7 +6174,7 @@ var jquery = createCommonjsModule(function (module) {
 			// behavior of getting and setting a style property
 			cssHooks: {
 				opacity: {
-					get: function get(elem, computed) {
+					get: function get$$1(elem, computed) {
 						if (computed) {
 
 							// We should always get a number back from opacity
@@ -6301,7 +6230,7 @@ var jquery = createCommonjsModule(function (module) {
 
 				// Check if we're setting a value
 				if (value !== undefined) {
-					type = typeof value === "undefined" ? "undefined" : _typeof(value);
+					type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
 
 					// Convert "+=" or "-=" to relative numbers (#7345)
 					if (type === "string" && (ret = rcssNum.exec(value)) && ret[1]) {
@@ -6382,7 +6311,7 @@ var jquery = createCommonjsModule(function (module) {
 
 		jQuery.each(["height", "width"], function (i, name) {
 			jQuery.cssHooks[name] = {
-				get: function get(elem, computed, extra) {
+				get: function get$$1(elem, computed, extra) {
 					if (computed) {
 
 						// Certain elements can have dimension info if we invisibly show them
@@ -6401,7 +6330,7 @@ var jquery = createCommonjsModule(function (module) {
 					}
 				},
 
-				set: function set(elem, value, extra) {
+				set: function set$$1(elem, value, extra) {
 					var matches,
 					    styles = extra && getStyles(elem),
 					    subtract = extra && augmentWidthOrHeight(elem, name, extra, jQuery.css(elem, "boxSizing", false, styles) === "border-box", styles);
@@ -6527,7 +6456,7 @@ var jquery = createCommonjsModule(function (module) {
 
 		Tween.propHooks = {
 			_default: {
-				get: function get(tween) {
+				get: function get$$1(tween) {
 					var result;
 
 					// Use a property on the element directly when it is not a DOM element,
@@ -6545,7 +6474,7 @@ var jquery = createCommonjsModule(function (module) {
 					// Empty strings, null, undefined and "auto" are converted to 0.
 					return !result || result === "auto" ? 0 : result;
 				},
-				set: function set(tween) {
+				set: function set$$1(tween) {
 
 					// Use step hook for back compat.
 					// Use cssHook if its there.
@@ -6564,7 +6493,7 @@ var jquery = createCommonjsModule(function (module) {
 		// Support: IE <=9 only
 		// Panic based approach to setting things on disconnected nodes
 		Tween.propHooks.scrollTop = Tween.propHooks.scrollLeft = {
-			set: function set(tween) {
+			set: function set$$1(tween) {
 				if (tween.elem.nodeType && tween.elem.parentNode) {
 					tween.elem[tween.prop] = tween.now;
 				}
@@ -7007,7 +6936,7 @@ var jquery = createCommonjsModule(function (module) {
 		});
 
 		jQuery.speed = function (speed, easing, fn) {
-			var opt = speed && (typeof speed === "undefined" ? "undefined" : _typeof(speed)) === "object" ? jQuery.extend({}, speed) : {
+			var opt = speed && (typeof speed === 'undefined' ? 'undefined' : _typeof(speed)) === "object" ? jQuery.extend({}, speed) : {
 				complete: fn || !fn && easing || jQuery.isFunction(speed) && speed,
 				duration: speed,
 				easing: fn && easing || easing && !jQuery.isFunction(easing) && easing
@@ -7345,7 +7274,7 @@ var jquery = createCommonjsModule(function (module) {
 
 			attrHooks: {
 				type: {
-					set: function set(elem, value) {
+					set: function set$$1(elem, value) {
 						if (!support.radioValue && value === "radio" && jQuery.nodeName(elem, "input")) {
 							var val = elem.value;
 							elem.setAttribute("type", value);
@@ -7377,7 +7306,7 @@ var jquery = createCommonjsModule(function (module) {
 
 		// Hooks for boolean attributes
 		boolHook = {
-			set: function set(elem, value, name) {
+			set: function set$$1(elem, value, name) {
 				if (value === false) {
 
 					// Remove boolean attributes when set to false
@@ -7459,7 +7388,7 @@ var jquery = createCommonjsModule(function (module) {
 
 			propHooks: {
 				tabIndex: {
-					get: function get(elem) {
+					get: function get$$1(elem) {
 
 						// Support: IE <=9 - 11 only
 						// elem.tabIndex doesn't always return the
@@ -7497,7 +7426,7 @@ var jquery = createCommonjsModule(function (module) {
 		// since it considers such accessions noop
 		if (!support.optSelected) {
 			jQuery.propHooks.selected = {
-				get: function get(elem) {
+				get: function get$$1(elem) {
 
 					/* eslint no-unused-expressions: "off" */
 
@@ -7507,7 +7436,7 @@ var jquery = createCommonjsModule(function (module) {
 					}
 					return null;
 				},
-				set: function set(elem) {
+				set: function set$$1(elem) {
 
 					/* eslint no-unused-expressions: "off" */
 
@@ -7634,7 +7563,7 @@ var jquery = createCommonjsModule(function (module) {
 			},
 
 			toggleClass: function toggleClass(value, stateVal) {
-				var type = typeof value === "undefined" ? "undefined" : _typeof(value);
+				var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
 
 				if (typeof stateVal === "boolean" && type === "string") {
 					return stateVal ? this.addClass(value) : this.removeClass(value);
@@ -7772,7 +7701,7 @@ var jquery = createCommonjsModule(function (module) {
 		jQuery.extend({
 			valHooks: {
 				option: {
-					get: function get(elem) {
+					get: function get$$1(elem) {
 
 						var val = jQuery.find.attr(elem, "value");
 						return val != null ? val :
@@ -7785,7 +7714,7 @@ var jquery = createCommonjsModule(function (module) {
 					}
 				},
 				select: {
-					get: function get(elem) {
+					get: function get$$1(elem) {
 						var value,
 						    option,
 						    i,
@@ -7828,7 +7757,7 @@ var jquery = createCommonjsModule(function (module) {
 						return values;
 					},
 
-					set: function set(elem, value) {
+					set: function set$$1(elem, value) {
 						var optionSet,
 						    option,
 						    options = elem.options,
@@ -7860,7 +7789,7 @@ var jquery = createCommonjsModule(function (module) {
 		// Radios and checkboxes getter/setter
 		jQuery.each(["radio", "checkbox"], function () {
 			jQuery.valHooks[this] = {
-				set: function set(elem, value) {
+				set: function set$$1(elem, value) {
 					if (jQuery.isArray(value)) {
 						return elem.checked = jQuery.inArray(jQuery(elem).val(), value) > -1;
 					}
@@ -7915,7 +7844,7 @@ var jquery = createCommonjsModule(function (module) {
 				ontype = type.indexOf(":") < 0 && "on" + type;
 
 				// Caller can pass in a jQuery.Event object, Object, or just an event type string
-				event = event[jQuery.expando] ? event : new jQuery.Event(type, (typeof event === "undefined" ? "undefined" : _typeof(event)) === "object" && event);
+				event = event[jQuery.expando] ? event : new jQuery.Event(type, (typeof event === 'undefined' ? 'undefined' : _typeof(event)) === "object" && event);
 
 				// Trigger bitmask: & 1 for native handlers; & 2 for jQuery (always true)
 				event.isTrigger = onlyHandlers ? 2 : 3;
@@ -8140,7 +8069,7 @@ var jquery = createCommonjsModule(function (module) {
 					} else {
 
 						// Item is non-scalar (array or object), encode its numeric index.
-						buildParams(prefix + "[" + ((typeof v === "undefined" ? "undefined" : _typeof(v)) === "object" && v != null ? i : "") + "]", v, traditional, add);
+						buildParams(prefix + "[" + ((typeof v === 'undefined' ? 'undefined' : _typeof(v)) === "object" && v != null ? i : "") + "]", v, traditional, add);
 					}
 				});
 			} else if (!traditional && jQuery.type(obj) === "object") {
@@ -8604,7 +8533,7 @@ var jquery = createCommonjsModule(function (module) {
 			ajax: function ajax(url, options) {
 
 				// If url is an object, simulate pre-1.5 signature
-				if ((typeof url === "undefined" ? "undefined" : _typeof(url)) === "object") {
+				if ((typeof url === 'undefined' ? 'undefined' : _typeof(url)) === "object") {
 					options = url;
 					url = undefined;
 				}
@@ -9538,7 +9467,7 @@ var jquery = createCommonjsModule(function (module) {
 				params = undefined;
 
 				// Otherwise, build a param string
-			} else if (params && (typeof params === "undefined" ? "undefined" : _typeof(params)) === "object") {
+			} else if (params && (typeof params === 'undefined' ? 'undefined' : _typeof(params)) === "object") {
 				type = "POST";
 			}
 
@@ -9875,8 +9804,8 @@ var jquery = createCommonjsModule(function (module) {
 		// AMD loader is present. jQuery is a special case. For more information, see
 		// https://github.com/jrburke/requirejs/wiki/Updating-existing-libraries#wiki-anon
 
-		if (typeof define === "function" && define.amd) {
-			define("jquery", [], function () {
+		if (typeof undefined === "function" && undefined.amd) {
+			undefined("jquery", [], function () {
 				return jQuery;
 			});
 		}

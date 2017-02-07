@@ -36,7 +36,6 @@
     <li class="_c-drawer__item"><a href="foundation.html">Foundation</a></li>
     <li class="_c-drawer__item"><a href="component.html">Component</a></li>
     <li class="_c-drawer__item"><a href="utility.html">Utility</a></li>
-    <li class="_c-drawer__item"><a href="placeholder.html">Placeholder</a></li>
     <li class="_c-drawer__item"><a href="abstract.html">Abstract</a></li>
     <li class="_c-drawer__item"><a href="mixin.html">Mixin</a></li>
     <li class="_c-drawer__item"><a href="function.html">Function</a></li>
@@ -63,7 +62,6 @@
     <li class="_c-navbar__item" data-c="navbar__item"><a href="foundation.html">Foundation</a></li>
     <li class="_c-navbar__item" data-c="navbar__item"><a href="component.html">Component</a></li>
     <li class="_c-navbar__item" data-c="navbar__item"><a href="utility.html">Utility</a></li>
-    <li class="_c-navbar__item" data-c="navbar__item"><a href="placeholder.html">Placeholder</a></li>
     <li class="_c-navbar__item" data-c="navbar__item"><a href="abstract.html">Abstract</a></li>
     <li class="_c-navbar__item" data-c="navbar__item"><a href="mixin.html">Mixin</a></li>
     <li class="_c-navbar__item" data-c="navbar__item"><a href="function.html">Function</a></li>
@@ -105,7 +103,7 @@ $ npm run gulp build</code></pre>
             <p>
               Imports basis.styl your Stylus.
             </p>
-            <pre><code>@import /PATH/TO/node_modules/getbasis/src/stylus/basis;</code></pre>
+            <pre><code>@import /PATH/TO/node_modules/getbasis/src/css/basis;</code></pre>
             <p>
               Imports JavaScripts ( Require jQuery )
             </p>
@@ -122,7 +120,7 @@ $ npm run gulp build</code></pre>
             <p>
               Imports basis.styl your Stylus.
             </p>
-            <pre><code>@import /PATH/TO/basis/src/stylus/basis;</code></pre>
+            <pre><code>@import /PATH/TO/basis/src/css/basis;</code></pre>
             <p>
               or Just this link.
             </p>
@@ -156,11 +154,9 @@ $ npm run gulp build</code></pre>
 &lt;![endif]--&gt;</code></pre>
 
             <p>
-              If you are Stylus user and you want to use only mixins, set <code>_use-mixin-only</code> to <code>true</code>.
+              If you are Stylus user and you want to use only mixins, importing this file.
             </p>
-            <pre><code>_use-mixin-only = true;
-
-@import /PATH/TO/basis/src/stylus/basis;</code></pre>
+            <pre><code>@import /PATH/TO/basis/src/css/basis-core;</code></pre>
           </div>
         </section>
 
@@ -175,7 +171,7 @@ $ npm run gulp build</code></pre>
     </ul>
 
     <div class="c-copyright">
-      Created and maintened by <a href="http://2inc.org" target="_blank">Monkey Wrench</a>
+      Created and maintened by <a href="https://2inc.org" target="_blank">Monkey Wrench</a>
     </div>
   </div>
 </footer>
