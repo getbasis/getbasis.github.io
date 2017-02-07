@@ -28,7 +28,7 @@
     "rollup-plugin-node-resolve": "^2.0.0"
   },
   "dependencies": {
-    "getbasis": "git://github.com/getbasis/basis.git#v6",
+    "getbasis": "git://github.com/getbasis/basis.git#develop",
     "getbasis-layout": "^7.0.0",
     "jquery": "^3.1.1"
   },
