@@ -74,7 +74,8 @@ gulp.task('css', function() {
   return gulp.src(dir.src.css + '/*.styl')
     .pipe(plumber())
     .pipe(stylus({
-      'include css': true
+      'resolve url': true,
+      include: 'node_modules/normalize-styl'
     }))
     .pipe(gulp.dest(dir.dist.css))
     .pipe(postcss([autoprefixer({
@@ -97,7 +98,7 @@ gulp.task('ejs', function() {
     .pipe(plumber())
     .pipe(ejs(
       {
-        version: '6.0.0',
+        version: '6.0.2',
         css    : '/assets/css',
         js     : '/assets/js',
         images : '/assets/images',
