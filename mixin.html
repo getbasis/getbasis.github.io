@@ -7,16 +7,16 @@
   <title>Mixin</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/railscasts.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="/assets/vendor/highlight/styles/railscasts.css">
+  <script src="/assets/vendor/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="/assets/css/style.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.min.css?v=1" />
   <!--[if lt IE 10]>
   <link rel="stylesheet" href="/assets/css/basis-ie9.min.css" />
   <![endif]-->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
-  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   <link rel="shortcut icon" href="/favicon.ico">
 </head>
 
@@ -98,7 +98,7 @@
               <section class="c-section c-section--border" id="_bounce-vertical">
                 <h1 class="c-section__h1">_bounce-vertical</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Bounce vertical
 //
 // @param   length             px        bounce size
@@ -114,7 +114,7 @@
               <section class="c-section c-section--border" id="_shake-vertical">
                 <h1 class="c-section__h1">_shake-vertical</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Shake vertical
 //
 .u-shake-vertical {
@@ -127,7 +127,7 @@
               <section class="c-section c-section--border" id="_vibrate-vertical">
                 <h1 class="c-section__h1">_vibrate-vertical</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Vibrate vertical
 //
 .u-vibrate-vertical {
@@ -140,7 +140,7 @@
               <section class="c-section c-section--border" id="_bounce-horizontal">
                 <h1 class="c-section__h1">_bounce-vertical</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Bounce horizontal
 //
 // @param   length             px        bounce size
@@ -156,7 +156,7 @@
               <section class="c-section c-section--border" id="_shake-horizontal">
                 <h1 class="c-section__h1">_shake-horizontal</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Shake horizontal
 //
 .u-shake-horizontal {
@@ -169,7 +169,7 @@
               <section class="c-section c-section--border" id="_vibrate-horizontal">
                 <h1 class="c-section__h1">_vibrate-horizontal</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Vibrate horizontal
 //
 .u-vibrate-horizontal {
@@ -182,7 +182,7 @@
               <section class="c-section c-section--border" id="_bounce-scale">
                 <h1 class="c-section__h1">_bounce-scale</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Bounce scale
 //
 // @param   length             px        bounce size
@@ -198,7 +198,7 @@
               <section class="c-section c-section--border" id="_shake-scale">
                 <h1 class="c-section__h1">_shake-scale</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Shake scale
 //
 .u-shake-scale {
@@ -211,7 +211,7 @@
               <section class="c-section c-section--border" id="_vibrate-scale">
                 <h1 class="c-section__h1">_vibrate-scale</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Vibrate scale
 //
 .u-vibrate-scale {
@@ -224,7 +224,7 @@
               <section class="c-section c-section--border" id="_extend-underline">
                 <h1 class="c-section__h1">_extend-underline</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Extend the underline from the center.
 // This mixin use the pseudo-elements.
 //
@@ -246,7 +246,7 @@
               <section class="c-section c-section--border" id="_background-image-cover">
                 <h1 class="c-section__h1">_background-image-cover</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Background image cover + centering
 //
 .c-foo {
@@ -258,7 +258,7 @@
               <section class="c-section c-section--border" id="_background-image-fixed">
                 <h1 class="c-section__h1">_background-image-fixed</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Background image fixed
 //
 .c-foo {
@@ -267,10 +267,49 @@
 }</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="_balloon-triangle">
+                <h1 class="c-section__h1">_balloon-triangle</h1>
+
+                <pre><code class="stylus">//
+// Generate balloon triangle
+//
+// @param  string  position
+// @param  length  size              triangle size
+// @param  hex     background-color
+// @param  length  border-size
+// @param  hex     border-color
+//
+.c-foo {
+  _balloon-triangle(top, 10px, #000, 1px, #f00);
+}</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_balloon">
+                <h1 class="c-section__h1">_balloon</h1>
+
+                <pre><code class="stylus">//
+// Generate balloon
+//
+// @param  string  angle   position of arrow
+// @param  hash    params  properties for decoration
+//
+.c-foo {
+  _balloon(
+    top,
+    {
+      background-color: null,
+      border-color: null,
+      border-size: null,
+      triangle-size: 10px,
+    }
+  );
+}</code></pre>
+              </section>
+
               <section class="c-section c-section--border" id="_circle">
                 <h1 class="c-section__h1">_circle</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Creating circle
 //
 // @param  length  size
@@ -283,7 +322,7 @@
               <section class="c-section c-section--border" id="_clearfix">
                 <h1 class="c-section__h1">_clearfix</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Clearfix helper
 //
 .u-clearfix {
@@ -294,7 +333,7 @@
               <section class="c-section c-section--border" id="_hover">
                 <h1 class="c-section__h1">_hover</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Hover event helper
 //
 .c-foo {
@@ -304,10 +343,48 @@
 }</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="_form-control-base-padding">
+                <h1 class="c-section__h1">_form-control-base-padding</h1>
+
+                <pre><code class="stylus">//
+// Sets padding for form controls
+//
+.c-foo {
+  _form-control-base-padding();
+}</code></pre>
+              </section>
+
+              <section class="c-section c-section--border" id="_form-control-base-border">
+                <h1 class="c-section__h1">_form-control-base-border</h1>
+
+                <pre><code class="stylus">//
+// Form Control border color
+// @var  hex
+//
+_form-control-border-color ?= _light($_color-gray);
+
+// Form Control border color when hover
+// @var  hex
+//
+_form-control-border-color-hover ?= $_color-gray;
+
+// Form Control border color when focus
+// @var  hex
+//
+_form-control-border-color-focus ?= #85B7D9;
+
+//
+// Sets border for form controls
+//
+.c-foo {
+  _form-control-base-border();
+}</code></pre>
+              </section>
+
               <section class="c-section c-section--border" id="_ghost">
                 <h1 class="c-section__h1">_ghost</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Ghost style
 //
 // @param  hash  properties for decoration
@@ -316,7 +393,7 @@
   _btn();
   _ghost({
     border-size: 1px,
-    color      : #fff,
+    color: #fff,
   });
 }</code></pre>
               </section>
@@ -324,7 +401,7 @@
               <section class="c-section c-section--border" id="_list-unstyled">
                 <h1 class="c-section__h1">_list-unstyled</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Unstyled list
 //
 .c-list-unstyled {
@@ -335,7 +412,7 @@
               <section class="c-section c-section--border" id="_list-unstyled">
                 <h1 class="c-section__h1">_list-inline</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Inline list
 //
 .c-list-inline {
@@ -346,7 +423,7 @@
               <section class="c-section c-section--border" id="_margin">
                 <h1 class="c-section__h1">_margin</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Sets margin
 //
 // @param  int  coefficient-1
@@ -369,7 +446,7 @@
               <section class="c-section c-section--border" id="_overlay">
                 <h1 class="c-section__h1">_overlay</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Overlay (This overlay is using ::before element)
 //
 // @param  hex  hex
@@ -383,7 +460,7 @@
               <section class="c-section c-section--border" id="_padding">
                 <h1 class="c-section__h1">_padding</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Sets padding
 //
 // @param  int  coefficient-1
@@ -406,7 +483,7 @@
               <section class="c-section c-section--border" id="_position">
                 <h1 class="c-section__h1">_position</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // The position shorthand
 //
 // @param  string  position
@@ -426,7 +503,7 @@
               <section class="c-section c-section--border" id="_media-min">
                 <h1 class="c-section__h1">_media-min</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // min-width media query
 //
 // @param  size|length  min  width
@@ -445,7 +522,7 @@
               <section class="c-section c-section--border" id="_media-max">
                 <h1 class="c-section__h1">_media-max</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // max-width media query
 //
 // @param  size|length  max  width
@@ -464,7 +541,7 @@
               <section class="c-section c-section--border" id="_media-sm-only">
                 <h1 class="c-section__h1">_media-sm-only</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Media query for smartphone size
 //
 .c-foo {
@@ -477,7 +554,7 @@
               <section class="c-section c-section--border" id="_media-md-only">
                 <h1 class="c-section__h1">_media-md-only</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Media query for tablet size
 //
 .c-foo {
@@ -490,7 +567,7 @@
               <section class="c-section c-section--border" id="_media-lg-only">
                 <h1 class="c-section__h1">_media-lg-only</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Media query for pc size
 //
 .c-foo {
@@ -503,7 +580,7 @@
               <section class="c-section c-section--border" id="_square">
                 <h1 class="c-section__h1">_square</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Creating square
 //
 // @param  length  size
@@ -518,7 +595,7 @@
               <section class="c-section c-section--border" id="_transition">
                 <h1 class="c-section__h1">_transition</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Transition helper
 //
 // @param  string  property
@@ -535,7 +612,7 @@ a {
               <section class="c-section c-section--border" id="_transition-all">
                 <h1 class="c-section__h1">_transition-all</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Transition helper
 //
 a {
@@ -550,7 +627,7 @@ a {
               <section class="c-section c-section--border" id="_transition-size">
                 <h1 class="c-section__h1">_transition-size</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Transition helper
 //
 .c-progress-bar {
@@ -565,7 +642,7 @@ a {
               <section class="c-section c-section--border" id="_transition-opacity">
                 <h1 class="c-section__h1">_transition-opacity</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Transition helper
 //
 img {
@@ -580,7 +657,7 @@ img {
               <section class="c-section c-section--border" id="_triangle-top">
                 <h1 class="c-section__h1">_triangle-top</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Generate top triangle style
 //
 // @param  length  width
@@ -595,7 +672,7 @@ img {
               <section class="c-section c-section--border" id="_triangle-right">
                 <h1 class="c-section__h1">_triangle-right</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Generate right triangle style
 //
 // @param  length  width
@@ -610,7 +687,7 @@ img {
               <section class="c-section c-section--border" id="_triangle-bottom">
                 <h1 class="c-section__h1">_triangle-bottom</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Generate bottom triangle style
 //
 // @param  length  width
@@ -625,7 +702,7 @@ img {
               <section class="c-section c-section--border" id="_triangle-left">
                 <h1 class="c-section__h1">_triangle-left</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Generate left triangle style
 //
 // @param  length  width
@@ -640,7 +717,7 @@ img {
               <section class="c-section c-section--border" id="_font-size">
                 <h1 class="c-section__h1">_font-size</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Sets px and rem font-sizes
 //
 // @param  rem|px  font-size
@@ -653,7 +730,7 @@ img {
               <section class="c-section c-section--border" id="_line-height">
                 <h1 class="c-section__h1">_line-height</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Sets line-height for vertical rhythum
 //
 // @param  rem|px  font-size  font size
@@ -666,7 +743,7 @@ img {
               <section class="c-section c-section--border" id="_font-size-line-height">
                 <h1 class="c-section__h1">_font-size-line-height</h1>
 
-                <pre><code>//
+                <pre><code class="stylus">//
 // Sets px and rem font-sizes and line-height for vertical rhythum
 //
 // @param  rem|px  font-size
@@ -696,9 +773,13 @@ img {
                   <li class="p-local-nav__item"><a href="#_extend-underline">_extend-underline</a></li>
                   <li class="p-local-nav__item"><a href="#_background-image-cover">_background-image-cover</a></li>
                   <li class="p-local-nav__item"><a href="#_background-image-fixed">_background-image-fixed</a></li>
+                  <li class="p-local-nav__item"><a href="#_balloon-triangle">_balloon-triangle</a></li>
+                  <li class="p-local-nav__item"><a href="#_balloon">_balloon</a></li>
                   <li class="p-local-nav__item"><a href="#_circle">_circle</a></li>
                   <li class="p-local-nav__item"><a href="#_clearfix">_clearfix</a></li>
                   <li class="p-local-nav__item"><a href="#_hover">_hover</a></li>
+                  <li class="p-local-nav__item"><a href="#_form-control-base-padding">_form-control-base-padding</a></li>
+                  <li class="p-local-nav__item"><a href="#_form-control-base-border">_form-control-base-border</a></li>
                   <li class="p-local-nav__item"><a href="#_ghost">_ghost</a></li>
                   <li class="p-local-nav__item"><a href="#_list-unstyled">_list-unstyled</a></li>
                   <li class="p-local-nav__item"><a href="#_list-inline">_list-inline</a></li>

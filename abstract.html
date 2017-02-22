@@ -7,16 +7,16 @@
   <title>Abstract</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/railscasts.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="/assets/vendor/highlight/styles/railscasts.css">
+  <script src="/assets/vendor/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="/assets/css/style.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.min.css?v=1" />
   <!--[if lt IE 10]>
   <link rel="stylesheet" href="/assets/css/basis-ie9.min.css" />
   <![endif]-->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.1.1/gh-fork-ribbon.min.css" />
-  <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
   <link rel="shortcut icon" href="/favicon.ico">
 </head>
 
@@ -98,20 +98,19 @@
               <section class="c-section c-section--border" id="_alert">
                 <h1 class="c-section__h1">_alert</h1>
 
-                <pre><code>//
-// The alert component
+                <pre><code class="stylus">//
+// Alert
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-alert {
   _alert({
     background-color: null,
-    border-color    : null,
-    border-size     : null,
+    border: null,
   });
-}
+}</code></pre>
 
-&lt;div class="c-alert" role="alert"&gt;
+                <pre><code class="html">&lt;div class="c-alert" role="alert"&gt;
   ...
 &lt;/div&gt;</code></pre>
               </section>
@@ -119,21 +118,21 @@
               <section class="c-section c-section--border" id="_balloon-top">
                 <h1 class="c-section__h1">_balloon-top</h1>
 
-                <pre><code>//
-// The top balloon component
+                <pre><code class="stylus">//
+// Balloon (Top)
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-balloon-top {
   _balloon-top({
-    background-color: #fff,
-    border-color    : #ccc,
-    border-size     : 1px,
-    triangle-size   : 10px,
+    background-color: null,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
   });
-}
+}</code></pre>
 
-&lt;div class="c-balloon-top"&gt;
+                <pre><code class="html">&lt;div class="c-balloon-top"&gt;
   ...
 &lt;/div&gt;</code></pre>
               </section>
@@ -141,21 +140,21 @@
               <section class="c-section c-section--border" id="_balloon-right">
                 <h1 class="c-section__h1">_balloon-right</h1>
 
-                <pre><code>//
-// The right balloon component
+                <pre><code class="stylus">//
+// Balloon (Right)
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-balloon-right {
   _balloon-right({
-    background-color: #fff,
-    border-color    : #ccc,
-    border-size     : 1px,
-    triangle-size   : 10px,
+    background-color: null,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
   });
-}
+}</code></pre>
 
-&lt;div class="c-balloon-right"&gt;
+                <pre><code class="html">&lt;div class="c-balloon-right"&gt;
   ...
 &lt;/div&gt;</code></pre>
               </section>
@@ -163,21 +162,21 @@
               <section class="c-section c-section--border" id="_balloon-bottom">
                 <h1 class="c-section__h1">_balloon-bottom</h1>
 
-                <pre><code>//
-// The bottom balloon component
+                <pre><code class="stylus">//
+// Balloon (Bottom)
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-balloon-bottom {
   _balloon-bottom({
-    background-color: #fff,
-    border-color    : #ccc,
-    border-size     : 1px,
-    triangle-size   : 10px,
+    background-color: null,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
   });
-}
+}</code></pre>
 
-&lt;div class="c-balloon-bottom"&gt;
+                <pre><code class="html">&lt;div class="c-balloon-bottom"&gt;
   ...
 &lt;/div&gt;</code></pre>
               </section>
@@ -185,21 +184,21 @@
               <section class="c-section c-section--border" id="_balloon-left">
                 <h1 class="c-section__h1">_balloon-left</h1>
 
-                <pre><code>//
-// The left balloon component
+                <pre><code class="stylus">//
+// Balloon (Left)
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-balloon-left {
   _balloon-left({
-    background-color: #fff,
-    border-color    : #ccc,
-    border-size     : 1px,
-    triangle-size   : 10px,
+    background-color: null,
+    border-color: null,
+    border-size: null,
+    triangle-size: 10px,
   });
-}
+}</code></pre>
 
-&lt;div class="c-balloon-left"&gt;
+                <pre><code class="html">&lt;div class="c-balloon-left"&gt;
   ...
 &lt;/div&gt;</code></pre>
               </section>
@@ -207,33 +206,32 @@
               <section class="c-section c-section--border" id="_btn">
                 <h1 class="c-section__h1">_btn</h1>
 
-                <pre><code>//
-// The button component
+                <pre><code class="stylus">//
+// Button
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-btn {
   _btn({
     background-color: null,
-    border-color    : null,
-    border-size     : null,
+    border: null,
   });
-}
+}</code></pre>
 
-&lt;a class="c-btn" role="button"&gt;btn&lt;/a&gt;</code></pre>
+                <pre><code class="html">&lt;a class="c-btn" role="button"&gt;btn&lt;/a&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="_card">
                 <h1 class="c-section__h1">_card</h1>
 
-                <pre><code>//
-// The card componet
+                <pre><code class="stylus">//
+// Card
 //
 .c-card {
   _card();
-}
+}</code></pre>
 
-&lt;div class="c-card"&gt;
+                <pre><code class="html">&lt;div class="c-card"&gt;
  &lt;div class="c-card__figure"&gt;
    &lt;img ...&gt;
  &lt;/div&gt;
@@ -246,32 +244,39 @@
               <section class="c-section c-section--border" id="_checkbox">
                 <h1 class="c-section__h1">_checkbox</h1>
 
-                <pre><code>//
-// The checkbox component
+                <pre><code class="stylus">//
+// Checkbox
 //
 .c-checkbox {
   _checkbox();
-}
+}</code></pre>
 
-&lt;span class="c-checkbox"&gt;
-  &lt;input type="checkbox"&gt;
-  &lt;label class="c-checkbox__label"&gt;Label&lt;/label&gt;
-&lt;/span&gt;</code></pre>
+                <pre><code class="html">&lt;label&gt;
+  &lt;span class=&quot;c-checkbox&quot;&gt;
+    &lt;input type=&quot;checkbox&quot;&gt;
+    &lt;span class=&quot;c-checkbox__control&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+  ...
+&lt;/label&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="_container">
                 <h1 class="c-section__h1">_container</h1>
 
-                <pre><code>//
-// The container component
+                <pre><code class="stylus">//
+// Container max-width
+// @var  length
 //
-// _container-max-width ?= 1200px;
+_container-max-width: 1200px !default;
+
+//
+// Container
 //
 .c-container {
   _container();
-}
+}</code></pre>
 
-&lt;div class="c-container"&gt;
+                <pre><code class="html">&lt;div class="c-container"&gt;
   ...
 &lt;/div&gt;</code></pre>
               </section>
@@ -279,30 +284,30 @@
               <section class="c-section c-section--border" id="_drawer">
                 <h1 class="c-section__h1">_drawer <span class="c-label">JS</span></h1>
 
-                <pre><code>//
-// The drawer component
+                <pre><code class="stylus">//
+// Drawer
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-drawer {
   _drawer({
     background-color: _light(_color-black),
-    width           : (_base-line-height * 10),
-    max-width       : 80%,
+    width: (_base-line-height * 10),
+    max-width: 80%,
   });
-}
+}</code></pre>
 
-import BasisDrawer from 'node_modules/getbasis/src/js/drawer.js';
-new BasisDrawer();
+                <pre><code class="js">import BasisDrawer from 'node_modules/getbasis/src/js/drawer.js';
+new BasisDrawer();</code></pre>
 
-&lt;div class=&quot;c-drawer&quot; data-c=&quot;drawer&quot;&gt;
+                <pre><code class="html">&lt;div class=&quot;c-drawer&quot; data-c=&quot;drawer&quot;&gt;
   &lt;nav id=&quot;drawer&quot; class=&quot;c-drawer__body&quot; data-c=&quot;drawer__body&quot; role=&quot;navigation&quot; aria-hidden=&quot;true&quot;&gt;
     &lt;ul class=&quot;c-drawer__menu&quot;&gt;
       &lt;li class=&quot;c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
       &lt;li class=&quot;c-drawer__item&quot;&gt;&lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;&lt;/li&gt;
       &lt;li class=&quot;c-drawer__item&quot;&gt;
         &lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;
-        &lt;div class=&quot;c-drawer__toggle&quot; data-c=&quot;drawer__toggle&quot; aria-expanded=&quot;false&quot;&gt;&gt;&lt;/div&gt;
+        &lt;div class=&quot;c-drawer__toggle&quot; data-c=&quot;drawer__toggle&quot; aria-expanded=&quot;false&quot;&gt;&amp;gt;&lt;/div&gt;
         &lt;ul class=&quot;c-drawer__submenu&quot; data-c=&quot;drawer__submenu&quot; aria-hidden=&quot;true&quot;&gt;
           &lt;li class=&quot;c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
           &lt;li class=&quot;c-drawer__subitem&quot;&gt;&lt;a href=&quot;#&quot;&gt;submenu&lt;/a&gt;&lt;/li&gt;
@@ -311,21 +316,25 @@ new BasisDrawer();
     &lt;/ul&gt;
   &lt;/nav&gt;
 &lt;/div&gt;
-
-&lt;div class=&quot;_c-hamburger-btn&quot; data-c=&quot;drawer-btn&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;drawer&quot;&gt;&lt;/div&gt;</code></pre>
+//
+&lt;div class=&quot;_c-hamburger-btn&quot; data-c=&quot;drawer-btn&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;drawer&quot;&gt;
+  &lt;div class=&quot;_c-hamburger-btn__bar&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;_c-hamburger-btn__bar&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;_c-hamburger-btn__bar&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="_flex-media">
                 <h1 class="c-section__h1">_flex-media</h1>
 
-                <pre><code>//
-// The media component. When smartphone size, vertically aligned.
+                <pre><code class="stylus">//
+// Flexible Media
 //
 .c-flex-media {
   _flex-media();
-}
+}</code></pre>
 
-&lt;div class="c-flex-media"&gt;
+                <pre><code class="html">&lt;div class="c-flex-media"&gt;
  &lt;div class="c-flex-media__figure"&gt;
    &lt;img ...&gt;
  &lt;/div&gt;
@@ -338,42 +347,34 @@ new BasisDrawer();
               <section class="c-section c-section--border" id="_form-control">
                 <h1 class="c-section__h1">_form-control</h1>
 
-                <pre><code>//
-// The form control component
-//
-// @param  hash  properties for decoration
+                <pre><code class="stylus">//
+// Form Control
 //
 .c-form-control {
-  _form-control({
-    background-color         : #fff,
-    border-size              : 1px,
-    border-color             : #ccc,
-    disabled-background-color: #eee,
-    readonly-background-color: #eee,
-  });
-}
+  _form-control();
+}</code></pre>
 
-&lt;input type="text" class="c-form-control"&gt;</code></pre>
+                <pre><code class="html">&lt;input type="text" class="c-form-control"&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="_hamburger-btn">
                 <h1 class="c-section__h1">_hamburger-btn</h1>
 
-                <pre><code>//
-// The hamberger button component
+                <pre><code class="stylus">//
+// Hamburger Button
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-hamburger-btn {
   _hamburger-btn({
-    height    : 16px,
-    width     : 22px,
+    height: 16px,
+    width: 22px,
     bar-height: 2px,
-    color     : _color-text,
+    color: _color-text,
   });
-}
+}</code></pre>
 
-&lt;div class="c-hamburger-btn" role="button" aria-expanded="false"&gt;
+                <pre><code class="html">&lt;div class="c-hamburger-btn" role="button" aria-expanded="false"&gt;
   &lt;div class="c-hamburger-btn__bar"&gt;&lt;/div&gt;
   &lt;div class="c-hamburger-btn__bar"&gt;&lt;/div&gt;
   &lt;div class="c-hamburger-btn__bar"&gt;&lt;/div&gt;
@@ -383,36 +384,42 @@ new BasisDrawer();
               <section class="c-section c-section--border" id="_hero">
                 <h1 class="c-section__h1">_hero</h1>
 
-                <pre><code>//
-// The hero component
+                <pre><code class="stylus">//
+// Hero
 //
 .c-hero {
   _hero();
-}
+}</code></pre>
 
-&lt;div class="c-hero"&gt;
+                <pre><code class="html">&lt;div class="c-hero"&gt;
   &lt;div class="c-hero__header"&gt;&lt;/div&gt;
   &lt;div class="c-hero__content"&gt;&lt;/div&gt;
   &lt;div class="c-hero__footer"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="_ic">
+                <h1 class="c-section__h1">_ic</h1>
+
+                <pre><code class="stylus">//
+// Icon Font
+//
+.c-ic {
+  _ic();
+}</code></pre>
+              </section>
+
               <section class="c-section c-section--border" id="_input-group">
                 <h1 class="c-section__h1">_input-group</h1>
 
-                <pre><code>//
-// The input group component
-//
-// @param  hash  properties for decoration
+                <pre><code class="stylus">//
+// Input Group
 //
 .c-input-group {
-  _input-group({
-    border-size : 1px,
-    border-color: _light(_color-gray),
-  });
-}
+  _input-group();
+}</code></pre>
 
-&lt;div class="c-input-group"&gt;
+                <pre><code class="html">&lt;div class="c-input-group"&gt;
   &lt;div class="c-input-group__addon"&gt;@&lt;/div&gt;
   &lt;div class="c-input-group__field"&gt;
     &lt;input type="text"&gt;
@@ -424,14 +431,14 @@ new BasisDrawer();
               <section class="c-section c-section--border" id="_media">
                 <h1 class="c-section__h1">_media</h1>
 
-                <pre><code>//
-// The media component
+                <pre><code class="stylus">//
+// Media
 //
 .c-media {
   _media();
-}
+}</code></pre>
 
-&lt;div class="c-media"&gt;
+                <pre><code class="html">&lt;div class="c-media"&gt;
   &lt;div class="c-media__figure"&gt;
     &lt;img ...&gt;
   &lt;/div&gt;
@@ -444,17 +451,17 @@ new BasisDrawer();
               <section class="c-section c-section--border" id="_navbar">
                 <h1 class="c-section__h1">_navbar</h1>
 
-                <pre><code>//
-// The navbar component
+                <pre><code class="stylus">//
+// Navbar
 //
 .c-navbar {
   _navbar();
-}
+}</code></pre>
 
-import BasisNavbar from 'node_modules/getbasis/src/js/navbar.js';
-new BasisNavbar();
+                <pre><code class="js">import BasisNavbar from 'node_modules/getbasis/src/js/navbar.js';
+new BasisNavbar();</code></pre>
 
-&lt;ul class=&quot;_c-navbar&quot;&gt;
+                <pre><code class="html">&lt;ul class=&quot;_c-navbar&quot;&gt;
   &lt;li class=&quot;_c-navbar__item&quot; data-c=&quot;navbar__item&quot; aria-haspopup=&quot;true&quot;&gt;
     &lt;a href=&quot;#&quot;&gt;menu&lt;/a&gt;
     &lt;ul class=&quot;_c-navbar__submenu&quot; data-c=&quot;navbar__submenu&quot; aria-hidden=&quot;true&quot;&gt;
@@ -469,54 +476,59 @@ new BasisNavbar();
 &lt;/ul&gt;</code></pre>
               </section>
 
-              <section class="c-section c-section--border" id="_radio">
-                <h1 class="c-section__h1">_radio</h1>
-
-                <pre><code>//
-// The radio component
-//
-// @param  hash  properties for decoration
-//
-.c-radio {
-  _radio();
-}
-
-&lt;span class="c-radio"&gt;
-  &lt;input type="radio"&gt;
-  &lt;label class="c-radio__label"&gt;Label&lt;/label&gt;
-&lt;/span&gt;</code></pre>
-              </section>
-
               <section class="c-section c-section--border" id="_page-effect">
                 <h1 class="c-section__h1">_page-effect <span class="c-label">JS</span></h1>
 
-                <pre><code>//
-// The page effect component
+                <pre><code class="stylus">//
+// Page Effect
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-page-effect {
   _page-effect({
     duration: .2s,
-    color   : #fff,
+    background-color: #fff,
   });
-}
+}</code></pre>
 
-import BasisPageEffect from 'node_modules/getbasis/src/js/page-effect.js';
-new BasisPageEffect();
+                <pre><code class="js">import BasisPageEffect from 'node_modules/getbasis/src/js/page-effect.js';
+new BasisPageEffect();</code></pre>
 
-&lt;div class=&quot;c-page-effect&quot; data-c=&quot;page-effect&quot; data-page-effect=&quot;fadein&quot; aria-hidden=&quot;false&quot;&gt;
+                <pre><code class="html">&lt;div class=&quot;c-page-effect&quot; data-c=&quot;page-effect&quot; data-page-effect=&quot;fadein&quot; aria-hidden=&quot;false&quot;&gt;
   &lt;div class=&quot;c-page-effect__item&quot;&gt;
     Loading...
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="_radio">
+                <h1 class="c-section__h1">_radio</h1>
+
+                <pre><code class="stylus">//
+// Radio
+//
+// @param  hash  params  properties for decoration
+//
+.c-radio {
+  _radio({
+    size: _base-font-size-px,
+  });
+}</code></pre>
+
+                <pre><code class="html">&lt;label&gt;
+  &lt;span class=&quot;c-radio&quot;&gt;
+    &lt;input type=&quot;radio&quot;&gt;
+    &lt;span class=&quot;c-radio__control&quot;&gt;&lt;/span&gt;
+  &lt;/span&gt;
+  ...
+&lt;/label&gt;</code></pre>
+              </section>
+
               <section class="c-section c-section--border" id="_row">
                 <h1 class="c-section__h1">_row</h1>
 
-                <pre><code>//
-// The grid component
+                <pre><code class="stylus">//
+// Grid System
 //
 // Grid wrapper
 //
@@ -525,7 +537,7 @@ _row();
 //
 // Setting column width
 //
-// @param  int  columns  molecule column size
+// @param  int  columns      molecule column size
 // @param  int  max-columns  denominator column size
 //
 _row__col(columns = null, max-columns = null)
@@ -540,7 +552,7 @@ _row__col--width(width)
 //
 // Setting column offset
 //
-// @param  int  columns  molecule offset size
+// @param  int  columns      molecule offset size
 // @param  int  max-columns  denominator offset size
 //
 _row__col--offset(columns = null, max-columns = null)
@@ -574,45 +586,46 @@ _row--margin(coefficient)
               </section>
 
               <section class="c-section c-section--border" id="_select">
-                <h1 class="c-section__h1">_select</h1>
+                <h1 class="c-section__h1">_select <span class="c-label">JS</span></h1>
 
-                <pre><code>//
-// The select component
-//
-// @param  hash  properties for decoration
+                <pre><code class="stylus">//
+// Select
 //
 .c-select {
-  _select({
-    background-color: null,
-    border-color    : null,
-    border-size     : null,
-  });
-}
+  _select();
+}</code></pre>
 
-&lt;span class="c-select"&gt;
-  &lt;select&gt;&lt;/select&gt;
+                <pre><code class="javascript">import BasisSelect from 'node_modules/getbasis/src/js/select.js';
+new BasisSelect();</code></pre>
+
+                <pre><code class="html">&lt;span class=&quot;c-select&quot; data-c=&quot;select&quot; aria-selected=&quot;false&quot;&gt;
+  &lt;select&gt;
+    &lt;option&gt;1&lt;/option&gt;
+    &lt;option&gt;2&lt;/option&gt;
+    &lt;option&gt;3&lt;/option&gt;&lt;/select&gt;
+  &lt;span class=&quot;c-select__label&quot; data-c=&quot;select__label&quot;&gt;&lt;/span&gt;
 &lt;/span&gt;</code></pre>
               </section>
 
               <section class="c-section c-section--border" id="_spinner-dots">
                 <h1 class="c-section__h1">_spinner-dots</h1>
 
-                <pre><code>//
-// The dots spinner component
+                <pre><code class="stylus">//
+// Spinner (Circle)
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-spinner-dots {
   _spinner-dots({
-    size    : 10px,
-    color   : _color-gray,
-    delay   : 0s,
+    size: 20px,
+    color: _light(_color-gray),
+    border-size: 3px,
+    delay: 0s,
     duration: 2s,
-    scale   : 1.3,
   });
-}
+}</code></pre>
 
-&lt;div class="c-spinner-dots"&gt;
+                <pre><code class="html">&lt;div class="c-spinner-dots"&gt;
   &lt;div class="c-spinner-dots__dot"&gt;&lt;/div&gt;
   &lt;div class="c-spinner-dots__dot"&gt;&lt;/div&gt;
   &lt;div class="c-spinner-dots__dot"&gt;&lt;/div&gt;
@@ -622,23 +635,22 @@ _row--margin(coefficient)
               <section class="c-section c-section--border" id="_spinner-pulse">
                 <h1 class="c-section__h1">_spinner-pulse</h1>
 
-                <pre><code>//
-// The pulse spinner component
+                <pre><code class="stylus">//
+// Spinner (Dots)
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-spinner-pulse {
   _spinner-pulse({
-    height  : 16px,
-    width   : 5px,
-    color   : _color-gray,
-    delay   : 0s,
+    size: 10px,
+    color: _color-gray,
+    delay: 0s,
     duration: 2s,
-    scale   : 1.3,
+    scale: 1.3,
   });
-}
+}</code></pre>
 
-&lt;div class="c-spinner-pulse"&gt;
+                <pre><code class="html">&lt;div class="c-spinner-pulse"&gt;
   &lt;div class="c-spinner-pulse__bar"&gt;&lt;/div&gt;
   &lt;div class="c-spinner-pulse__bar"&gt;&lt;/div&gt;
   &lt;div class="c-spinner-pulse__bar"&gt;&lt;/div&gt;
@@ -648,22 +660,23 @@ _row--margin(coefficient)
               <section class="c-section c-section--border" id="_spinner-circle">
                 <h1 class="c-section__h1">_spinner-circle</h1>
 
-                <pre><code>//
-// The circle spinner component
+                <pre><code class="stylus">//
+// Spinner (Pulse)
 //
-// @param  hash  properties for decoration
+// @param  hash  params  properties for decoration
 //
 .c-spinner-circle {
   _spinner-circle({
-    size       : 20px,
-    color      : _light(_color-gray),
-    border-size: 3px,
-    delay      : 0s,
-    duration   : 2s,
+    height: 16px,
+    width: 5px,
+    color: _color-gray,
+    delay: 0s,
+    duration: 2s,
+    scale: 1.3,
   });
-}
+}</code></pre>
 
-&lt;div class="c-spinner-circle"&gt;&lt;/div&gt;</code></pre>
+                <pre><code class="html">&lt;div class="c-spinner-circle"&gt;&lt;/div&gt;</code></pre>
               </section>
 
             </main>
@@ -688,6 +701,7 @@ _row--margin(coefficient)
                   <li class="p-local-nav__item"><a href="#_form-control">_form-control</a></li>
                   <li class="p-local-nav__item"><a href="#_hamburger-btn">_hamburger-btn</a></li>
                   <li class="p-local-nav__item"><a href="#_hero">_hero</a></li>
+                  <li class="p-local-nav__item"><a href="#_ic">_ic</a></li>
                   <li class="p-local-nav__item"><a href="#_input-group">_input-group</a></li>
                   <li class="p-local-nav__item"><a href="#_media">_media</a></li>
                   <li class="p-local-nav__item"><a href="#_navbar">_navbar</a></li>

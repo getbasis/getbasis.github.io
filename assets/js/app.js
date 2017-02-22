@@ -10042,11 +10042,37 @@ var BasisPageEffect = function () {
   return BasisPageEffect;
 }();
 
+var BasisSelect = function BasisSelect() {
+  classCallCheck(this, BasisSelect);
+
+  this.select = jquery('[data-c="select"]');
+  this.select.each(function (i, e) {
+    var selectWrapper = jquery(e);
+    var select = selectWrapper.find('select');
+    var label = selectWrapper.find('[data-c="select__label"]');
+    label.text(select.children('option:selected').val());
+
+    select.on('change', function (event) {
+      label.text(select.val());
+    });
+
+    select.on('focusin', function (event) {
+      selectWrapper.attr('aria-selected', 'true');
+    });
+
+    select.on('focusout', function (event) {
+      selectWrapper.attr('aria-selected', 'false');
+    });
+  });
+};
+
 new BasisDrawer();
 
 new BasisNavbar();
 
 new BasisPageEffect();
+
+new BasisSelect();
 
 /**
  * IF "disable-window-scroll", to set the intended header width.
@@ -10139,14 +10165,8 @@ var BasisStickyHeader = function () {
       if ('sticky' !== this.header.attr('data-l-header-type')) {
         return;
       }
-
-      var scroll = this.getScrollTop();
-      if (scroll > 0) {
-        var headerHeight = this.header.outerHeight();
-        this.contents.css('paddingTop', headerHeight + 'px');
-      } else {
-        this.contents.css('paddingTop', '');
-      }
+      var headerHeight = this.header.outerHeight();
+      this.contents.css('marginTop', headerHeight + 'px');
     }
   }, {
     key: 'getScrollTarget',
