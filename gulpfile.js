@@ -23,6 +23,7 @@ var dir = {
     css    : 'src/css',
     js     : 'src/js',
     images : 'src/images',
+    vendor : 'src/vendor',
     favicon: 'src/favicon.ico',
     ejs : [
       'src/ejs/**/*.ejs',
@@ -33,6 +34,7 @@ var dir = {
     css    : 'public/assets/css',
     js     : 'public/assets/js',
     images : 'public/assets/images',
+    vendor : 'public/assets/vendor',
     favicon: 'public',
     ejs    : 'public',
   }
@@ -98,7 +100,7 @@ gulp.task('ejs', function() {
     .pipe(plumber())
     .pipe(ejs(
       {
-        version: '6.0.2',
+        version: '6.1.1',
         css    : '/assets/css',
         js     : '/assets/js',
         images : '/assets/images',
@@ -120,6 +122,18 @@ gulp.task( 'imagecopy', function(){
 gulp.task('favicon', function(){
   gulp.src(dir.src.favicon)
     .pipe(gulp.dest(dir.dist.favicon));
+} );
+gulp.task('font', function() {
+  return gulp.src('./node_modules/getbasis/src/font/**')
+    .pipe(gulp.dest('./public/assets/font'));
+});
+
+/**
+ * vendor packages
+ */
+gulp.task( 'vendorcopy', function(){
+  gulp.src(dir.src.vendor + '/**')
+    .pipe(gulp.dest(dir.dist.vendor));
 } );
 
 /**
@@ -147,6 +161,6 @@ gulp.task('browsersync', function() {
   });
 });
 
-gulp.task('build', ['css', 'js', 'imagecopy', 'favicon', 'ejs']);
+gulp.task('build', ['css', 'js', 'imagecopy', 'vendorcopy', 'favicon', 'ejs', 'font']);
 
 gulp.task('default', ['build', 'browsersync', 'watch']);

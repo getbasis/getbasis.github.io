@@ -1,6 +1,6 @@
 {
   "name": "getbasis.github.io",
-  "version": "6.0.2",
+  "version": "6.1.1",
   "main": "index.html",
   "author": "inc2734",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "rollup-plugin-node-resolve": "^2.0.0"
   },
   "dependencies": {
-    "getbasis": "^6.0.2",
+    "getbasis": "^6.1.2",
     "getbasis-layout": "^7.0.0",
     "jquery": "^3.1.1"
   },
