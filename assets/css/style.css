@@ -1,5 +1,5 @@
 /*
- * Name: Basis v6.2.1
+ * Name: Basis v6.3.0
  * Description: A lightweight responsive Stylus/CSS framework based on flexible box.
  * Author: Takashi Kitajima ( inc2734 )
  * Author URL: http://2inc.org
@@ -362,15 +362,15 @@ label {
   display: block;
   background-color: #fff;
   border: 1px solid #ccc;
+  padding: 1.125rem;
   border-radius: 3px;
-  padding: 1rem;
 }
 ._c-balloon-top {
   position: relative;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 3px;
   padding: 1.125rem;
+  border-radius: 3px;
 }
 ._c-balloon-top::before,
 ._c-balloon-top::after {
@@ -402,8 +402,8 @@ label {
   position: relative;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 3px;
   padding: 1.125rem;
+  border-radius: 3px;
 }
 ._c-balloon-right::before,
 ._c-balloon-right::after {
@@ -435,8 +435,8 @@ label {
   position: relative;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 3px;
   padding: 1.125rem;
+  border-radius: 3px;
 }
 ._c-balloon-bottom::before,
 ._c-balloon-bottom::after {
@@ -468,8 +468,8 @@ label {
   position: relative;
   background-color: #fff;
   border: 1px solid #ccc;
-  border-radius: 3px;
   padding: 1.125rem;
+  border-radius: 3px;
 }
 ._c-balloon-left::before,
 ._c-balloon-left::after {
@@ -530,8 +530,8 @@ label {
   white-space: nowrap;
   background-color: #fff;
   border: 1px solid #ccc;
+  padding: 0.75rem 1.5rem;
   color: #444;
-  padding: 0.5rem 2rem;
 }
 ._c-btn--block,
 .c-btn--block {
@@ -549,8 +549,8 @@ label {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1), 0 1px 1px 0 rgba(0,0,0,0.05);
   background-color: #fff;
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1), 0 1px 1px 0 rgba(0,0,0,0.05);
 }
 ._c-card__figure > img,
 .p-media__figure > img {
@@ -561,10 +561,7 @@ label {
 .p-media__body {
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-}
-._c-card__body,
-.p-media__body {
-  padding: 0.75rem 1.125rem;
+  padding: 1.125rem;
 }
 ._c-card__action,
 .p-media__action {
@@ -1041,6 +1038,7 @@ textarea._c-input-group__field > input[type='url'] {
   vertical-align: middle;
   white-space: nowrap;
   background-color: #fff;
+  padding: 0.75rem 1.5rem;
   border: 1px solid #ccc;
   border-radius: 3px;
   outline: 0;
