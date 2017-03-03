@@ -94,19 +94,23 @@
 
         <section class="c-section">
           <div class="_c-container">
-            <h1 class="c-section__title">Using npm</h1>
+            <h1 class="c-section__title">Using Yarn</h1>
             <p>
               Installs Basis
             </p>
-            <pre><code>$ npm install getbasis</code></pre>
+            <pre><code>$ yarn install getbasis</code></pre>
             <p>
-              Imports basis.styl your Stylus.
+              Imports Basis your Stylus.
             </p>
-            <pre><code>@import /PATH/TO/node_modules/getbasis/src/css/basis;</code></pre>
+            <pre><code>/* If you want to use Basis classes */
+@import node_modules/getbasis/src/css/basis;
+
+/* If you want to use Basis mixins only */
+@import node_modules/getbasis/src/css/basis-core;</code></pre>
             <p>
               Imports JavaScripts ( Require jQuery )
             </p>
-            <pre><code>import '/PATH/TO/node_modules/getbasis/src/js/basis.js';</code></pre>
+            <pre><code>import 'node_modules/getbasis/src/js/basis.js';</code></pre>
           </div>
         </section>
 
@@ -117,13 +121,17 @@
               Download the basis from <a href="https://github.com/getbasis/basis/releases" target="_blank">https://github.com/getbasis/basis/releases</a>
             </p>
             <p>
-              Imports basis.styl your Stylus.
+              Imports Basis your Stylus.
             </p>
-            <pre><code>@import /PATH/TO/basis/src/css/basis;</code></pre>
+            <pre><code>/* If you want to use Basis classes */
+@import basis/src/css/basis;
+
+/* If you want to use Basis mixins only */
+@import basis/src/css/basis-core;</code></pre>
             <p>
               or Just this link.
             </p>
-            <pre><code>&lt;link rel="stylesheet" href="/PATH/TO/basis/dist/css/basis.min.css"&gt;</code></pre>
+            <pre><code>&lt;link rel="stylesheet" href="basis/dist/css/basis.min.css"&gt;</code></pre>
             <p>
               Loads JavaScripts
             </p>
@@ -131,7 +139,31 @@
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"&gt;&lt;/script&gt;
-&lt;script src="/PATH/TO/node_modules/getbasis/dist/js/basis.min.js"&gt;&lt;/script&gt;</code></pre>
+&lt;script src="node_modules/getbasis/dist/js/basis.min.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </section>
+
+        <section class="c-section">
+          <div class="_c-container">
+            <h1 class="c-section__title">Sample for using classes</h1>
+            <pre><code>&lt;a class=&quot;_c-btn _c-btn--block&quot;&gt;Btn&lt;/a&gt;</code></pre>
+          </div>
+        </section>
+
+        <section class="c-section">
+          <div class="_c-container">
+            <h1 class="c-section__title">Sample for using abstracts</h1>
+            <pre><code>.c-btn {
+  _c-btn((
+    background-color: #fff,
+    border: 1px solid #ddd,
+  ));
+
+  &--block {
+    display: block;
+  }
+}</code></pre>
+            <pre><code>&lt;a class=&quot;c-btn c-btn--block&quot;&gt;Btn&lt;/a&gt;</code></pre>
           </div>
         </section>
 
@@ -142,20 +174,20 @@
               Support IE9 ( Not perfect )
             </p>
             <pre><code>&lt;!--[if lt IE 10]&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;/PATH/TO/node_modules/getbasis/dist/css/plugin/basis-ie9/basis-ie9.min.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/getbasis/dist/css/plugin/basis-ie9/basis-ie9.min.css&quot; /&gt;
 &lt;![endif]--&gt;</code></pre>
 
             <p>
               And support IE8 ( Not perfect )
             </p>
             <pre><code>&lt;!--[if lt IE 9]&gt;
-&lt;script src=&quot;/PATH/TO/node_modules/html5shiv/dist/html5shiv.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;node_modules/html5shiv/dist/html5shiv.js&quot;&gt;&lt;/script&gt;
 &lt;![endif]--&gt;</code></pre>
 
             <p>
               If you are Stylus user and you want to use only mixins, importing this file.
             </p>
-            <pre><code>@import /PATH/TO/node_modules/getbasis/src/css/basis-core;</code></pre>
+            <pre><code>@import node_modules/getbasis/src/css/basis-core;</code></pre>
           </div>
         </section>
 

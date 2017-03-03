@@ -107,6 +107,7 @@
   _alert({
     background-color: null,
     border: null,
+    padding: _space(.75),
   });
 }</code></pre>
 
@@ -129,6 +130,7 @@
     border-color: null,
     border-size: null,
     triangle-size: 10px,
+    padding: _space(.75),
   });
 }</code></pre>
 
@@ -151,6 +153,7 @@
     border-color: null,
     border-size: null,
     triangle-size: 10px,
+    padding: _space(.75),
   });
 }</code></pre>
 
@@ -173,6 +176,7 @@
     border-color: null,
     border-size: null,
     triangle-size: 10px,
+    padding: _space(.75),
   });
 }</code></pre>
 
@@ -195,6 +199,7 @@
     border-color: null,
     border-size: null,
     triangle-size: 10px,
+    padding: _space(.75),
   });
 }</code></pre>
 
@@ -215,6 +220,7 @@
   _btn({
     background-color: null,
     border: null,
+    padding: _space(.5) _space(1),
   });
 }</code></pre>
 
@@ -227,8 +233,13 @@
                 <pre><code class="stylus">//
 // Card
 //
+// @param  hash  params  properties for decoration
+//
 .c-card {
-  _card();
+  _card({
+    background-color: null,
+    padding: _space(.75),
+  });
 }</code></pre>
 
                 <pre><code class="html">&lt;div class="c-card"&gt;
@@ -409,6 +420,66 @@ new BasisDrawer();</code></pre>
 }</code></pre>
               </section>
 
+              <section class="c-section c-section--border" id="_ib-row">
+                <h1 class="c-section__h1">_ib-row</h1>
+
+                <pre><code class="stylus">//
+// Grid System (Inline Block Base)
+//
+// Grid wrapper
+//
+_ib-row();
+
+//
+// Setting column width
+//
+// @param  int  columns      molecule column size
+// @param  int  max-columns  denominator column size
+//
+_ib-row__col(columns = null, max-columns = null);
+
+//
+// Setting column width
+//
+// @param  length  width
+//
+_ib-row__col--width(width);
+
+//
+// Setting column offset
+//
+// @param  int  columns      molecule offset size
+// @param  int  max-columns  denominator offset size
+//
+_ib-row__col--offset(columns = null, max-columns = null);
+
+//
+// Adding margin for the column
+//
+// @param  int  coefficient
+//
+_ib-row__col--margin(coefficient);
+
+//
+// Adding margin for the row
+//
+// @param  int  coefficient
+//
+_ib-row--margin(coefficient);
+
+.c-row {
+  _ib-row();
+  &__col {
+    _ib-row__col();
+  &--1-3 {
+    _ib-row__col(1, 3);
+  }
+  &--offset-1-3 {
+    _ib-row__col--offset(1, 3);
+  }
+}</code></pre>
+              </section>
+
               <section class="c-section c-section--border" id="_input-group">
                 <h1 class="c-section__h1">_input-group</h1>
 
@@ -540,14 +611,14 @@ _row();
 // @param  int  columns      molecule column size
 // @param  int  max-columns  denominator column size
 //
-_row__col(columns = null, max-columns = null)
+_row__col(columns = null, max-columns = null);
 
 //
 // Setting column width
 //
 // @param  length  width
 //
-_row__col--width(width)
+_row__col--width(width);
 
 //
 // Setting column offset
@@ -555,21 +626,21 @@ _row__col--width(width)
 // @param  int  columns      molecule offset size
 // @param  int  max-columns  denominator offset size
 //
-_row__col--offset(columns = null, max-columns = null)
+_row__col--offset(columns = null, max-columns = null);
 
 //
 // Adding margin for the column
 //
 // @param  int  coefficient
 //
-_row__col--margin(coefficient)
+_row__col--margin(coefficient);
 
 //
 // Adding margin for the row
 //
 // @param  int  coefficient
 //
-_row--margin(coefficient)
+_row--margin(coefficient);
 
 .c-row {
   _row();
@@ -702,6 +773,7 @@ new BasisSelect();</code></pre>
                   <li class="p-local-nav__item"><a href="#_hamburger-btn">_hamburger-btn</a></li>
                   <li class="p-local-nav__item"><a href="#_hero">_hero</a></li>
                   <li class="p-local-nav__item"><a href="#_ic">_ic</a></li>
+                  <li class="p-local-nav__item"><a href="#_ib-row">_ib-row</a></li>
                   <li class="p-local-nav__item"><a href="#_input-group">_input-group</a></li>
                   <li class="p-local-nav__item"><a href="#_media">_media</a></li>
                   <li class="p-local-nav__item"><a href="#_navbar">_navbar</a></li>
