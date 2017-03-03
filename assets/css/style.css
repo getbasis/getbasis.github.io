@@ -1,5 +1,5 @@
 /*
- * Name: Basis v6.1.2
+ * Name: Basis v6.2.1
  * Description: A lightweight responsive Stylus/CSS framework based on flexible box.
  * Author: Takashi Kitajima ( inc2734 )
  * Author URL: http://2inc.org
@@ -3412,6 +3412,7 @@ html[data-window-scroll="false"] [data-l="container"] {
   transition: all 0.1s ease-out;
   border: none;
   border-radius: 3px;
+  padding: 0.75rem 1.5rem;
 }
 .c-btn--block {
   display: block;
