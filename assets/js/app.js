@@ -53,17 +53,17 @@ var createClass = function () {
 
 var jquery = createCommonjsModule(function (module) {
 	/*!
-  * jQuery JavaScript Library v3.1.1
+  * jQuery JavaScript Library v3.2.1
   * https://jquery.com/
   *
   * Includes Sizzle.js
   * https://sizzlejs.com/
   *
-  * Copyright jQuery Foundation and other contributors
+  * Copyright JS Foundation and other contributors
   * Released under the MIT license
   * https://jquery.org/license
   *
-  * Date: 2016-09-22T22:30Z
+  * Date: 2017-03-20T18:59Z
   */
 	(function (global, factory) {
 
@@ -134,7 +134,7 @@ var jquery = createCommonjsModule(function (module) {
 		// unguarded in another place, it seems safer to define global only for this module
 
 
-		var version = "3.1.1",
+		var version = "3.2.1",
 
 
 		// Define a local copy of jQuery
@@ -290,11 +290,11 @@ var jquery = createCommonjsModule(function (module) {
 						}
 
 						// Recurse if we're merging plain objects or arrays
-						if (deep && copy && (jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)))) {
+						if (deep && copy && (jQuery.isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
 
 							if (copyIsArray) {
 								copyIsArray = false;
-								clone = src && jQuery.isArray(src) ? src : [];
+								clone = src && Array.isArray(src) ? src : [];
 							} else {
 								clone = src && jQuery.isPlainObject(src) ? src : {};
 							}
@@ -331,8 +331,6 @@ var jquery = createCommonjsModule(function (module) {
 			isFunction: function isFunction(obj) {
 				return jQuery.type(obj) === "function";
 			},
-
-			isArray: Array.isArray,
 
 			isWindow: function isWindow(obj) {
 				return obj != null && obj === obj.window;
@@ -404,10 +402,6 @@ var jquery = createCommonjsModule(function (module) {
 			// Microsoft forgot to hump their vendor prefix (#9572)
 			camelCase: function camelCase(string) {
 				return string.replace(rmsPrefix, "ms-").replace(rdashAlpha, fcamelCase);
-			},
-
-			nodeName: function nodeName(elem, name) {
-				return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 			},
 
 			each: function each(obj, callback) {
@@ -2782,6 +2776,10 @@ var jquery = createCommonjsModule(function (module) {
 
 		var rneedsContext = jQuery.expr.match.needsContext;
 
+		function nodeName(elem, name) {
+
+			return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
+		}
 		var rsingleTag = /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i;
 
 		var risSimple = /^.[^:#\[\.,]*$/;
@@ -3109,7 +3107,18 @@ var jquery = createCommonjsModule(function (module) {
 				return _siblings(elem.firstChild);
 			},
 			contents: function contents(elem) {
-				return elem.contentDocument || jQuery.merge([], elem.childNodes);
+				if (nodeName(elem, "iframe")) {
+					return elem.contentDocument;
+				}
+
+				// Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
+				// Treat the template element as a regular one in browsers that
+				// don't support it.
+				if (nodeName(elem, "template")) {
+					elem = elem.content || elem;
+				}
+
+				return jQuery.merge([], elem.childNodes);
 			}
 		}, function (name, fn) {
 			jQuery.fn[name] = function (until, selector) {
@@ -3210,7 +3219,7 @@ var jquery = createCommonjsModule(function (module) {
 			fire = function fire() {
 
 				// Enforce single-firing
-				_locked = options.once;
+				_locked = _locked || options.once;
 
 				// Execute callbacks for all pending executions,
 				// respecting firingIndex overrides and runtime changes
@@ -3376,7 +3385,7 @@ var jquery = createCommonjsModule(function (module) {
 			throw ex;
 		}
 
-		function adoptValue(value, resolve, reject) {
+		function adoptValue(value, resolve, reject, noValue) {
 			var method;
 
 			try {
@@ -3392,9 +3401,10 @@ var jquery = createCommonjsModule(function (module) {
 					// Other non-thenables
 				} else {
 
-					// Support: Android 4.0 only
-					// Strict mode functions invoked without .call/.apply get global-object context
-					resolve.call(undefined, value);
+					// Control `resolve` arguments by letting Array#slice cast boolean `noValue` to integer:
+					// * false: [ value ].slice( 0 ) => resolve( value )
+					// * true: [ value ].slice( 1 ) => resolve()
+					resolve.apply(undefined, [value].slice(noValue));
 				}
 
 				// For Promises/A+, convert exceptions into rejections
@@ -3404,7 +3414,7 @@ var jquery = createCommonjsModule(function (module) {
 
 				// Support: Android 4.0 only
 				// Strict mode functions invoked without .call/.apply get global-object context
-				reject.call(undefined, value);
+				reject.apply(undefined, [value]);
 			}
 		}
 
@@ -3680,7 +3690,7 @@ var jquery = createCommonjsModule(function (module) {
 
 				// Single- and empty arguments are adopted like Promise.resolve
 				if (remaining <= 1) {
-					adoptValue(singleValue, master.done(updateFunc(i)).resolve, master.reject);
+					adoptValue(singleValue, master.done(updateFunc(i)).resolve, master.reject, !remaining);
 
 					// Use .then() to unwrap secondary thenables (cf. gh-3000)
 					if (master.state() === "pending" || jQuery.isFunction(resolveValues[i] && resolveValues[i].then)) {
@@ -3742,15 +3752,6 @@ var jquery = createCommonjsModule(function (module) {
 			// A counter to track how many items to wait for before
 			// the ready event fires. See #6781
 			readyWait: 1,
-
-			// Hold (or release) the ready event
-			holdReady: function holdReady(hold) {
-				if (hold) {
-					jQuery.readyWait++;
-				} else {
-					jQuery.ready(true);
-				}
-			},
 
 			// Handle when the DOM is ready
 			ready: function ready(wait) {
@@ -3973,7 +3974,7 @@ var jquery = createCommonjsModule(function (module) {
 				if (key !== undefined) {
 
 					// Support array or space separated string of keys
-					if (jQuery.isArray(key)) {
+					if (Array.isArray(key)) {
 
 						// If key is an array of keys...
 						// We always set camelCase keys, so remove that.
@@ -4196,7 +4197,7 @@ var jquery = createCommonjsModule(function (module) {
 
 					// Speed up dequeue by getting out quickly if this is just a lookup
 					if (data) {
-						if (!queue || jQuery.isArray(data)) {
+						if (!queue || Array.isArray(data)) {
 							queue = dataPriv.access(elem, type, jQuery.makeArray(data));
 						} else {
 							queue.push(data);
@@ -4554,7 +4555,7 @@ var jquery = createCommonjsModule(function (module) {
 				ret = [];
 			}
 
-			if (tag === undefined || tag && jQuery.nodeName(context, tag)) {
+			if (tag === undefined || tag && nodeName(context, tag)) {
 				return jQuery.merge([context], ret);
 			}
 
@@ -5164,7 +5165,7 @@ var jquery = createCommonjsModule(function (module) {
 
 					// For checkbox, fire native event so checked state will be right
 					trigger: function trigger() {
-						if (this.type === "checkbox" && this.click && jQuery.nodeName(this, "input")) {
+						if (this.type === "checkbox" && this.click && nodeName(this, "input")) {
 							this.click();
 							return false;
 						}
@@ -5172,7 +5173,7 @@ var jquery = createCommonjsModule(function (module) {
 
 					// For cross-browser consistency, don't fire native .click() on links
 					_default: function _default(event) {
-						return jQuery.nodeName(event.target, "a");
+						return nodeName(event.target, "a");
 					}
 				},
 
@@ -5439,10 +5440,11 @@ var jquery = createCommonjsModule(function (module) {
 		    rscriptTypeMasked = /^true\/(.*)/,
 		    rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;
 
+		// Prefer a tbody over its parent table for containing new rows
 		function manipulationTarget(elem, content) {
-			if (jQuery.nodeName(elem, "table") && jQuery.nodeName(content.nodeType !== 11 ? content : content.firstChild, "tr")) {
+			if (nodeName(elem, "table") && nodeName(content.nodeType !== 11 ? content : content.firstChild, "tr")) {
 
-				return elem.getElementsByTagName("tbody")[0] || elem;
+				return jQuery(">tbody", elem)[0] || elem;
 			}
 
 			return elem;
@@ -5972,12 +5974,19 @@ var jquery = createCommonjsModule(function (module) {
 			    minWidth,
 			    maxWidth,
 			    ret,
-			    style = elem.style;
+
+
+			// Support: Firefox 51+
+			// Retrieving style before computed somehow
+			// fixes an issue with getting wrong values
+			// on detached elements
+			style = elem.style;
 
 			computed = computed || getStyles(elem);
 
-			// Support: IE <=9 only
-			// getPropertyValue is only needed for .css('filter') (#12537)
+			// getPropertyValue is needed for:
+			//   .css('filter') (IE 9 only, #12537)
+			//   .css('--customProperty) (#3144)
 			if (computed) {
 				ret = computed.getPropertyValue(name) || computed[name];
 
@@ -6040,6 +6049,7 @@ var jquery = createCommonjsModule(function (module) {
 		// except "table", "table-cell", or "table-caption"
 		// See here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
 		rdisplayswap = /^(none|table(?!-c[ea]).+)/,
+		    rcustomProp = /^--/,
 		    cssShow = { position: "absolute", visibility: "hidden", display: "block" },
 		    cssNormalTransform = {
 			letterSpacing: "0",
@@ -6066,6 +6076,16 @@ var jquery = createCommonjsModule(function (module) {
 					return name;
 				}
 			}
+		}
+
+		// Return a property mapped along what jQuery.cssProps suggests or to
+		// a vendor prefixed property.
+		function finalPropName(name) {
+			var ret = jQuery.cssProps[name];
+			if (!ret) {
+				ret = jQuery.cssProps[name] = vendorPropName(name) || name;
+			}
+			return ret;
 		}
 
 		function setPositiveNumber(elem, value, subtract) {
@@ -6127,42 +6147,29 @@ var jquery = createCommonjsModule(function (module) {
 
 		function getWidthOrHeight(elem, name, extra) {
 
-			// Start with offset property, which is equivalent to the border-box value
-			var val,
-			    valueIsBorderBox = true,
+			// Start with computed style
+			var valueIsBorderBox,
 			    styles = getStyles(elem),
+			    val = curCSS(elem, name, styles),
 			    isBorderBox = jQuery.css(elem, "boxSizing", false, styles) === "border-box";
 
-			// Support: IE <=11 only
-			// Running getBoundingClientRect on a disconnected node
-			// in IE throws an error.
-			if (elem.getClientRects().length) {
-				val = elem.getBoundingClientRect()[name];
+			// Computed unit is not pixels. Stop here and return.
+			if (rnumnonpx.test(val)) {
+				return val;
 			}
 
-			// Some non-html elements return undefined for offsetWidth, so check for null/undefined
-			// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
-			// MathML - https://bugzilla.mozilla.org/show_bug.cgi?id=491668
-			if (val <= 0 || val == null) {
+			// Check for style in case a browser which returns unreliable values
+			// for getComputedStyle silently falls back to the reliable elem.style
+			valueIsBorderBox = isBorderBox && (support.boxSizingReliable() || val === elem.style[name]);
 
-				// Fall back to computed then uncomputed css if necessary
-				val = curCSS(elem, name, styles);
-				if (val < 0 || val == null) {
-					val = elem.style[name];
-				}
-
-				// Computed unit is not pixels. Stop here and return.
-				if (rnumnonpx.test(val)) {
-					return val;
-				}
-
-				// Check for style in case a browser which returns unreliable values
-				// for getComputedStyle silently falls back to the reliable elem.style
-				valueIsBorderBox = isBorderBox && (support.boxSizingReliable() || val === elem.style[name]);
-
-				// Normalize "", auto, and prepare for extra
-				val = parseFloat(val) || 0;
+			// Fall back to offsetWidth/Height when value is "auto"
+			// This happens for inline elements with no explicit setting (gh-3571)
+			if (val === "auto") {
+				val = elem["offset" + name[0].toUpperCase() + name.slice(1)];
 			}
+
+			// Normalize "", auto, and prepare for extra
+			val = parseFloat(val) || 0;
 
 			// Use the active box-sizing model to add/subtract irrelevant styles
 			return val + augmentWidthOrHeight(elem, name, extra || (isBorderBox ? "border" : "content"), valueIsBorderBox, styles) + "px";
@@ -6221,9 +6228,15 @@ var jquery = createCommonjsModule(function (module) {
 				    type,
 				    hooks,
 				    origName = jQuery.camelCase(name),
+				    isCustomProp = rcustomProp.test(name),
 				    style = elem.style;
 
-				name = jQuery.cssProps[origName] || (jQuery.cssProps[origName] = vendorPropName(origName) || origName);
+				// Make sure that we're working with the right name. We don't
+				// want to query the value if it is a CSS custom property
+				// since they are user-defined.
+				if (!isCustomProp) {
+					name = finalPropName(origName);
+				}
 
 				// Gets hook for the prefixed version, then unprefixed version
 				hooks = jQuery.cssHooks[name] || jQuery.cssHooks[origName];
@@ -6258,7 +6271,11 @@ var jquery = createCommonjsModule(function (module) {
 					// If a hook was provided, use that value, otherwise just set the specified value
 					if (!hooks || !("set" in hooks) || (value = hooks.set(elem, value, extra)) !== undefined) {
 
-						style[name] = value;
+						if (isCustomProp) {
+							style.setProperty(name, value);
+						} else {
+							style[name] = value;
+						}
 					}
 				} else {
 
@@ -6277,10 +6294,15 @@ var jquery = createCommonjsModule(function (module) {
 				var val,
 				    num,
 				    hooks,
-				    origName = jQuery.camelCase(name);
+				    origName = jQuery.camelCase(name),
+				    isCustomProp = rcustomProp.test(name);
 
-				// Make sure that we're working with the right name
-				name = jQuery.cssProps[origName] || (jQuery.cssProps[origName] = vendorPropName(origName) || origName);
+				// Make sure that we're working with the right name. We don't
+				// want to modify the value if it is a CSS custom property
+				// since they are user-defined.
+				if (!isCustomProp) {
+					name = finalPropName(origName);
+				}
 
 				// Try prefixed name followed by the unprefixed name
 				hooks = jQuery.cssHooks[name] || jQuery.cssHooks[origName];
@@ -6305,6 +6327,7 @@ var jquery = createCommonjsModule(function (module) {
 					num = parseFloat(val);
 					return extra === true || isFinite(num) ? num || 0 : val;
 				}
+
 				return val;
 			}
 		});
@@ -6391,7 +6414,7 @@ var jquery = createCommonjsModule(function (module) {
 					    map = {},
 					    i = 0;
 
-					if (jQuery.isArray(name)) {
+					if (Array.isArray(name)) {
 						styles = getStyles(elem);
 						len = name.length;
 
@@ -6516,13 +6539,18 @@ var jquery = createCommonjsModule(function (module) {
 		jQuery.fx.step = {};
 
 		var fxNow,
-		    timerId,
+		    inProgress,
 		    rfxtypes = /^(?:toggle|show|hide)$/,
 		    rrun = /queueHooks$/;
 
-		function raf() {
-			if (timerId) {
-				window.requestAnimationFrame(raf);
+		function schedule() {
+			if (inProgress) {
+				if (document.hidden === false && window.requestAnimationFrame) {
+					window.requestAnimationFrame(schedule);
+				} else {
+					window.setTimeout(schedule, jQuery.fx.interval);
+				}
+
 				jQuery.fx.tick();
 			}
 		}
@@ -6756,7 +6784,7 @@ var jquery = createCommonjsModule(function (module) {
 				name = jQuery.camelCase(index);
 				easing = specialEasing[name];
 				value = props[index];
-				if (jQuery.isArray(value)) {
+				if (Array.isArray(value)) {
 					easing = value[1];
 					value = props[index] = value[0];
 				}
@@ -6816,12 +6844,19 @@ var jquery = createCommonjsModule(function (module) {
 
 				deferred.notifyWith(elem, [animation, percent, remaining]);
 
+				// If there's more to do, yield
 				if (percent < 1 && length) {
 					return remaining;
-				} else {
-					deferred.resolveWith(elem, [animation]);
-					return false;
 				}
+
+				// If this was an empty animation, synthesize a final progress notification
+				if (!length) {
+					deferred.notifyWith(elem, [animation, 1, 0]);
+				}
+
+				// Resolve the animation and report its conclusion
+				deferred.resolveWith(elem, [animation]);
+				return false;
 			},
 			    animation = deferred.promise({
 				elem: elem,
@@ -6885,14 +6920,16 @@ var jquery = createCommonjsModule(function (module) {
 				animation.opts.start.call(elem, animation);
 			}
 
+			// Attach callbacks from options
+			animation.progress(animation.opts.progress).done(animation.opts.done, animation.opts.complete).fail(animation.opts.fail).always(animation.opts.always);
+
 			jQuery.fx.timer(jQuery.extend(tick, {
 				elem: elem,
 				anim: animation,
 				queue: animation.opts.queue
 			}));
 
-			// attach callbacks from options
-			return animation.progress(animation.opts.progress).done(animation.opts.done, animation.opts.complete).fail(animation.opts.fail).always(animation.opts.always);
+			return animation;
 		}
 
 		jQuery.Animation = jQuery.extend(Animation, {
@@ -6942,8 +6979,8 @@ var jquery = createCommonjsModule(function (module) {
 				easing: fn && easing || easing && !jQuery.isFunction(easing) && easing
 			};
 
-			// Go to the end state if fx are off or if document is hidden
-			if (jQuery.fx.off || document.hidden) {
+			// Go to the end state if fx are off
+			if (jQuery.fx.off) {
 				opt.duration = 0;
 			} else {
 				if (typeof opt.duration !== "number") {
@@ -7128,7 +7165,7 @@ var jquery = createCommonjsModule(function (module) {
 			for (; i < timers.length; i++) {
 				timer = timers[i];
 
-				// Checks the timer has not already been removed
+				// Run the timer and safely remove it when done (allowing for external removal)
 				if (!timer() && timers[i] === timer) {
 					timers.splice(i--, 1);
 				}
@@ -7142,28 +7179,21 @@ var jquery = createCommonjsModule(function (module) {
 
 		jQuery.fx.timer = function (timer) {
 			jQuery.timers.push(timer);
-			if (timer()) {
-				jQuery.fx.start();
-			} else {
-				jQuery.timers.pop();
-			}
+			jQuery.fx.start();
 		};
 
 		jQuery.fx.interval = 13;
 		jQuery.fx.start = function () {
-			if (!timerId) {
-				timerId = window.requestAnimationFrame ? window.requestAnimationFrame(raf) : window.setInterval(jQuery.fx.tick, jQuery.fx.interval);
+			if (inProgress) {
+				return;
 			}
+
+			inProgress = true;
+			schedule();
 		};
 
 		jQuery.fx.stop = function () {
-			if (window.cancelAnimationFrame) {
-				window.cancelAnimationFrame(timerId);
-			} else {
-				window.clearInterval(timerId);
-			}
-
-			timerId = null;
+			inProgress = null;
 		};
 
 		jQuery.fx.speeds = {
@@ -7275,7 +7305,7 @@ var jquery = createCommonjsModule(function (module) {
 			attrHooks: {
 				type: {
 					set: function set$$1(elem, value) {
-						if (!support.radioValue && value === "radio" && jQuery.nodeName(elem, "input")) {
+						if (!support.radioValue && value === "radio" && nodeName(elem, "input")) {
 							var val = elem.value;
 							elem.setAttribute("type", value);
 							if (val) {
@@ -7682,7 +7712,7 @@ var jquery = createCommonjsModule(function (module) {
 						val = "";
 					} else if (typeof val === "number") {
 						val += "";
-					} else if (jQuery.isArray(val)) {
+					} else if (Array.isArray(val)) {
 						val = jQuery.map(val, function (value) {
 							return value == null ? "" : value + "";
 						});
@@ -7739,7 +7769,7 @@ var jquery = createCommonjsModule(function (module) {
 							if ((option.selected || i === index) &&
 
 							// Don't return options that are disabled or in a disabled optgroup
-							!option.disabled && (!option.parentNode.disabled || !jQuery.nodeName(option.parentNode, "optgroup"))) {
+							!option.disabled && (!option.parentNode.disabled || !nodeName(option.parentNode, "optgroup"))) {
 
 								// Get the specific value for the option
 								value = jQuery(option).val();
@@ -7790,7 +7820,7 @@ var jquery = createCommonjsModule(function (module) {
 		jQuery.each(["radio", "checkbox"], function () {
 			jQuery.valHooks[this] = {
 				set: function set$$1(elem, value) {
-					if (jQuery.isArray(value)) {
+					if (Array.isArray(value)) {
 						return elem.checked = jQuery.inArray(jQuery(elem).val(), value) > -1;
 					}
 				}
@@ -8058,7 +8088,7 @@ var jquery = createCommonjsModule(function (module) {
 		function buildParams(prefix, obj, traditional, add) {
 			var name;
 
-			if (jQuery.isArray(obj)) {
+			if (Array.isArray(obj)) {
 
 				// Serialize array item.
 				jQuery.each(obj, function (i, v) {
@@ -8099,7 +8129,7 @@ var jquery = createCommonjsModule(function (module) {
 			};
 
 			// If an array was passed in, assume that it is an array of form elements.
-			if (jQuery.isArray(a) || a.jquery && !jQuery.isPlainObject(a)) {
+			if (Array.isArray(a) || a.jquery && !jQuery.isPlainObject(a)) {
 
 				// Serialize the form elements
 				jQuery.each(a, function () {
@@ -8140,7 +8170,7 @@ var jquery = createCommonjsModule(function (module) {
 						return null;
 					}
 
-					if (jQuery.isArray(val)) {
+					if (Array.isArray(val)) {
 						return jQuery.map(val, function (val) {
 							return { name: elem.name, value: val.replace(rCRLF, "\r\n") };
 						});
@@ -9522,13 +9552,6 @@ var jquery = createCommonjsModule(function (module) {
 			}).length;
 		};
 
-		/**
-   * Gets a window from an element
-   */
-		function getWindow(elem) {
-			return jQuery.isWindow(elem) ? elem : elem.nodeType === 9 && elem.defaultView;
-		}
-
 		jQuery.offset = {
 			setOffset: function setOffset(elem, options, i) {
 				var curPosition,
@@ -9594,16 +9617,17 @@ var jquery = createCommonjsModule(function (module) {
 					});
 				}
 
-				var docElem,
-				    win,
+				var doc,
+				    docElem,
 				    rect,
-				    doc,
+				    win,
 				    elem = this[0];
 
 				if (!elem) {
 					return;
 				}
 
+				// Return zeros for disconnected and hidden (display: none) elements (gh-2310)
 				// Support: IE <=11 only
 				// Running getBoundingClientRect on a
 				// disconnected node in IE throws an error
@@ -9613,20 +9637,14 @@ var jquery = createCommonjsModule(function (module) {
 
 				rect = elem.getBoundingClientRect();
 
-				// Make sure element is not hidden (display: none)
-				if (rect.width || rect.height) {
-					doc = elem.ownerDocument;
-					win = getWindow(doc);
-					docElem = doc.documentElement;
+				doc = elem.ownerDocument;
+				docElem = doc.documentElement;
+				win = doc.defaultView;
 
-					return {
-						top: rect.top + win.pageYOffset - docElem.clientTop,
-						left: rect.left + win.pageXOffset - docElem.clientLeft
-					};
-				}
-
-				// Return zeros for disconnected and hidden elements (gh-2310)
-				return rect;
+				return {
+					top: rect.top + win.pageYOffset - docElem.clientTop,
+					left: rect.left + win.pageXOffset - docElem.clientLeft
+				};
 			},
 
 			position: function position() {
@@ -9652,7 +9670,7 @@ var jquery = createCommonjsModule(function (module) {
 
 					// Get correct offsets
 					offset = this.offset();
-					if (!jQuery.nodeName(offsetParent[0], "html")) {
+					if (!nodeName(offsetParent[0], "html")) {
 						parentOffset = offsetParent.offset();
 					}
 
@@ -9699,7 +9717,14 @@ var jquery = createCommonjsModule(function (module) {
 
 			jQuery.fn[method] = function (val) {
 				return access(this, function (elem, method, val) {
-					var win = getWindow(elem);
+
+					// Coalesce documents and windows
+					var win;
+					if (jQuery.isWindow(elem)) {
+						win = elem;
+					} else if (elem.nodeType === 9) {
+						win = elem.defaultView;
+					}
 
 					if (val === undefined) {
 						return win ? win[prop] : elem[method];
@@ -9789,7 +9814,16 @@ var jquery = createCommonjsModule(function (module) {
 			}
 		});
 
+		jQuery.holdReady = function (hold) {
+			if (hold) {
+				jQuery.readyWait++;
+			} else {
+				jQuery.ready(true);
+			}
+		};
+		jQuery.isArray = Array.isArray;
 		jQuery.parseJSON = JSON.parse;
+		jQuery.nodeName = nodeName;
 
 		// Register as a named AMD module, since jQuery can be concatenated with other
 		// files that may use define, but not via a proper concatenation script that
